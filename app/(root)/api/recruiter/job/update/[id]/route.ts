@@ -11,23 +11,23 @@ export async function PUT(request: NextRequest) {
   console.log("id", id);
 
   try {
-    const existingUser = await prisma.recruiter.findFirst({
-      where: {
-        id: parseInt(id),
-      },
-    });
+    // const existingUser = await prisma.recruiter.findFirst({
+    //   where: {
+    //     id: parseInt(id),
+    //   },
+    // });
 
-    console.log("existingUser", existingUser);
+    // console.log("existingUser", existingUser);
 
-    const res = await prisma.recruiter.update({
-      where: {
-        email: existingUser?.email,
-      },
-      data: {
-        survey: body,
-      },
-    });
-    console.log("res", res);
+    // const res = await prisma.recruiter.update({
+    //   where: {
+    //     email: existingUser?.email,
+    //   },
+    //   data: {
+    //     survey: body,
+    //   },
+    // });
+    console.log("res", "res");
     return NextResponse.json("jobs update");
   } catch (error: any) {
     console.log("error form jobs geting >>>>>", error);
