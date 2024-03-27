@@ -1,0 +1,3 @@
+.sidebar::-webkit-scrollbar-thumb {
+  width: 10px !important;
+}

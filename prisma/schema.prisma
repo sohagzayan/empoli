@@ -1,0 +1,202 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id                Int                 @id @default(autoincrement())
+  name              String?
+  email             String              @unique
+  password          String?
+  emailVerified     Boolean?            @default(false)
+  image             String?
+  role              Role?               @default(CANDIDATE)
+  Account           Account[]
+  phone             String?
+  dob               DateTime?
+  major             String?
+  language          String?             @default("") @db.VarChar(12)
+  picture           Int?                @default(0)
+  updatedAt         Int?
+  createdAt         Int?
+  Application       Application[]
+  RecentCoverLetter RecentCoverLetter[]
+  UserPreference    UserPreference[]
+}
+
+// model Recruiter {
+//   id                    Int       @id @default(autoincrement())
+//   jobTitle              String?
+//   firstName             String?
+//   lastName              String?
+//   email                 String    @unique
+//   password              String?
+//   emailVerified         Boolean?  @default(false)
+//   image                 String?
+//   role                  Role?     @default(CANDIDATE)
+//   Account               Account[]
+//   updatedAt             Int?
+//   createdAt             Int?
+//   companyName           String?
+//   companyWebsite        String?
+//   howDidYouHearAboutUs  String?
+//   howHeard              String?
+//   phone                 String?
+//   survey                Json?
+//   billing               Json?
+//   company_logo          String?
+//   subscribeToNewsletter Boolean?  @default(false)
+//   companyInfo           Json?
+//   billingInfo           Json?
+//   language              String?   @default("") @db.VarChar(12)
+//   picture               Int?      @default(0)
+//   Job                   Job[]
+// }
+
+model Account {
+  id                Int     @id @default(autoincrement())
+  type              String
+  provider          String
+  providerAccountId String
+  token_type        String?
+  refresh_token     String? @db.Text
+  access_token      String? @db.Text
+  id_token          String? @db.Text
+  scope             String?
+  session_state     String?
+  expires_at        Int?
+  user              User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId            Int
+  // candidate         Candidate @relation(fields: [candidateId], references: [id], onDelete: Cascade)
+  // candidateId       Int
+
+  @@unique([provider, providerAccountId])
+}
+
+// Role ENUM
+enum Role {
+  STUDENT
+  MEMBER
+  CANDIDATE
+  RECRUITER
+  EMPLOYER
+  SUPER_ADMIN
+}
+
+model Job {
+  id                   Int                 @id @default(autoincrement())
+  job_title            String              @db.VarChar(255)
+  job_type             String              @db.VarChar(255)
+  job_description      String
+  location             String              @db.VarChar(255)
+  office_location      String
+  salary_range_min     Float
+  salary_range_max     Float
+  required_skills      String[]
+  how_to_apply         Json?
+  experience           String
+  qualifications       String?             @db.Text
+  job_responsibilities String              @db.Text
+  applicationDeadline  String
+  assessmentQuestions  Json?
+  numberOfOpenings     Int
+  job_duration         Int
+  company              String
+  perks                String[]
+  createdDate          DateTime            @default(now())
+  updatedDate          DateTime            @updatedAt
+  startDate            DateTime?
+  userId               Int
+  Application          Application[]
+  RecentCoverLetter    RecentCoverLetter[]
+
+  @@map("jobs")
+}
+
+model Application {
+  id                 Int      @id @default(autoincrement())
+  cover_latter       String
+  your_availability  Boolean
+  assessment         Json[]
+  resume             String?
+  unavailable_reason String?
+  createdDate        DateTime @default(now())
+  updatedDate        DateTime @updatedAt
+  userId             Int
+  User               User?    @relation(fields: [userId], references: [id])
+  jobId              Int
+  Job                Job?     @relation(fields: [jobId], references: [id])
+}
+
+// enum JobType {
+//   FULL_TIME 000000000
+//   PART_TIME
+//   CONTRACT
+//   FREELANCE
+//   TEMPORARY
+//   INTERNSHIP
+//   REMOTE
+// }
+
+enum JobCategory {
+  INFORMATION_TECHNOLOGY
+  ENGINEERING
+  MARKETING
+  FINANCE
+  DESIGN
+  CUSTOMER_SERVICE
+  SALES
+  ADMINISTRATION
+  HUMAN_RESOURCES
+  OTHER
+}
+
+enum InternshipType {
+  IN_OFFICE
+  HYBRID
+  REMOTE
+  PART_TIME
+  FULL_TIME
+}
+
+enum OpportunityType {
+  INTERNSHIP
+  JOB
+}
+
+enum StipendType {
+  FIXED
+  NEGOTIABLE
+  PERFORMANCE_BASED
+  UNPAID
+}
+
+model RecentCoverLetter {
+  id           Int      @id @default(autoincrement())
+  cover_latter String
+  category     String
+  userId       Int
+  User         User?    @relation(fields: [userId], references: [id])
+  jobId        Int
+  Job          Job?     @relation(fields: [jobId], references: [id])
+  createdDate  DateTime @default(now())
+  updatedDate  DateTime @updatedAt
+}
+
+model UserPreference {
+  id                    Int      @id @default(autoincrement())
+  interest_of_areas     String[]
+  currently_looking_for String[]
+  work_mode             String[]
+  userId                Int
+  User                  User?    @relation(fields: [userId], references: [id])
+  createdDate           DateTime @default(now())
+  updatedDate           DateTime @updatedAt
+}
