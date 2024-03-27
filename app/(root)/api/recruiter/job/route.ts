@@ -93,9 +93,6 @@ export async function GET(request: NextRequest, {}) {
       },
       skip: offset,
       take: pageLimit,
-      include: {
-        recruiter: true, // Include the user object associated with each job
-      },
     });
 
     const totalCount = await prisma.job.count({
