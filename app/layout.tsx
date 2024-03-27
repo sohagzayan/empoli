@@ -37,7 +37,7 @@ export default async function RootLayout({
         <Provider session={session}>
           <TooltipProvider>
             <ReduxProvider>
-              <div className=''>
+              <div >
                 {children}
               </div>
             </ReduxProvider>
