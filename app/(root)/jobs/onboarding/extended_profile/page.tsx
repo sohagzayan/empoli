@@ -1,46 +1,10 @@
 "use client"
 import React, { useEffect, useRef, useState } from 'react'
 import { City, Country, State } from "country-state-city";
-import { job_profile } from '@/utils/data';
+import { countryList, job_profile, onboarding_experience } from '@/utils/data';
 import { Button } from '@/components/ui/button';
 
 
-let countryList = [
-    "China",
-    "India",
-    "United States",
-    "Indonesia",
-    "Brazil",
-    "Nigeria",
-    "Japan",
-    "Russia",
-    "Bangladesh",
-    "Mexico",
-    "Germany",
-    "Philippines",
-    "Turkey",
-    "Vietnam",
-    "United Kingdom",
-    "Iran",
-    "France",
-    "Thailand",
-    "Italy",
-    "Egypt",
-]
-
-let onboarding_experience = [
-    "< 1 Year",
-    "1 Year",
-    "2 Years",
-    "3 Years",
-    "4 Years",
-    "5 Years",
-    "6 Years",
-    "7 Years",
-    "8 Years",
-    "9 Years",
-    "10+ Years",
-]
 
 const ExtendedProfile = () => {
 
@@ -53,7 +17,7 @@ const ExtendedProfile = () => {
                         <p className="text-foreground-light text-xs lg:text-sm">Broad skill sets. Growth mindset.</p>
                         <div className='w-[260px] mt-2'>
                             <select id="countries" className="peer/input block box-border w-full rounded-md shadow-sm transition-all text-foreground focus-visible:shadow-md outline-none focus:ring-current focus:ring-2 focus-visible:border-foreground-muted focus-visible:ring-background-control placeholder-foreground-muted group bg-foreground/[.026] border border-control text-sm px-4 py-2">
-                                {countryList.map((country) => <option key={country} selected>{country}</option>
+                                {countryList.map((country: string) => <option key={country} selected>{country}</option>
                                 )}
                             </select>
                         </div>
@@ -74,7 +38,7 @@ const ExtendedProfile = () => {
                         <h2 className="text-base font-semibold text-blue-midnight_blue ">How many years of experience do you have in your current role?</h2>
                         <div className='w-[260px] mt-2'>
                             <select id="countries" className="peer/input block box-border w-full rounded-md shadow-sm transition-all text-foreground focus-visible:shadow-md outline-none focus:ring-current focus:ring-2 focus-visible:border-foreground-muted focus-visible:ring-background-control placeholder-foreground-muted group bg-foreground/[.026] border border-control text-sm px-4 py-2">
-                                {onboarding_experience.map((country) => <option key={country} selected>{country}</option>
+                                {onboarding_experience.map((country: string) => <option key={country} selected>{country}</option>
                                 )}
                             </select>
                         </div>

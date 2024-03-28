@@ -1936,3 +1936,80 @@ export const resumeAlert = [
     ],
   },
 ];
+
+export let countryList = [
+  "China",
+  "India",
+  "United States",
+  "Indonesia",
+  "Brazil",
+  "Nigeria",
+  "Japan",
+  "Russia",
+  "Bangladesh",
+  "Mexico",
+  "Germany",
+  "Philippines",
+  "Turkey",
+  "Vietnam",
+  "United Kingdom",
+  "Iran",
+  "France",
+  "Thailand",
+  "Italy",
+  "Egypt",
+];
+
+export let onboarding_experience = [
+  "< 1 Year",
+  "1 Year",
+  "2 Years",
+  "3 Years",
+  "4 Years",
+  "5 Years",
+  "6 Years",
+  "7 Years",
+  "8 Years",
+  "9 Years",
+  "10+ Years",
+];
+
+export const currencies = [
+  { name: "United States Dollar", symbol: "$" },
+  { name: "Euro", symbol: "€" },
+  { name: "British Pound", symbol: "£" },
+  { name: "Japanese Yen", symbol: "¥" },
+  { name: "Canadian Dollar", symbol: "C$" },
+  { name: "Australian Dollar", symbol: "A$" },
+  { name: "Swiss Franc", symbol: "CHF" },
+  { name: "Chinese Yuan", symbol: "¥" },
+  { name: "Swedish Krona", symbol: "kr" },
+  { name: "New Zealand Dollar", symbol: "NZ$" },
+  { name: "Mexican Peso", symbol: "Mex$" },
+  { name: "Singapore Dollar", symbol: "S$" },
+  { name: "Hong Kong Dollar", symbol: "HK$" },
+  { name: "Norwegian Krone", symbol: "kr" },
+  { name: "South Korean Won", symbol: "₩" },
+  { name: "Russian Ruble", symbol: "₽" },
+  { name: "Indian Rupee", symbol: "₹" },
+  { name: "Brazilian Real", symbol: "R$" },
+  { name: "South African Rand", symbol: "R" },
+  { name: "Ukrainian Hryvnia", symbol: "₴" },
+];
+
+export const most_important_next_job = [
+  "Having a say in what I work on and how I work",
+  "Opportunities to progress within the company",
+  "Team members I can learn from",
+  "A company with a good growth trajectory",
+  "Mentorship opportunities",
+  "Learn new things and develop my skills",
+  "Challenging problems to work on",
+  "A diverse team",
+];
+
+export const flexible_remote_work_policy = [
+  "Very important",
+  "Important",
+  "Not important",
+];
