@@ -1974,7 +1974,7 @@ export let onboarding_experience = [
   "10+ Years",
 ];
 
-export const currencies = [
+export const currencies: any = [
   { name: "United States Dollar", symbol: "$" },
   { name: "Euro", symbol: "€" },
   { name: "British Pound", symbol: "£" },

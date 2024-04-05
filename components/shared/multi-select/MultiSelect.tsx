@@ -7,10 +7,11 @@ interface MultiSelectType {
     setSelected: React.Dispatch<React.SetStateAction<string[]>>
     selected: string[]
     searchIcon?: boolean
+    validationFunc?: any
 }
 
 
-const MultiSelect = ({ placeholder, allSelectList, setSelected, selected, searchIcon }: MultiSelectType) => {
+const MultiSelect = ({ placeholder, allSelectList, setSelected, selected, searchIcon, validationFunc }: MultiSelectType) => {
 
     const [isShowDropDown, setIsShowDropDown] = useState(false);
     const [inputValue, setInputValue] = useState("");
@@ -27,6 +28,7 @@ const MultiSelect = ({ placeholder, allSelectList, setSelected, selected, search
 
     const handleTagSelect = (skill: any) => {
         setSelected([...selected, skill]);
+        validationFunc([...selected, skill])
         setInputValue('');
         setIsShowDropDown(false)
     };
