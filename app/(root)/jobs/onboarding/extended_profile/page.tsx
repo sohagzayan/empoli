@@ -7,6 +7,7 @@ import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import { FaRegCircle } from 'react-icons/fa';
 import { FiCheckCircle } from 'react-icons/fi';
+import axios from 'axios';
 
 
 const ExtendedProfile = () => {
@@ -49,9 +50,17 @@ const ExtendedProfile = () => {
             ),
             personalWebsite: Yup.string().url()
         }),
-        onSubmit: values => {
-            console.log("all values >", values);
-            alert(JSON.stringify(values, null, 2));
+        onSubmit: async (values) => {
+
+            try {
+                console.log("all values >", values);
+                const res = await axios.post("/api/onboarding/extended_profile", values)
+                console.log("res", res)
+            } catch (error: any) {
+                console.log("error > ", error.message)
+            }
+
+            // alert(JSON.stringify(values, null, 2));
         },
     });
 

@@ -11,6 +11,7 @@ import { CiCircleCheck, CiSearch } from 'react-icons/ci';
 import { Search } from 'lucide-react';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
+import axios from 'axios';
 
 
 
@@ -54,9 +55,15 @@ const Preferences = () => {
             preferred_work_locations: Yup.string(),
             remote_work_flexibility: Yup.boolean()
         }),
-        onSubmit: values => {
-            console.log("all values >", values);
-            alert(JSON.stringify(values, null, 2));
+        onSubmit: async (values) => {
+            try {
+                console.log("all values >?>", values);
+                const res = await axios.post("/api/onboarding/extended_profile")
+                console.log("res", res)
+                // alert(JSON.stringify(values, null, 2));
+            } catch (error: any) {
+                console.log("error >", error.message)
+            }
         },
     });
 

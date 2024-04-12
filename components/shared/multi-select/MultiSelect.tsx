@@ -8,10 +8,11 @@ interface MultiSelectType {
     selected: string[]
     searchIcon?: boolean
     validationFunc?: any
+    maximumSelect?: number | null
 }
 
 
-const MultiSelect = ({ placeholder, allSelectList, setSelected, selected, searchIcon, validationFunc }: MultiSelectType) => {
+const MultiSelect = ({ placeholder, allSelectList, setSelected, selected, searchIcon, validationFunc, maximumSelect = null }: MultiSelectType) => {
 
     const [isShowDropDown, setIsShowDropDown] = useState(false);
     const [inputValue, setInputValue] = useState("");
@@ -27,8 +28,12 @@ const MultiSelect = ({ placeholder, allSelectList, setSelected, selected, search
     );
 
     const handleTagSelect = (skill: any) => {
-        setSelected([...selected, skill]);
-        validationFunc([...selected, skill])
+        if (selected.length !== maximumSelect) {
+            setSelected([...selected, skill]);
+            if (validationFunc) {
+                validationFunc([...selected, skill])
+            }
+        }
         setInputValue('');
         setIsShowDropDown(false)
     };
