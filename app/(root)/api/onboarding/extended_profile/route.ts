@@ -16,28 +16,52 @@ export async function POST(request: Request) {
     console.log("body > ", body);
     console.log("session form router >>> ", session);
 
-    const exits = await prisma.onboarding_Extended_profile.findFirst({
+    const exits = await prisma.profile.findFirst({
       where: {
-        userId: session?.user?.id,
+        userId: session?.id,
       },
     });
 
     if (exits) {
-      const updated = await prisma.onboarding_Extended_profile.update({
+      const updated = await prisma.profile.update({
         where: {
           id: exits.id,
         },
         data: body,
       });
-      return NextResponse.json(updated);
+      const updatedUser = await prisma.user.findFirst({
+        where: { id: session.id },
+        include: {
+          profile: true,
+          resume: true,
+          preferences: true,
+          culture: true,
+        },
+      });
+      return NextResponse.json({
+        profile: updated,
+        user: updatedUser,
+      });
     } else {
-      const extended_profile = await prisma.onboarding_Extended_profile.create({
+      const extended_profile = await prisma.profile.create({
         data: {
           ...body,
           userId: parseInt(session.id),
         },
       });
-      return NextResponse.json(extended_profile);
+      const updatedUser = await prisma.user.findFirst({
+        where: { id: session.id },
+        include: {
+          profile: true,
+          resume: true,
+          preferences: true,
+          culture: true,
+        },
+      });
+      return NextResponse.json({
+        profile: extended_profile,
+        user: updatedUser,
+      });
     }
   } catch (error: any) {
     console.log("error from get extended profile  > >", error);

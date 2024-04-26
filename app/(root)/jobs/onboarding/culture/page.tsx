@@ -1,15 +1,15 @@
 "use client"
-import React, { useRef, useState } from 'react'
-import { countryList, currencies, flexible_remote_work_policy, job_profile, most_important_next_job, required_skills } from '@/utils/data';
-import { Button } from '@/components/ui/button';
-import { Label } from '@/components/ui/label';
-import JobProfileSelect from '@/components/containers/find_job_page/job_profile_select/JobProfileSelect';
-import RequiredSkills from '@/components/containers/dashboard-content/post-new-job/required-skills/RequiredSkills';
-import MultiSelect from '@/components/shared/multi-select/MultiSelect';
-import { CiCircleCheck, CiSearch } from 'react-icons/ci';
-import { Check, Circle } from 'lucide-react';
-import { useFormik } from 'formik';
+import React, { useState } from 'react'
+import axios from 'axios';
 import * as Yup from 'yup';
+import { useFormik } from 'formik';
+import { useRouter } from 'next/navigation';
+import { Check, Circle } from 'lucide-react';
+import { CiCircleCheck } from 'react-icons/ci';
+import { Button } from '@/components/ui/button';
+import MultiSelect from '@/components/shared/multi-select/MultiSelect';
+import LoadingCircle from '@/components/shared/loading-circle/LoadingCircle';
+import { currencies, most_important_next_job, required_skills } from '@/utils/data';
 
 
 
@@ -27,9 +27,10 @@ const Culture = () => {
     const handleSelectTechnologiesNotWillingRemove = (role: string) => {
         setSelectedTechnologiesNotWilling(selectedTechnologiesNotWilling.filter((selected: any) => selected !== role));
     };
+    const [loading, setLoading] = useState(false)
+    const router = useRouter()
 
 
-    console.log("selectedMostImportantNextJob", selectedMostImportantNextJob)
 
 
 
@@ -57,9 +58,24 @@ const Culture = () => {
             quiet_office_preference_priority: Yup.string(),
             next_job_desires: Yup.string().required("Please tell us what you're looking for in your next role.").max(300, "You over the 300 characters"),
         }),
-        onSubmit: values => {
-            console.log("all values >", values);
-            alert(JSON.stringify(values, null, 2));
+        onSubmit: async (values) => {
+            setLoading(true)
+            try {
+                console.log("values >", values)
+                console.log("all values >", values);
+                const res = await axios.post("/api/onboarding/culture", values)
+                if (res.statusText) {
+                    router.push("/jobs/onboarding/resume")
+                    setLoading(false)
+                }
+                console.log("res", res)
+                setLoading(false)
+
+            } catch (error: any) {
+                console.log("error > ", error.message)
+                setLoading(false)
+            }
+
         },
     });
 
@@ -99,10 +115,6 @@ const Culture = () => {
 
 
 
-
-    console.log("selectedTechnologiesNotWilling", selectedTechnologiesNotWilling)
-
-
     return (
         <div className='container lg:px-16 xl:px-20 mt-10'>
             <div className='w-[900px] bg-white border rounded-[8px] p-[30px] mx-auto'>
@@ -120,7 +132,7 @@ const Culture = () => {
                                             className='bg-primary text-white px-4 py-2 rounded-full text-sm font-semibold flex items-center gap-2'
 
                                             onClick={() => handleSelectMostInterestedWorkingWithRemove(role)}
-                                            key={role + 10}>
+                                            key={role + 160}>
                                             <CiCircleCheck strokeWidth={1.25} size={20} /> {role}
                                         </li>)}
                                 </ul>
@@ -153,7 +165,7 @@ const Culture = () => {
                                             className='bg-primary text-white px-4 py-2 rounded-full text-sm font-semibold flex items-center gap-2'
 
                                             onClick={() => handleSelectTechnologiesNotWillingRemove(role)}
-                                            key={role + 10}>
+                                            key={role + 170}>
                                             <CiCircleCheck strokeWidth={1.25} size={20} /> {role}
                                         </li>)}
                                 </ul>
@@ -500,7 +512,12 @@ const Culture = () => {
                         <p className='flex items-center gap-2 text-green-500 text-sm'> <Check strokeWidth={1.25} size={20} /> <strong>You are almost done!</strong> Complete profile and start searching for your dream job.</p>
                     </div>
 
-                    <Button className=''>Save and continue</Button>
+                    <Button className=''>
+                        {loading ? <div>
+                            <LoadingCircle />
+                            Loading
+                        </div> : "Save and continue"}
+                    </Button>
                 </form>
             </div >
         </div >

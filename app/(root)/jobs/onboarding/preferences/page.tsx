@@ -12,6 +12,8 @@ import { Search } from 'lucide-react';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import axios from 'axios';
+import { useRouter } from 'next/navigation';
+import LoadingCircle from '@/components/shared/loading-circle/LoadingCircle';
 
 
 
@@ -19,6 +21,9 @@ import axios from 'axios';
 const Preferences = () => {
     const [activeCurrenciesSymbol, setActiveCurrenciesSymbol] = useState<any>(currencies[0].symbol)
     const [selectedRole, setSelectedRole] = useState<string[]>([]);
+    const [loading, setLoading] = useState(false)
+    const router = useRouter()
+
 
     const preferred_roleValidation = (value: any) => {
         formik.setFieldValue("preferred_role", value)
@@ -38,7 +43,7 @@ const Preferences = () => {
             job_search_status: "",
             preferred_job_type: '',
             desired_salary: "",
-            desired_salary_info: null,
+            desired_salary_info: currencies[0],
             preferred_role: null,
             preferred_work_locations: "",
             remote_work_flexibility: false,
@@ -56,18 +61,23 @@ const Preferences = () => {
             remote_work_flexibility: Yup.boolean()
         }),
         onSubmit: async (values) => {
+            setLoading(true)
             try {
-                console.log("all values >?>", values);
-                const res = await axios.post("/api/onboarding/extended_profile")
+                console.log("all values >", values);
+                const res = await axios.post("/api/onboarding/preferences", values)
                 console.log("res", res)
-                // alert(JSON.stringify(values, null, 2));
+                if (res.statusText) {
+                    router.push("/jobs/onboarding/culture")
+                    setLoading(false)
+                }
+                setLoading(false)
             } catch (error: any) {
-                console.log("error >", error.message)
+                console.log("error > ", error.message)
+                setLoading(false)
             }
+
         },
     });
-
-
 
 
 
@@ -276,7 +286,7 @@ const Preferences = () => {
                                     name='desired_salary_info'
                                     className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                                     {currencies.map((c: any) =>
-                                        <option key={c.name} value={JSON.stringify(c)} >{c.name} ({c.symbol})</option>
+                                        <option key={c.name + 140} value={JSON.stringify(c)} >{c.name} ({c.symbol})</option>
                                     )}
                                 </select>
 
@@ -297,14 +307,14 @@ const Preferences = () => {
                                             className='bg-primary text-white px-4 py-2 rounded-full text-sm font-semibold flex items-center gap-2'
 
                                             onClick={() => handleSelectToleRemove(role)}
-                                            key={role + 10}>
+                                            key={role + 150}>
                                             <CiCircleCheck strokeWidth={1.25} size={20} /> {role}
                                         </li>)}
                                 </ul>
                                 <div className='w-[260px]'>
                                     <MultiSelect
                                         validationFunc={preferred_roleValidation}
-                                        allSelectList={required_skills}
+                                        allSelectList={job_profile}
                                         placeholder="Select a role.. "
                                         setSelected={setSelectedRole}
                                         selected={selectedRole}
@@ -328,7 +338,7 @@ const Preferences = () => {
                                 name='preferred_work_locations'
                                 id="preferred_work_locations"
                                 className="peer/input block box-border w-full rounded-md shadow-sm transition-all text-foreground focus-visible:shadow-md outline-none focus:ring-current focus:ring-2 focus-visible:border-foreground-muted focus-visible:ring-background-control placeholder-foreground-muted group bg-foreground/[.026] border border-control text-sm px-4 py-2">
-                                {countryList.map((country) => <option key={country}>{country}</option>
+                                {countryList.map((country) => <option key={country + 130}>{country}</option>
                                 )}
                             </select>
                             {formik.touched.preferred_work_locations && formik.errors.preferred_work_locations ? (
@@ -353,7 +363,12 @@ const Preferences = () => {
                             <p className='text-sm text-red-500 mt-1'>{formik.errors.remote_work_flexibility}</p>
                         ) : null}
                     </div>
-                    <Button className=''>Create you profile</Button>
+                    <Button type='submit' className=''>
+                        {loading ? <div>
+                            <LoadingCircle />
+                            Loading
+                        </div> : "Create you profile"}
+                    </Button>
                 </form>
             </div >
         </div >

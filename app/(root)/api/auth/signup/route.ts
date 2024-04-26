@@ -8,8 +8,6 @@ export async function POST(request: Request) {
     const body = await request.json();
     const { email, password, fullName } = body;
 
-    console.log("all datas >", body);
-
     if (password.length < 8) {
       return NextResponse.json(
         { message: "Password must be at least 8 characters long." },
@@ -32,7 +30,6 @@ export async function POST(request: Request) {
       }
 
       const hashedPassword = await bcrypt.hash(password, 10);
-      console.log("body", body);
 
       let user = await prisma.user.create({
         data: {

@@ -40,6 +40,12 @@ export const authOptions: NextAuthOptions = {
           where: {
             email: credentials.email,
           },
+          include: {
+            preferences: true,
+            culture: true,
+            profile: true,
+            resume: true,
+          },
         });
 
         // console.log("user from auth option", user);
@@ -73,11 +79,15 @@ export const authOptions: NextAuthOptions = {
   secret: process.env.NEXT_PUBLIC_SECRET,
   session: { strategy: "jwt" },
   callbacks: {
-    async jwt({ token, user, trigger, session }) {
+    async jwt({ token, user, trigger, session: newData }) {
       if (user) {
         // console.log("user form jwt >", user);
         // token.userId = user.id;
+        console.log("checking user list >>", user);
         Object.assign(token, user);
+      }
+      if (trigger === "update") {
+        token = newData;
       }
       return token;
     },

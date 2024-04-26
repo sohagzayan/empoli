@@ -1,0 +1,268 @@
+[33mcommit c54fc4ab64173a5cc5d45e408eccd6f0087c34a6[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m)[m
+Author: sohagzayan <gdsohag360@gmail.com>
+Date:   Wed Mar 27 10:42:57 2024 +0600
+
+    Stopped tracking env.local, and env.staging
+
+[33mcommit 47f1a430c52a2ec7b3ba1e38923fc72ff6e25074[m
+Author: sohagzayan <gdsohag360@gmail.com>
+Date:   Wed Mar 27 10:42:48 2024 +0600
+
+    Stopped tracking env.local, and env.staging
+
+[33mcommit 9597027ca350adbd6080aa31c65e7e60904cddbe[m
+Author: sohagzayan <gdsohag360@gmail.com>
+Date:   Wed Mar 27 10:38:08 2024 +0600
+
+    remove env
+
+[33mcommit bab1aaaaf2a9eaa8bbe60b38e200b465ef045004[m
+Author: sohagzayan <86768247+sohagzayan@users.noreply.github.com>
+Date:   Wed Mar 27 08:26:20 2024 +0600
+
+    fix the formating
+
+[33mcommit b6bcb255439298adc27cb43169bc12e2a730ae5e[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: sohagzayan <gdsohag360@gmail.com>
+Date:   Mon Mar 25 10:47:19 2024 +0600
+
+    done the Preferences for candidate tab"
+
+[33mcommit 22d044e39a7427c01b511966ec9fa6c0a2735957[m
+Author: sohagzayan <gdsohag360@gmail.com>
+Date:   Sun Mar 24 19:06:48 2024 +0600
+
+    the the profile section for candidate"
+
+[33mcommit b8f63f164390332c88d5ae2b79a15e568bd35384[m
+Author: sohagzayan <gdsohag360@gmail.com>
+Date:   Sun Mar 24 11:40:57 2024 +0600
+
+    done the profile overview section here also re-touch the folder stcture
+
+[33mcommit 3a2f67b754149ae18f55a8e058c9da81f6d09101[m
+Author: sohagzayan <gdsohag360@gmail.com>
+Date:   Fri Mar 22 09:41:49 2024 +0600
+
+    done the preferance page for user as will as emplement the rtk query here
+
+[33mcommit 2dcaed654adb528bbd77b4dd7b4de721d3ba08ea[m
+Author: sohagzayan <gdsohag360@gmail.com>
+Date:   Wed Mar 20 22:23:56 2024 +0600
+
+    done the user_preference page also fix the error
+
+[33mcommit 9a36790942bebf56913699bd372cf551923a8f6e[m
+Author: sohagzayan <gdsohag360@gmail.com>
+Date:   Tue Mar 19 22:33:27 2024 +0600
+
+    done the freferance page "
+
+[33mcommit aba12545467a078f25dbc0756f3976928e49fe36[m
+Author: sohagzayan <gdsohag360@gmail.com>
+Date:   Tue Mar 19 08:10:00 2024 +0600
+
+    done the job applicaton thing with recent coverlatter geting auto field
+
+[33mcommit b47ba8afb4ffd8c6435b4bb3dc17e338319a8ccc[m
+Author: sohagzayan <gdsohag360@gmail.com>
+Date:   Fri Mar 15 19:23:17 2024 +0600
+
+    done the job applying thing "
+
+[33mcommit 11f38ef2c01f4a30a0b10f2da275de58a6b12ed9[m
+Author: sohagzayan <gdsohag360@gmail.com>
+Date:   Thu Mar 14 07:18:34 2024 +0600
+
+    update the assesment part here
+
+[33mcommit a1e8a1a84ba0fe8290dc75a3b31bef12f4c4d5da[m
+Author: sohagzayan <gdsohag360@gmail.com>
+Date:   Wed Mar 13 22:56:41 2024 +0600
+
+    done the job application page design
+
+[33mcommit c640b6db1776db2055a78f30fe8178888bacf8d7[m
+Author: sohagzayan <gdsohag360@gmail.com>
+Date:   Wed Mar 13 21:38:24 2024 +0600
+
+    change the job details page
+
+[33mcommit 6d80249cb18105c8c65f4d855753a6fdf2292e1e[m
+Author: sohagzayan <gdsohag360@gmail.com>
+Date:   Sun Mar 10 19:42:15 2024 +0600
+
+    update the job card "
+
+[33mcommit 73090887801bae2d6a41cef826f20c9c9a320642[m
+Author: sohagzayan <gdsohag360@gmail.com>
+Date:   Sat Mar 9 22:47:51 2024 +0600
+
+    done the dashbord
+
+[33mcommit 0f219f250890052dc6817b5645288be08abee169[m
+Author: sohagzayan <gdsohag360@gmail.com>
+Date:   Thu Mar 7 23:25:38 2024 +0600
+
+    fix the some essu on the  jobs page"
+
+[33mcommit 1ab87fdc9b1640ca56fe0fdb66ab2bb93b43c2bb[m
+Merge: 5b5e853 1e004a3
+Author: sohagzayan <gdsohag360@gmail.com>
+Date:   Mon Mar 4 21:10:41 2024 -0800
+
+    get all updated thing
+
+[33mcommit 1e004a3472b7f5df504a47c842fb0b8edf48e066[m[33m ([m[1;31morigin/dev[m[33m)[m
+Author: sohag.zayan <gdsohag360@gmail.com>
+Date:   Mon Mar 4 01:00:08 2024 +0600
+
+    done the update api for survey"
+
+[33mcommit 9a66762a6ecb09d948e9a8309020b0ad0830c463[m
+Author: sohag.zayan <gdsohag360@gmail.com>
+Date:   Sun Mar 3 01:10:09 2024 +0600
+
+    add new page for post a job "
+
+[33mcommit 5da26d322935f48ab6460a37794bc2da1f71f8d0[m
+Author: sohag.zayan <gdsohag360@gmail.com>
+Date:   Sun Mar 3 00:52:48 2024 +0600
+
+    done the post now page
+
+[33mcommit 59d30ebdbb842f38e61604e74faf2a9067cd0818[m
+Author: sohag.zayan <gdsohag360@gmail.com>
+Date:   Sat Mar 2 23:15:40 2024 +0600
+
+    add new page
+
+[33mcommit 305fa48c7a511b33a60a8ce421a9c86b99a1d4b5[m
+Author: sohag.zayan <gdsohag360@gmail.com>
+Date:   Sat Mar 2 21:31:29 2024 +0600
+
+    add route on all nav item path
+
+[33mcommit c1eb0b340239b5d79599b290581213ac72781c53[m
+Author: sohag.zayan <gdsohag360@gmail.com>
+Date:   Sat Mar 2 21:09:23 2024 +0600
+
+    fix login with google emeil
+
+[33mcommit 6cf754fada7b3c982eff3ca7d783523aed209d75[m
+Author: sohag.zayan <gdsohag360@gmail.com>
+Date:   Sat Mar 2 01:51:44 2024 +0600
+
+    done the pricing page also billing and survibe page and sign-up page
+
+[33mcommit 5b5e8530343f54af75b1c266b2b3f05eb865f569[m
+Author: sohag.zayan <gdsohag360@gmail.com>
+Date:   Fri Mar 1 01:40:44 2024 +0600
+
+    replace something
+
+[33mcommit 1dc901a847bab9572b8a09f313c5a0e839aee335[m
+Author: sohag.zayan <gdsohag360@gmail.com>
+Date:   Wed Feb 28 16:35:02 2024 +0600
+
+    done the design the signin and signup page
+
+[33mcommit 51b3315e2dfa0021b0673c07e2c9b0b4ab98550b[m
+Author: sohag.zayan <gdsohag360@gmail.com>
+Date:   Wed Feb 28 10:39:36 2024 +0600
+
+    done the hero section again modifecation
+
+[33mcommit 6b0bbee8c4cc58ddd95557334db8c1488b9950a3[m
+Author: sohag.zayan <gdsohag360@gmail.com>
+Date:   Wed Feb 28 02:42:14 2024 +0600
+
+    almost midify the hero section and container thing
+
+[33mcommit 69a49729173f7f89be459fcc28aeb9d2fe71efb8[m
+Author: sohag.zayan <gdsohag360@gmail.com>
+Date:   Tue Feb 27 02:13:07 2024 +0600
+
+    add daft.js
+
+[33mcommit 00f820121c6a1aedd0f18faefd50dacad6fd2d74[m
+Author: sohag.zayan <gdsohag360@gmail.com>
+Date:   Tue Feb 27 02:09:36 2024 +0600
+
+    fix the layout thin on jobs page
+
+[33mcommit 8354ae9932efe307dd614b9d409d92808b7c312a[m
+Author: sohag.zayan <gdsohag360@gmail.com>
+Date:   Mon Feb 26 14:14:00 2024 +0600
+
+    add all custom field validation
+
+[33mcommit 18771b125598919759df6ed9c0f838b0c5e76ba5[m
+Author: sohag.zayan <gdsohag360@gmail.com>
+Date:   Mon Feb 26 01:29:53 2024 +0600
+
+    edit all fiedl on schema and new job field also add company logo upload thing
+
+[33mcommit 4e43fd9e9d72bd5bb265419b76749b1da9fd5683[m
+Author: sohag.zayan <gdsohag360@gmail.com>
+Date:   Sun Feb 25 23:19:25 2024 +0600
+
+    modify the new job post some field and option
+
+[33mcommit f310743e4e94231f2c997ae8dd68cfa2e7dc3454[m
+Author: sohagzayan <gdsohag360@gmail.com>
+Date:   Fri Feb 23 23:32:23 2024 +0600
+
+    send eveything updated thing
+
+[33mcommit 43eae09f1715aa3e3e6202837584238b2677b0bf[m
+Author: sohagzayan <gdsohag360@gmail.com>
+Date:   Fri Feb 23 01:02:12 2024 +0600
+
+    add new required skill select field
+
+[33mcommit 00382efbfb887fbd5018ee1f59288a0c3d7f7400[m
+Author: sohagzayan <gdsohag360@gmail.com>
+Date:   Thu Feb 22 23:55:23 2024 +0600
+
+    done the pagination also i add rtk query fetch all data with query
+
+[33mcommit 1578fe5042c55f8e1afe7c0eab5ab1dbd989fb21[m
+Author: sohagzayan <gdsohag360@gmail.com>
+Date:   Thu Feb 22 00:45:33 2024 +0600
+
+    replate carosal
+
+[33mcommit ce3c896abc83d32f503fbdeba8d7ad215c1c29d7[m
+Author: sohagzayan <gdsohag360@gmail.com>
+Date:   Thu Feb 22 00:37:51 2024 +0600
+
+    remove some component
+
+[33mcommit 56639aae834d92176966fbd846d345093a6e098a[m
+Author: sohagzayan <gdsohag360@gmail.com>
+Date:   Thu Feb 22 00:31:48 2024 +0600
+
+    send updated
+
+[33mcommit 60e43b7fb6cbdb89814f0bc82af09058055204ee[m
+Author: sohagzayan <gdsohag360@gmail.com>
+Date:   Thu Feb 22 00:09:00 2024 +0600
+
+    pretti much done the filtering part on jobs page
+
+[33mcommit bfd0499848d0f4866288e757dc36c287e9e9b9bd[m
+Author: sohagzayan <gdsohag360@gmail.com>
+Date:   Wed Feb 21 00:29:34 2024 +0600
+
+    today i have done the awesome thing like filter with search url
+
+[33mcommit e696fb59c16cf5086256d25cba8de08eddd4ea07[m
+Author: sohagzayan <gdsohag360@gmail.com>
+Date:   Mon Feb 19 15:41:36 2024 +0600
+
+    send my all updted'
+    '
+
+[33mcommit df997411dd33221c0ac212b95b43e38276f15da4[m
+Author

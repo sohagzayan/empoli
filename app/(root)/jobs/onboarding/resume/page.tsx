@@ -1,31 +1,122 @@
+"use client"
+import LoadingCircle from '@/components/shared/loading-circle/LoadingCircle'
+import MiniLoadingCircle from '@/components/shared/mini-loading-circle/MiniLoadingCircle'
 import { Button } from '@/components/ui/button'
+import axios from 'axios'
 import { FileCheck } from 'lucide-react'
-import React from 'react'
+import { useRouter } from 'next/navigation'
+import React, { useState } from 'react'
+import { Toaster, toast } from 'sonner'
 
 const Resume = () => {
+    const [loading, setLoading] = useState(false)
+    const router = useRouter()
+
+
+    const upload_resume = async (event: any) => {
+        if (event) {
+            const [fileData] = event.target.files;
+            console.log("event.target.files", event.target.files);
+
+            // File type validation
+            const allowedFileTypes = ['application/pdf']; // Only allow PDF files
+            if (!allowedFileTypes.includes(fileData.type)) {
+                toast.error("Invalid file type. Please upload a PDF file.")
+                // console.log('Invalid file type. Please upload a PDF file.');
+                // You can show an error message to the user or handle it in your application's UI
+                return;
+            }
+
+            // File size validation (in bytes)
+            const maxSizeInBytes = 5 * 1024 * 1024; // 5 MB
+            if (fileData.size > maxSizeInBytes) {
+                // console.log('File size exceeds the maximum allowed size.');
+                toast.error("File size exceeds the maximum allowed size.")
+
+                // You can show an error message to the user or handle it in your application's UI
+                return;
+            }
+
+            const formData = new FormData();
+            formData.append('file', fileData);
+            formData.append('upload_preset', 'apper_upload'); // Replace 'your_upload_preset' with your Cloudinary upload preset
+
+            try {
+                const res = await axios.post('https://api.cloudinary.com/v1_1/da0dxyn2l/auto/upload', formData);
+                console.log('file upload response:', res);
+
+                // Handle the response according to your needs
+                if (res.data && res.data.url) {
+                    // Handle PDF upload
+                    // console.log('PDF uploaded successfully:', res.data.url);
+                    return {
+                        resume: res.data.url,
+                        success: true
+                    }
+                } else {
+                    // console.log('Unexpected response:', res);
+                    toast.error("Unexpected Error upload resume!")
+
+                    return {
+                        error: "Unexpected Error upload resume ",
+                        success: false
+                    }
+                }
+            } catch (error) {
+                // console.log("File upload error:", error);
+                toast.error("Resume upload error")
+                return {
+                    error: "Resume upload error",
+                    success: false
+                }
+            }
+        }
+    }
+
+
+    const handleUploadResumeFunc = async (resumeEvent: any) => {
+        setLoading(true)
+        const resume = await upload_resume(resumeEvent)
+        if (!resume?.success) {
+            setLoading(false)
+            // toast.error("something worked wrong!")
+            return
+        }
+        setLoading(false)
+        toast.success("Upload successfully completed")
+        await axios.post("/api/onboarding/resume", { resume: resume?.resume })
+        console.log("resume url >>>>", resume)
+    }
+
+
     return (
         <div className='container lg:px-16 xl:px-20 h-screen'>
             <div>
-                <div className='text-center py-8'>
-                    <h2 className='mb-3 text-3xl font-semibold text-blue-midnight_blue'>Upload a recent resume or CV</h2>
-                    <p className='text-blue-midnight_blue'>Autocomplete your profile in just a few seconds by uploading a resume.</p>
-                </div>
-                <div className='flex items-center justify-center bg-white rounded-xl p-10 w-[800px] mx-auto'>
-                    <div className='flex flex-col justify-center items-center'>
-                        <FileCheck size={50} strokeWidth={1.25} />
-                        <p className='text-sm text-blue-midnight_blue py-5'>Click the button below to upload your resume as a .pdf, .doc, .docx, .rtf, .wp or .txt file</p>
-                        <div className='text-center mt-2 '>
-                            <Button >Upload Resume</Button>
-                            <div className='flex items-center mt-1 gap-2 text-blue-midnight_blue'>
-                                <input id='resume_review' type="checkbox" />
-                                <label htmlFor="resume_review " className='text-sm '>Id like a free resume review</label>
+
+                <div className="flex items-center justify-center w-full mt-12">
+                    <label htmlFor="dropzone-file" className="flex flex-col items-center justify-center w-full h-64 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 dark:hover:bg-bray-800 dark:bg-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-gray-600">
+                        {loading && <div>
+                            <MiniLoadingCircle />
+                        </div>}
+
+                        {!loading && <div>
+                            <div className="flex flex-col items-center justify-center pt-5 pb-6">
+                                <svg className="w-8 h-8 mb-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 16">
+                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 13h3a3 3 0 0 0 0-6h-.025A5.56 5.56 0 0 0 16 6.5 5.5 5.5 0 0 0 5.207 5.021C5.137 5.017 5.071 5 5 5a4 4 0 0 0 0 8h2.167M10 15V6m0 0L8 8m2-2 2 2" />
+                                </svg>
+                                <p className="mb-2 text-sm text-gray-500 dark:text-gray-400"><span className="font-semibold">Click to upload</span> or drag and drop</p>
+                                <p className="text-xs text-gray-500 dark:text-gray-400">SVG, PNG, JPG or GIF (MAX. 800x400px)</p>
                             </div>
-                        </div>
-                    </div>
+                            <input id="dropzone-file" type="file" className="hidden" onChange={(e) => handleUploadResumeFunc(e)} />
+                        </div>}
+
+                    </label>
                 </div>
 
-                <div className='text-center mt-6'>
-                    <Button variant="outline" className='text-blue-midnight_blue font-semibold' >Skip for now</Button>
+                <div className='text-center'>
+                    <Button onClick={() => router.push("/")} variant="outline" className='mt-5 '>
+                        Skip for now
+                    </Button>
                 </div>
             </div>
         </div>

@@ -5,6 +5,7 @@ const secret = process.env.NEXT_PUBLIC_SECRET;
 
 export default async function middleware(req: NextRequest) {
   const token = await getToken({ req, secret });
+  console.log("token from middlewere", token);
   const isAuthenticated = !!token;
   console.log("isAuthenticated >>>", isAuthenticated);
   console.log("req.nextUrl.pathname >>>", req.nextUrl.pathname);

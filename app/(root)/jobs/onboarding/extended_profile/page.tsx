@@ -8,9 +8,17 @@ import * as Yup from 'yup';
 import { FaRegCircle } from 'react-icons/fa';
 import { FiCheckCircle } from 'react-icons/fi';
 import axios from 'axios';
+import { useRouter } from 'next/navigation';
+import LoadingCircle from '@/components/shared/loading-circle/LoadingCircle';
+import { useSession } from 'next-auth/react';
 
 
 const ExtendedProfile = () => {
+    const router = useRouter()
+    const [loading, setLoading] = useState(false)
+    const { data: session, update } = useSession()
+
+    console.log("session me", session)
 
     const formik = useFormik({
         initialValues: {
@@ -51,13 +59,23 @@ const ExtendedProfile = () => {
             personalWebsite: Yup.string().url()
         }),
         onSubmit: async (values) => {
-
+            setLoading(true)
             try {
                 console.log("all values >", values);
                 const res = await axios.post("/api/onboarding/extended_profile", values)
-                console.log("res", res)
+                if (res.statusText) {
+                    // router.push("/jobs/onboarding/preferences")
+                    update({
+                        ...res.data.user
+                    })
+                    setLoading(false)
+                }
+                console.log("res  profile>", res)
+                setLoading(false)
+
             } catch (error: any) {
                 console.log("error > ", error.message)
+                setLoading(false)
             }
 
             // alert(JSON.stringify(values, null, 2));
@@ -84,7 +102,7 @@ const ExtendedProfile = () => {
                                 className="peer/input block box-border w-full rounded-md shadow-sm transition-all text-foreground focus-visible:shadow-md outline-none focus:ring-current focus:ring-2 focus-visible:border-foreground-muted focus-visible:ring-background-control placeholder-foreground-muted group bg-foreground/[.026] border border-control text-sm px-4 py-2">
                                 <option value="" selected>Select country</option>
                                 {countryList.map((country: string) =>
-                                    <option key={country} >{country}</option>
+                                    <option key={country + 100} >{country}</option>
                                 )}
                             </select>
                             {formik.touched.where_you_based && formik.errors.where_you_based ? (
@@ -105,7 +123,7 @@ const ExtendedProfile = () => {
                                 value={formik.values.currentRole}
                                 id="countries" className="peer/input block box-border w-full rounded-md shadow-sm transition-all text-foreground focus-visible:shadow-md outline-none focus:ring-current focus:ring-2 focus-visible:border-foreground-muted focus-visible:ring-background-control placeholder-foreground-muted group bg-foreground/[.026] border border-control text-sm px-4 py-2">
                                 <option value="" selected>Select role</option>
-                                {job_profile.map((country) => <option key={country} >{country}</option>
+                                {job_profile.map((country) => <option key={country} >{country + 110}</option>
                                 )}
                             </select>
                             {formik.touched.currentRole && formik.errors.currentRole ? (
@@ -124,7 +142,7 @@ const ExtendedProfile = () => {
                                 value={formik.values.experienceInRole}
                                 id="countries" className="peer/input block box-border w-full rounded-md shadow-sm transition-all text-foreground focus-visible:shadow-md outline-none focus:ring-current focus:ring-2 focus-visible:border-foreground-muted focus-visible:ring-background-control placeholder-foreground-muted group bg-foreground/[.026] border border-control text-sm px-4 py-2">
                                 <option value="" selected>Experience in current role</option>
-                                {onboarding_experience.map((country: string) => <option key={country} >{country}</option>
+                                {onboarding_experience.map((country: string) => <option key={country + 120} >{country}</option>
                                 )}
                             </select>
                             {formik.touched.experienceInRole && formik.errors.experienceInRole ? (
@@ -272,7 +290,12 @@ const ExtendedProfile = () => {
                         </div>
                     </div>
 
-                    <Button type='submit' className=''>Create you profile</Button>
+                    <Button type='submit' className=''>
+                        {loading ? <div>
+                            <LoadingCircle />
+                            Loading
+                        </div> : "Create you profile"}
+                    </Button>
                 </form>
             </div >
         </div >
