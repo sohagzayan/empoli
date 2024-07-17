@@ -54,9 +54,9 @@ const Header = ({ variant, bg }: HeaderType) => {
                     <Link href='/'>
                         <div className='flex items-center  gap-1 font-bold text-primary'>
                             <div className='bg-primary text-white font-bold w-[30px] h-[30px] rounded-full flex items-center justify-center'>
-                                E
+                                J
                             </div>
-                            Emploi
+                            obber
                             {/* {variant == "primary" ?
                                 <Image src="/assets/images/logo.png" alt='logo' width={150} height={150} />
                                 :

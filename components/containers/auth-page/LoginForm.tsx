@@ -71,7 +71,7 @@ const LoginForm = () => {
     return (
         <div >
             <div className='bg-white   w-[500px] mx-auto p-8 shadow-shadow_dark rounded-[30px] '>
-                <legend className='text-[35px] text-purple font-extrabold text-center mb-2'>Welcome to <span className='text-primary'>Apper</span>
+                <legend className='text-[35px] text-purple font-extrabold text-center mb-2'>Welcome to <span className='text-primary'>Jobber</span>
                 </legend>
                 <ul className='flex items-center justify-between text-center mt-4'>
                     <li
