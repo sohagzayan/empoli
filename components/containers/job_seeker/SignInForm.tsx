@@ -11,14 +11,11 @@ import { PiGoogleLogo } from 'react-icons/pi'
 import { toast } from 'sonner'
 
 const SignInForm = () => {
-
-
     const router = useRouter()
     const [loading, setLoading] = useState(false)
 
     const onSubmit = async (values: any, actions: FormikHelpers<any>) => {
         setLoading(true)
-
         const loadingToast = toast.loading("Signing in...", {
             position: 'top-left',
             // autoClose: false
@@ -40,20 +37,13 @@ const SignInForm = () => {
                     className: 'text-primary',
                     duration: 100000
                 })
-
-
             }
             if (res?.ok) {
                 toast.success("Login successful")
+                router.push("/")
             }
-
             toast.dismiss(loadingToast);
-
-
-            console.log("res > signin ", res)
             setLoading(false)
-            // toast.success(data.message)
-
         } catch (error: any) {
             setLoading(false)
             toast.error(error.message)

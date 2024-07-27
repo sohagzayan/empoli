@@ -31,24 +31,36 @@ export const authOptions: NextAuthOptions = {
         password: { label: "password", type: "password" },
       },
 
-      async authorize(credentials) {
+      async authorize(credentials: any) {
         if (!credentials) {
           throw new Error("Please provide credentials");
         }
+        console.log("credentials >>", credentials);
 
-        const user: any = await prisma.user.findUnique({
-          where: {
-            email: credentials.email,
-          },
-          include: {
-            preferences: true,
-            culture: true,
-            profile: true,
-            resume: true,
-          },
-        });
+        const user: any =
+          credentials?.role === "RECRUITER"
+            ? await prisma.recruiter.findUnique({
+                where: {
+                  email: credentials.email,
+                },
+                include: {
+                  recruiter_company_info: true,
+                  recruiter_billing_info: true,
+                  recruiter_payment_info: true,
+                },
+              })
+            : await prisma.user.findUnique({
+                where: {
+                  email: credentials.email,
+                },
+                include: {
+                  preferences: true,
+                  culture: true,
+                  profile: true,
+                  resume: true,
+                },
+              });
 
-        // console.log("user from auth option", user);
         if (!user) {
           throw new Error("Sorry, unrecognized username or password");
         }

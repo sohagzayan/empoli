@@ -1,20 +1,15 @@
 'use client'
 import React, { useState } from 'react'
-import PropTypes from 'prop-types'
 import Link from 'next/link'
 import Stepper from '@/components/containers/recruiter/recruiter-stepper/Stepper'
-import CompanySignUpInfo from '@/components/containers/recruiter/recruiter-stepper/company-sign-up-info'
 import { Button } from '@/components/ui/button'
-import { IoBriefcaseOutline } from 'react-icons/io5'
-import { LuUser2 } from 'react-icons/lu'
 import AuthNav from '@/components/shared/auth-nav/AuthNav'
-import { signIn, useSession } from 'next-auth/react'
+import { useSession } from 'next-auth/react'
 import { toast } from 'sonner'
 import { MdErrorOutline } from 'react-icons/md'
-import { BsEye, BsEyeSlash } from 'react-icons/bs'
 import { Formik, FormikHelpers } from 'formik'
-import { registerSurveyValidationSchema, registerValidationAsCandidateSchema } from '@/utils/validation-schemas'
-import { CountryDropdown, RegionDropdown, CountryRegionData } from 'react-country-region-selector';
+import { registerSurveyValidationSchema } from '@/utils/validation-schemas'
+import { CountryDropdown } from 'react-country-region-selector';
 import { FaCheck } from 'react-icons/fa'
 
 
@@ -81,13 +76,10 @@ const Survey = () => {
     const onSubmit = async (values: any, actions: FormikHelpers<any>) => {
         console.log("submiting")
         setLoading(true)
-
         const isPass = validate_requirements_option(selectedRequirementsOption)
-
         if (!isPass) {
             return
         }
-
         try {
             console.log("all signup values:", values)
             let response: any = await fetch(`/api/recruiter/job/update/${session?.user?.id}`, {

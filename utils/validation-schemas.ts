@@ -35,14 +35,14 @@ export const loginValidationSchema = Yup.object().shape({
 });
 
 export const signUpValidationAsRecruiterSchema = Yup.object().shape({
-  firstName: Yup.string().required("FirstName field is required"),
-  lastName: Yup.string().required("LastName field is required"),
-  companyName: Yup.string().required("company name field is required"),
-  companyWebsite: Yup.string()
+  first_name: Yup.string().required("FirstName field is required"),
+  last_name: Yup.string().required("LastName field is required"),
+  company_name: Yup.string().required("company name field is required"),
+  company_website: Yup.string()
     .url()
     .required("company website field is required"),
-  jobTitle: Yup.string().required("job title field is required"),
-  howDidYouHearAboutUs: Yup.string().required(
+  job_title: Yup.string().required("job title field is required"),
+  how_did_you_hear_about_us: Yup.string().required(
     "how did you here us field is required"
   ),
 

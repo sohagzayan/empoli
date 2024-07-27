@@ -10,6 +10,14 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+enum OnboardingStep {
+  SIGN_UP
+  RECRUITER_COMPANY_INFO
+  RECRUITER_PAYMENT_INFO
+  RECRUITER_BILLING_INFO
+  COMPLETED
+}
+
 model User {
   id                Int                 @id @default(autoincrement())
   name              String?
@@ -35,6 +43,84 @@ model User {
   resume            Resume?
   // Profile_Preferences         Profile_Preferences[]
   // USAWorkAuthorization        USAWorkAuthorization[]
+}
+
+model Recruiter {
+  id                        Int                    @id @default(autoincrement())
+  first_name                String
+  last_name                 String
+  email                     String                 @unique
+  password                  String?
+  company_name              String
+  company_website           String
+  job_title                 String
+  how_did_you_hear_about_us String
+  phoneNumber               String?
+  address                   String?
+  position                  String?
+  linkedinProfile           String?
+  website                   String?
+  bio                       String?
+  profilePicture            String?
+  onboardingStep            OnboardingStep[]
+  verified                  Boolean                @default(false)
+  createdAt                 Int?
+  updatedAt                 DateTime               @updatedAt
+  roles                     String[]               @default(["recruiter"])
+  jobListings               JobListing[]
+  recruiter_company_info    RecruiterCompanyInfo[]
+  recruiter_billing_info    RecruiterBillingInfo[]
+  recruiter_payment_info    RecruiterPaymentInfo[]
+}
+
+model RecruiterCompanyInfo {
+  id                            Int       @id @default(autoincrement())
+  where_is_your_company_based   String?
+  remote_work_policy            String?
+  planned_flexible_job_openings String?
+  sample_job_posting            String?
+  flexible_job_types            String?
+  arraignment_job_flexible_ruls String
+  recruiterId                   Int
+  recruiter                     Recruiter @relation(fields: [recruiterId], references: [id])
+}
+
+model RecruiterPaymentInfo {
+  id              Int       @id @default(autoincrement())
+  first_name      String
+  last_name       String
+  card_number     String
+  expriation_date String
+  cvv_cvc         String
+  recruiterId     Int
+  recruiter       Recruiter @relation(fields: [recruiterId], references: [id])
+}
+
+model RecruiterBillingInfo {
+  id             Int       @id @default(autoincrement())
+  first_name     String
+  last_name      String
+  email          String
+  phone_number   String
+  country        String
+  state_province String
+  posttal_code   String
+  address        String
+  city           String
+  recruiterId    Int
+  recruiter      Recruiter @relation(fields: [recruiterId], references: [id])
+}
+
+model JobListing {
+  id                     Int       @id @default(autoincrement())
+  title                  String
+  description            String
+  location               String
+  salary                 String? // Optional
+  postedAt               DateTime  @default(now())
+  recruiterId            Int
+  recruiter              Recruiter @relation(fields: [recruiterId], references: [id])
+  recruiterCompanyInfoId Int?
 }
 
 model Profile {

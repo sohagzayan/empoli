@@ -17,7 +17,7 @@ const AuthNav = () => {
                 <nav className='relative flex items-center justify-between '>
                     <div>
                         {/* <Image src="/assets/images/logo.png" width={100} height={100} alt='logo' /> */}
-                        <div className='flex items-center  gap-1 font-bold text-primary'>
+                        <div onClick={() => router.push("/")} className='flex items-center   font-bold text-primary cursor-pointer'>
                             <div className='bg-primary text-secondary font-bold w-[30px] h-[30px] rounded-full flex items-center justify-center'>
                                 J
                             </div>

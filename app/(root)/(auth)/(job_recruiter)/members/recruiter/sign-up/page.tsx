@@ -79,9 +79,9 @@ const SignUp = () => {
     console.log("submiting")
     setLoading(true)
     try {
-      const { email, password, firstName, lastName } = values
+      const { email, password, first_name, last_name, company_name, company_website, job_title, how_did_you_hear_about_us, } = values
       console.log("all signup values:", values)
-      let response: any = await fetch('/api/auth/signup', {
+      let response: any = await fetch('/api/auth_recruiter/signup', {
         method: 'POST',
         body: JSON.stringify({
           role: "RECRUITER",
@@ -134,7 +134,17 @@ const SignUp = () => {
 
                 <div>
                   <Formik
-                    initialValues={{ firstName: '', lastName: '', companyName: '', companyWebsite: '', jobTitle: "", email: '', password: '', howDidYouHearAboutUs: '', }}
+                    initialValues=
+                    {{
+                      first_name: '',
+                      last_name: '',
+                      company_name: '',
+                      company_website: '',
+                      job_title: "",
+                      how_did_you_hear_about_us: '',
+                      email: '',
+                      password: '',
+                    }}
                     validationSchema={signUpValidationAsRecruiterSchema}
                     validateOnChange={false}
                     validateOnBlur={false}
@@ -161,43 +171,43 @@ const SignUp = () => {
                               <div className='relative'>
                                 <label htmlFor="firstName" className='block text-foreground-light text-sm mb-1'>First Name</label>
                                 <input
-                                  name='firstName'
+                                  name='first_name'
                                   id='firstName'
-                                  value={values.firstName}
+                                  value={values.first_name}
                                   onChange={handleChange}
                                   type="text"
-                                  className={`peer/input block box-border w-full rounded-md shadow-sm transition-all text-foreground focus-visible:shadow-md outline-none focus:ring-current focus:ring-2 focus-visible:border-foreground-muted focus-visible:ring-background-control placeholder-foreground-muted bg-foreground/[.026] border border-control text-sm px-4 py-2  ${errors.firstName && 'border-red-600'}`}
+                                  className={`peer/input block box-border w-full rounded-md shadow-sm transition-all text-foreground focus-visible:shadow-md outline-none focus:ring-current focus:ring-2 focus-visible:border-foreground-muted focus-visible:ring-background-control placeholder-foreground-muted bg-foreground/[.026] border border-control text-sm px-4 py-2  ${errors.first_name && 'border-red-600'}`}
                                   placeholder='sohag' />
 
-                                {errors.firstName && <div className='absolute inset-y-0 right-0 pl-3 pr-1 flex space-x-1 items-center top-5'>
+                                {errors.first_name && <div className='absolute inset-y-0 right-0 pl-3 pr-1 flex space-x-1 items-center top-5'>
                                   <div className=' flex items-center right-3 pr-2 pl-2 inset-y-0 pointer-events-none text-red-600 '>
                                     <MdErrorOutline size={18} />
                                   </div>
                                 </div>}
                               </div>
 
-                              <p className='text-red-600 transition-all data-show:mt-2 data-show:animate-slide-down-normal data-hide:animate-slide-up-normal text-sm mt-1'>{errors.firstName}</p>
+                              <p className='text-red-600 transition-all data-show:mt-2 data-show:animate-slide-down-normal data-hide:animate-slide-up-normal text-sm mt-1'>{errors.first_name}</p>
                             </div>
 
                             <div className='mb-4'>
                               <div className=' relative'>
                                 <label htmlFor="lastName" className='block text-foreground-light text-sm mb-1'>Last Name</label>
                                 <input
-                                  name='lastName'
+                                  name='last_name'
                                   id='lastName'
                                   type="text"
-                                  value={values.lastName}
+                                  value={values.last_name}
                                   onChange={handleChange}
-                                  className={`peer/input block box-border w-full rounded-md shadow-sm transition-all text-foreground focus-visible:shadow-md outline-none focus:ring-current focus:ring-2 focus-visible:border-foreground-muted focus-visible:ring-background-control placeholder-foreground-muted bg-foreground/[.026] border border-control text-sm px-4 py-2  ${errors.lastName && 'border-red-600'}`}
+                                  className={`peer/input block box-border w-full rounded-md shadow-sm transition-all text-foreground focus-visible:shadow-md outline-none focus:ring-current focus:ring-2 focus-visible:border-foreground-muted focus-visible:ring-background-control placeholder-foreground-muted bg-foreground/[.026] border border-control text-sm px-4 py-2  ${errors.last_name && 'border-red-600'}`}
                                   placeholder='hossain' />
 
-                                {errors.lastName && <div className='absolute inset-y-0 right-0 pl-3 pr-1 flex space-x-1 items-center top-5'>
+                                {errors.last_name && <div className='absolute inset-y-0 right-0 pl-3 pr-1 flex space-x-1 items-center top-5'>
                                   <div className=' flex items-center right-3 pr-2 pl-2 inset-y-0 pointer-events-none text-red-600 '>
                                     <MdErrorOutline size={18} />
                                   </div>
                                 </div>}
                               </div>
-                              <p className='text-red-600 transition-all data-show:mt-2 data-show:animate-slide-down-normal data-hide:animate-slide-up-normal text-sm mt-1'>{errors.lastName}</p>
+                              <p className='text-red-600 transition-all data-show:mt-2 data-show:animate-slide-down-normal data-hide:animate-slide-up-normal text-sm mt-1'>{errors.last_name}</p>
                             </div>
 
 
@@ -206,21 +216,21 @@ const SignUp = () => {
                               <div className='relative'>
                                 <label htmlFor="companyName" className='block text-foreground-light text-sm mb-1'>Company Name</label>
                                 <input
-                                  name='companyName'
+                                  name='company_name'
                                   id='companyName'
                                   type="text"
-                                  value={values.companyName}
+                                  value={values.company_name}
                                   onChange={handleChange}
-                                  className={`peer/input block box-border w-full rounded-md shadow-sm transition-all text-foreground focus-visible:shadow-md outline-none focus:ring-current focus:ring-2 focus-visible:border-foreground-muted focus-visible:ring-background-control placeholder-foreground-muted bg-foreground/[.026] border border-control text-sm px-4 py-2  ${errors.companyName && 'border-red-600'}`}
+                                  className={`peer/input block box-border w-full rounded-md shadow-sm transition-all text-foreground focus-visible:shadow-md outline-none focus:ring-current focus:ring-2 focus-visible:border-foreground-muted focus-visible:ring-background-control placeholder-foreground-muted bg-foreground/[.026] border border-control text-sm px-4 py-2  ${errors.company_name && 'border-red-600'}`}
                                   placeholder='apper' />
 
-                                {errors.companyName && <div className='absolute inset-y-0 right-0 pl-3 pr-1 flex space-x-1 items-center top-5'>
+                                {errors.company_name && <div className='absolute inset-y-0 right-0 pl-3 pr-1 flex space-x-1 items-center top-5'>
                                   <div className=' flex items-center right-3 pr-2 pl-2 inset-y-0 pointer-events-none text-red-600 '>
                                     <MdErrorOutline size={18} />
                                   </div>
                                 </div>}
                               </div>
-                              <p className='text-red-600 transition-all data-show:mt-2 data-show:animate-slide-down-normal data-hide:animate-slide-up-normal text-sm mt-1'>{errors.companyName}</p>
+                              <p className='text-red-600 transition-all data-show:mt-2 data-show:animate-slide-down-normal data-hide:animate-slide-up-normal text-sm mt-1'>{errors.company_name}</p>
                             </div>
 
 
@@ -228,21 +238,21 @@ const SignUp = () => {
                               <div className='relative'>
                                 <label htmlFor="companyWebsite" className='block text-foreground-light text-sm mb-1'>Company Website</label>
                                 <input
-                                  name='companyWebsite'
+                                  name='company_website'
                                   id='companyWebsite'
                                   type="text"
-                                  value={values.companyWebsite}
+                                  value={values.company_website}
                                   onChange={handleChange}
-                                  className={`peer/input block box-border w-full rounded-md shadow-sm transition-all text-foreground focus-visible:shadow-md outline-none focus:ring-current focus:ring-2 focus-visible:border-foreground-muted focus-visible:ring-background-control placeholder-foreground-muted bg-foreground/[.026] border border-control text-sm px-4 py-2  ${errors.companyWebsite && 'border-red-600'}`}
+                                  className={`peer/input block box-border w-full rounded-md shadow-sm transition-all text-foreground focus-visible:shadow-md outline-none focus:ring-current focus:ring-2 focus-visible:border-foreground-muted focus-visible:ring-background-control placeholder-foreground-muted bg-foreground/[.026] border border-control text-sm px-4 py-2  ${errors.company_website && 'border-red-600'}`}
                                   placeholder='https://www.company.com/' />
 
-                                {errors.companyWebsite && <div className='absolute inset-y-0 right-0 pl-3 pr-1 flex space-x-1 items-center top-5'>
+                                {errors.company_website && <div className='absolute inset-y-0 right-0 pl-3 pr-1 flex space-x-1 items-center top-5'>
                                   <div className=' flex items-center right-3 pr-2 pl-2 inset-y-0 pointer-events-none text-red-600 '>
                                     <MdErrorOutline size={18} />
                                   </div>
                                 </div>}
                               </div>
-                              <p className='text-red-600 transition-all data-show:mt-2 data-show:animate-slide-down-normal data-hide:animate-slide-up-normal text-sm mt-1'>{errors.companyWebsite}</p>
+                              <p className='text-red-600 transition-all data-show:mt-2 data-show:animate-slide-down-normal data-hide:animate-slide-up-normal text-sm mt-1'>{errors.company_website}</p>
                             </div>
 
                             <div className='mb-4'>
@@ -250,21 +260,21 @@ const SignUp = () => {
                                 <label htmlFor="jobTitle" className='block text-foreground-light text-sm mb-1'>Job Title
                                 </label>
                                 <input
-                                  name='jobTitle'
+                                  name='job_title'
                                   id='jobTitle'
                                   type="text"
-                                  value={values.jobTitle}
+                                  value={values.job_title}
                                   onChange={handleChange}
-                                  className={`peer/input block box-border w-full rounded-md shadow-sm transition-all text-foreground focus-visible:shadow-md outline-none focus:ring-current focus:ring-2 focus-visible:border-foreground-muted focus-visible:ring-background-control placeholder-foreground-muted bg-foreground/[.026] border border-control text-sm px-4 py-2  ${errors.jobTitle && 'border-red-600'}`}
+                                  className={`peer/input block box-border w-full rounded-md shadow-sm transition-all text-foreground focus-visible:shadow-md outline-none focus:ring-current focus:ring-2 focus-visible:border-foreground-muted focus-visible:ring-background-control placeholder-foreground-muted bg-foreground/[.026] border border-control text-sm px-4 py-2  ${errors.job_title && 'border-red-600'}`}
                                   placeholder='https://www.company.com/' />
 
-                                {errors.jobTitle && <div className='absolute inset-y-0 right-0 pl-3 pr-1 flex space-x-1 items-center top-5'>
+                                {errors.job_title && <div className='absolute inset-y-0 right-0 pl-3 pr-1 flex space-x-1 items-center top-5'>
                                   <div className=' flex items-center right-3 pr-2 pl-2 inset-y-0 pointer-events-none text-red-600 '>
                                     <MdErrorOutline size={18} />
                                   </div>
                                 </div>}
                               </div>
-                              <p className='text-red-600 transition-all data-show:mt-2 data-show:animate-slide-down-normal data-hide:animate-slide-up-normal text-sm mt-1'>{errors.jobTitle}</p>
+                              <p className='text-red-600 transition-all data-show:mt-2 data-show:animate-slide-down-normal data-hide:animate-slide-up-normal text-sm mt-1'>{errors.job_title}</p>
                             </div>
 
                             <div className='mb-4'>
@@ -326,10 +336,10 @@ const SignUp = () => {
                                 <label htmlFor="workEmailAddress" className='block text-foreground-light text-sm mb-1'>How did you hear about us
                                 </label>
                                 <select
-                                  name='howDidYouHearAboutUs'
-                                  value={values.howDidYouHearAboutUs}
+                                  name='how_did_you_hear_about_us'
+                                  value={values.how_did_you_hear_about_us}
                                   onChange={handleChange}
-                                  className={`peer/input block box-border w-full rounded-md shadow-sm transition-all text-foreground focus-visible:shadow-md outline-none focus:ring-current focus:ring-2 focus-visible:border-foreground-muted focus-visible:ring-background-control placeholder-foreground-muted bg-foreground/[.026] border border-control text-sm px-4 py-2  ${errors.howDidYouHearAboutUs && 'border-red-600'}`}>
+                                  className={`peer/input block box-border w-full rounded-md shadow-sm transition-all text-foreground focus-visible:shadow-md outline-none focus:ring-current focus:ring-2 focus-visible:border-foreground-muted focus-visible:ring-background-control placeholder-foreground-muted bg-foreground/[.026] border border-control text-sm px-4 py-2  ${errors.how_did_you_hear_about_us && 'border-red-600'}`}>
                                   <option selected>Choose any one</option>
                                   <option value="US">Internet Search</option>
                                   <option value="CA">Referral</option>
@@ -347,13 +357,13 @@ const SignUp = () => {
                                 </select>
 
 
-                                {errors.howDidYouHearAboutUs && <div className='absolute inset-y-0 right-0 pl-3 pr-1 flex space-x-1 items-center top-5'>
+                                {errors.how_did_you_hear_about_us && <div className='absolute inset-y-0 right-0 pl-3 pr-1 flex space-x-1 items-center top-5'>
                                   <div className=' flex items-center right-3 pr-2 pl-2 inset-y-0 pointer-events-none text-red-600 '>
                                     <MdErrorOutline size={18} />
                                   </div>
                                 </div>}
                               </div>
-                              <p className='text-red-600 transition-all data-show:mt-2 data-show:animate-slide-down-normal data-hide:animate-slide-up-normal text-sm mt-1'>{errors.howDidYouHearAboutUs}</p>
+                              <p className='text-red-600 transition-all data-show:mt-2 data-show:animate-slide-down-normal data-hide:animate-slide-up-normal text-sm mt-1'>{errors.how_did_you_hear_about_us}</p>
                             </div>
                             <Button>Next</Button>
                           </div>

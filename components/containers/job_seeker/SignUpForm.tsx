@@ -13,7 +13,6 @@ import { PiGoogleLogo } from 'react-icons/pi'
 import { toast } from 'sonner'
 
 const SignUpForm = () => {
-
     const router = useRouter()
     const [loading, setLoading] = useState(false)
     const [showPassword, setShowPassword] = useState(false)
@@ -34,15 +33,17 @@ const SignUpForm = () => {
             if (!response.ok) {
                 throw new Error(data.message)
             }
-            await signIn('credentials', {
-                redirect: false,
-                email,
-                password,
-                // role: 'role',
-                // callbackUrl: '/',
-            })
+            // await signIn('credentials', {
+            //     redirect: false,
+            //     email,
+            //     password,
+            //     // role: 'role',
+            //     // callbackUrl: '/',
+            // })
             setLoading(false)
             toast.success(data.message)
+            router.push("/members/sign-in")
+
 
         } catch (error: any) {
             setLoading(false)
