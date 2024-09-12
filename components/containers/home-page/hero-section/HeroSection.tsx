@@ -1,13 +1,16 @@
 "use client"
-import React from 'react'
+import React, { useEffect } from 'react'
 import Image from 'next/image'
 import dynamic from 'next/dynamic';
 import QuickSearch from '../quick-search/QuickSearch';
 
+
+
+
 const HeroSection = () => {
+
     return (
         <div className='container lg:px-16 xl:px-20  relative'>
-
             <div className='mx-auto lg:col-span-6 lg:flex lg:items-center justify-center text-center'>
                 <div className='relative z-10 pt-[90px] lg:pt-[120px]  flex flex-col items-center justify-center sm:mx-auto md:w-3/4 lg:mx-0 lg:w-full gap-4 lg:gap-8'>
                     <div className='flex flex-col items-center '>
