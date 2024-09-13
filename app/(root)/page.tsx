@@ -4,6 +4,7 @@ import MillionsOfJobs from '@/components/containers/home-page/millions-of-jobs/M
 import PopularJobCategories from '@/components/containers/home-page/popular-job-categories/PopularJobCategories'
 import ReadLatestStory from '@/components/containers/home-page/read-latest-article/ReadLatestArticle'
 import FAQ from '@/components/shared/FAQ/FAQ'
+import Marquee from '@/components/shared/Marquee/Marquee'
 import Header from '@/components/shared/Nav/Header'
 import CustomersTestimonials from '@/components/shared/customers-testimonials/CustomersTestimonials'
 import Footer from '@/components/shared/footer/Footer'
@@ -11,8 +12,9 @@ import Recruiting from '@/components/shared/recruiting/Recruiting'
 
 export default function Home() {
   return (
-    <main className=''>
+    <main className='bg-bgPrimary'>
       {/* <Header variant="primary" /> */}
+      <Marquee />
       <Header />
       <HeroSection />
       <PopularJobCategories />

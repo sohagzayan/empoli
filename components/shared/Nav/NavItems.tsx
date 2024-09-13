@@ -1,22 +1,9 @@
 "use client"
-import { nav_items } from '@/utils/data'
 import Link from 'next/link'
 import React, { useEffect, useState } from 'react'
-import {
-    Menubar,
-    MenubarContent,
-    MenubarItem,
-    MenubarMenu,
-    MenubarShortcut,
-    MenubarSub,
-    MenubarSubContent,
-    MenubarSubTrigger,
-    MenubarTrigger,
-} from "@/components/ui/menubar"
-import { ChevronDown } from 'lucide-react'
+import { Menubar } from "@/components/ui/menubar"
 import navItems from '@/constants/nav-items'
 import { NavigationMenu, NavigationMenuContent, NavigationMenuItem, NavigationMenuLink, NavigationMenuList, NavigationMenuTrigger } from '@/components/ui/navigation-menu'
-import { DropdownMenu, DropdownMenuContent } from '@/components/ui/dropdown-menu'
 import { usePathname } from 'next/navigation'
 
 
@@ -31,7 +18,7 @@ const NavItems = ({ variant }: any) => {
     console.log("currentUser", currentUser)
 
     return (
-        <div className=' hidden lg:block '>
+        <div className=' hidden lg:block font-apercu-medium text-primary '>
             <Menubar className='border-none'>
                 <NavigationMenu>
                     <NavigationMenuList>
@@ -39,15 +26,17 @@ const NavItems = ({ variant }: any) => {
                             <div key={menu.key}>
                                 {menu.key ?
                                     <NavigationMenuItem className="">
-                                        <NavigationMenuTrigger className="[&>svg]:hidden">
-                                            <Link href={menu.key}>{menu.label}</Link>
+                                        <NavigationMenuTrigger className="[&>svg]:hidden px-4">
+                                            <Link href={menu.key} className='text-base'>
+                                                {menu.label}
+                                            </Link>
                                         </NavigationMenuTrigger>
                                     </NavigationMenuItem>
                                     :
                                     <NavigationMenuItem>
                                         <NavigationMenuTrigger>Getting started</NavigationMenuTrigger>
                                         <NavigationMenuContent>
-                                            <ul className='grid gap-3 p-6 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]'>
+                                            <ul className='grid gap-1 p-6 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]'>
                                                 {menu.subMenu?.map((sub: any) => <li key={sub.key} title="Introduction">
                                                     <span className='font-bold mb-1 text-blue-midnight_blue'>{sub.label}</span>
                                                     <p className='text-blue-midnight_blue'>{sub.details}</p>
@@ -56,8 +45,6 @@ const NavItems = ({ variant }: any) => {
                                         </NavigationMenuContent>
                                     </NavigationMenuItem>
                                 }
-
-
                             </div>
                         )}
                     </NavigationMenuList>

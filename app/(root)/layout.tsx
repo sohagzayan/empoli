@@ -15,7 +15,6 @@ export default function RootLayouts({
     return (
         <div className="relative ">
             <MobileNav />
-
             <main>{children}</main>
             <Toaster richColors />
         </div>
