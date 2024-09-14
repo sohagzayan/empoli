@@ -47,10 +47,10 @@ const navItems = (role: any) => {
             label: 'Join Directory',
             key: `/recruit/plans/recruit-plans`,
         },
-        // {
-        //     label: 'For job seekers',
-        //     key: `/candidates/overview`,
-        // },
+        {
+            label: 'For job seekers',
+            key: `/candidates/overview`,
+        },
     ]
 
 

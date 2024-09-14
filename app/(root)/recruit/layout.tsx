@@ -1,4 +1,5 @@
 import Marquee from "@/components/shared/Marquee/Marquee"
+import BottomNav from "@/components/shared/Nav/BottomNav"
 import Header from "@/components/shared/Nav/Header"
 import MobileNav from "@/components/shared/Nav/MobileNav"
 import Footer from "@/components/shared/footer/Footer"
@@ -12,10 +13,11 @@ export default function RootLayouts({
 }) {
 
     return (
-        <div className="">
+        <div className="overflow-x-clip">
             <Marquee />
             <Header />
             {children}
+            <BottomNav />
         </div>
     )
 }

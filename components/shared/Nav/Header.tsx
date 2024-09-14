@@ -48,7 +48,7 @@ const Header = ({ variant, bg }: HeaderType) => {
             style={{
                 backdropFilter: scrollY >= 70 ? 'blur(5px)' : ""
             }}
-            className={` transition-all duration-300 z-50    ${scrollY >= 70 ? `sticky top-0 left-0   header ` : ` z-40 relative top-0 left-0 right-0 border-b `}`}>
+            className={` px-4 transition-all duration-300 z-50    ${scrollY >= 70 ? `sticky top-0 left-0   header ` : ` z-40 relative top-0 left-0 right-0 border-b `}`}>
             <div className='flex container lg:px-16 xl:px-20  items-center justify-between h-16 '>
                 <div className='flex items-center gap-10'>
                     <Link href='/'>
@@ -61,13 +61,13 @@ const Header = ({ variant, bg }: HeaderType) => {
                     </div>
                 </div>
                 <div className='flex items-center gap-4'>
-                    <div className='flex justify-end lg:hidden ' >
+                    {/* <div className='flex justify-end lg:hidden ' >
                         <Hamburger
                             toggled={isOpenMenu}
                             toggle={() => dispatch(openMenu())}
                             color='#32236F'
                         />
-                    </div>
+                    </div> */}
                     <div>
                         <HeaderController />
                     </div>

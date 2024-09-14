@@ -5,6 +5,7 @@ import PopularJobCategories from '@/components/containers/home-page/popular-job-
 import ReadLatestStory from '@/components/containers/home-page/read-latest-article/ReadLatestArticle'
 import FAQ from '@/components/shared/FAQ/FAQ'
 import Marquee from '@/components/shared/Marquee/Marquee'
+import BottomNav from '@/components/shared/Nav/BottomNav'
 import Header from '@/components/shared/Nav/Header'
 import CustomersTestimonials from '@/components/shared/customers-testimonials/CustomersTestimonials'
 import Footer from '@/components/shared/footer/Footer'
@@ -12,7 +13,7 @@ import Recruiting from '@/components/shared/recruiting/Recruiting'
 
 export default function Home() {
   return (
-    <main className='bg-bgPrimary'>
+    <main className='bg-bgPrimary '>
       {/* <Header variant="primary" /> */}
       <Marquee />
       <Header />
@@ -25,6 +26,7 @@ export default function Home() {
       <ReadLatestStory />
       <Recruiting />
       <Footer />
+      <BottomNav />
     </main>
   )
 }
