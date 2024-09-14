@@ -88,11 +88,11 @@ const SignUpForm = () => {
                             handleSubmit(e)
                         }}>
 
-                            <div className='flex-1 flex flex-col justify-center w-[330px] sm:w-[384px]'>
+                            <div className='flex-1 flex flex-col justify-center w-[90%] mx-auto md:w-[450px]'>
 
-                                <div className='mb-6'>
-                                    <h3 className=' text-blue-midnight_blue mt-8 mb-2 text-2xl lg:text-3xl'>Create Account</h3>
-                                    <p className='text-sm text-foreground-light'>Sign in to your account</p>
+                                <div className='mb-6 '>
+                                    <h3 className=' text-primary mt-8 mb-2 text-2xl lg:text-3xl font-apercu-bold'>Create Account</h3>
+                                    <p className='text-sm text-primary font-apercu-regular'>Sign in to your account</p>
                                 </div>
 
 
@@ -101,7 +101,7 @@ const SignUpForm = () => {
                                     <div className=' bg-transparent w-full flex items-center justify-center'>
                                         <button
                                             onClick={signInWithGoogle}
-                                            className='relative cursor-pointer space-x-2 text-center font-regular ease-out duration-200 rounded-md outline-none transition-all outline-0 focus-visible:outline-4 focus-visible:outline-offset-1 border-2 text-foreground bg-transparent border-strong hover:border-stronger focus-visible:outline-border-strong data-[state=open]:border-stronger data-[state=open]:outline-border-strong w-full flex items-center justify-center text-base px-4 py-3 gap-3 bg-white' >
+                                            className='relative cursor-pointer space-x-2 text-center font-regular ease-out duration-200 rounded-md outline-none transition-all outline-0 focus-visible:outline-4 focus-visible:outline-offset-1 border-2 text-foreground  border-strong hover:border-stronger focus-visible:outline-border-strong data-[state=open]:border-stronger data-[state=open]:outline-border-strong w-full flex items-center justify-center text-base px-4 py-2 gap-3 bg-white font-apercu-regular' >
                                             <PiGoogleLogo size={22} className='text-primary' />
                                             Continue with google
                                         </button>
@@ -121,14 +121,14 @@ const SignUpForm = () => {
 
                                 <div className='mb-4 '>
                                     <div className='relative'>
-                                        <label htmlFor="fullName" className='block text-foreground-light text-sm mb-1'>Full Name</label>
+                                        <label htmlFor="fullName" className='block text-primary font-apercu-regular text-sm mb-1'>Full Name</label>
                                         <input
                                             name='fullName'
                                             id='fullName'
                                             value={values.fullName}
                                             onChange={handleChange}
                                             type="text"
-                                            className={`peer/input block box-border w-full rounded-md shadow-sm transition-all text-foreground focus-visible:shadow-md outline-none focus:ring-current focus:ring-2 focus-visible:border-foreground-muted focus-visible:ring-background-control placeholder-foreground-muted bg-foreground/[.026] border border-control text-sm px-4 py-2  ${errors.fullName && 'border-red-600'}`}
+                                            className={` bg-bgThird block box-border w-full rounded-md shadow-sm transition-all text-foreground focus-visible:shadow-md outline-none  focus:outline-none  placeholder-foreground-muted bg-foreground/[.026] border-2 text-sm px-4 py-3 font-apercu-regular  ${errors.fullName && 'border-red-600'}`}
                                             placeholder='sohag' />
 
                                         {errors.fullName && <div className='absolute inset-y-0 right-0 pl-3 pr-1 flex space-x-1 items-center top-5'>
@@ -145,14 +145,14 @@ const SignUpForm = () => {
 
                                 <div className='mb-4'>
                                     <div className='relative'>
-                                        <label htmlFor="email" className='block text-foreground-light text-sm mb-1'>Email</label>
+                                        <label htmlFor="email" className='block text-primary font-apercu-regular text-sm mb-1'>Email</label>
                                         <input
                                             name='email'
                                             id='email'
                                             type="email"
                                             value={values.email}
                                             onChange={handleChange}
-                                            className={`peer/input block box-border w-full rounded-md shadow-sm transition-all text-foreground focus-visible:shadow-md outline-none focus:ring-current focus:ring-2 focus-visible:border-foreground-muted focus-visible:ring-background-control placeholder-foreground-muted bg-foreground/[.026] border border-control text-sm px-4 py-2  ${errors.email && 'border-red-600'}`}
+                                            className={` bg-bgThird block box-border w-full rounded-md shadow-sm transition-all text-foreground focus-visible:shadow-md outline-none  focus:outline-none  placeholder-foreground-muted bg-foreground/[.026] border-2 text-sm px-4 py-3 font-apercu-regular  ${errors.email && 'border-red-600'}`}
                                             placeholder='you@example.com' />
 
                                         {errors.email && <div className='absolute inset-y-0 right-0 pl-3 pr-1 flex space-x-1 items-center top-5'>
@@ -166,14 +166,14 @@ const SignUpForm = () => {
 
                                 <div className='mb-4'>
                                     <div className='relative'>
-                                        <label htmlFor="password" className='block text-foreground-light text-sm mb-1'>Password</label>
+                                        <label htmlFor="password" className='block text-primary font-apercu-regular text-sm mb-1'>Password</label>
                                         <input
                                             id='password'
                                             name='password'
                                             type={showPassword ? "text" : "password"}
                                             value={values.password}
                                             onChange={handleChange}
-                                            className={`peer/input block box-border w-full rounded-md shadow-sm transition-all text-foreground focus-visible:shadow-md outline-none focus:ring-current focus:ring-2 focus-visible:border-foreground-muted focus-visible:ring-background-control placeholder-foreground-muted bg-foreground/[.026] border border-control text-sm px-4 py-2  ${errors.password && 'border-red-600'}`}
+                                            className={` bg-bgThird block box-border w-full rounded-md shadow-sm transition-all text-foreground focus-visible:shadow-md outline-none  focus:outline-none  placeholder-foreground-muted bg-foreground/[.026] border-2 text-sm px-4 py-3  font-apercu-regular ${errors.password && 'border-red-600'}`}
                                             placeholder='••••••••' />
 
                                         {errors.password && <div className='absolute inset-y-0 right-10 pl-3 pr-1 flex space-x-1 items-center top-5'>

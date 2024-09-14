@@ -10,26 +10,16 @@ const SignUp = () => {
     6
     return (
         <div className='bg-white min-h-full'>
-            <div className='grid grid-cols-12 '>
-
+            <div className='grid grid-cols-12 h-screen'>
                 <div
-                    className='col-span-4 bg-[#F8F8F8] border-r shadow-r  flex items-center justify-center   h-screen  w-full '>
-                    <div>
-                        <div onClick={() => router.push("/")} className='flex items-center  gap-1 font-bold text-primary'>
-                            <div className='bg-primary text-secondary font-bold w-[25px] h-[25px] rounded-full flex items-center justify-center'>
-                                J
-                            </div>
-                            obber
-                        </div>
-                        <SignUpForm />
-
-                    </div>
+                    className='col-span-12 md:col-span-6 lg:col-span-5 bg-[#F8F8F8] border-r shadow-r  flex items-center justify-center     w-full '>
+                    <SignUpForm />
                 </div>
-                <div className='col-span-8'>
+                <div className='col-span-12 md:col-span-6 lg:col-span-7 hidden md:block lg:block'>
                     <div className='flex items-center justify-center h-full'>
                         <div>
-                            <h2 className='text-5xl font-semibold text-blue-midnight_blue '>How its work</h2>
-                            <p className='text-blue-midnight_blue font-light mt-4 ' >Pick up where you left off.</p>
+                            <h2 className='text-5xl font-semibold text-primary font-apercu-regular'>How its work</h2>
+                            <p className='text-primary font-apercu-regular font-light mt-4 ' >Pick up where you left off.</p>
                             <AuthTimeline />
                         </div>
                     </div>
