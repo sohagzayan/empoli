@@ -1,0 +1,28 @@
+:root {
+  --bg-primary-rgb: #f8f8f8; /* Light Grayish White */
+  --color-primary-rgb: #222222; /* Very Dark Grayish Black */
+  --bg-white: #ffffff; /* White */
+  --color-white: #ffffff; /* White */
+  --color-primary: #222222; /* Very Dark Grayish Black */
+  --bg-secondary: #222222; /* Very Dark Grayish Black */
+  --color-connect: #ff602c; /* Bright Red-Orange */
+  --color-inspire: #aaeec4; /* Light Greenish Cyan */
+  --color-errors: #fa5d29; /* Strong Orange-Red */
+  --border-gray: #ededed; /* Very Light Gray */
+  --bg-input: #ffffff; /* White */
+  --bg-input-hover: #f8f8f8; /* Light Grayish White */
+  --color-blue: #49b3fc; /* Bright Cyan Blue */
+  --color-featured: #f8f0ee; /* Very Pale Orange */
+  --color-orange: #fa5d29; /* Strong Orange-Red (Same as errors) */
+  --color-inspire-2: #c8e4d3; /* Very Light Greenish Cyan */
+  --color-inspire-3: #e2f4e9; /* Very Pale Greenish Cyan */
+  --color-awards: #502bd8; /* Dark Blue-Violet */
+  --color-read: #c0ab3c; /* Moderate Yellow */
+  --color-learn: #fff083; /* Light Yellow */
+  --color-jobs: #74bcff; /* Light Cyan-Blue */
+}
+
+/* 
+    Now all the color variables are properly formatted with their respective hex values.
+    The comments are placed after each variable to describe the color for easier reference.
+  */

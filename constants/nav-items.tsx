@@ -19,24 +19,33 @@ const navItems = (role: any) => {
     ]
 
     const recruitNavItem = [
-        {
-            label: 'Discover',
-            key: `/discover`,
-        },
+        // {
+        //     label: 'Discover',
+        //     key: `/discover`,
+        // },
         {
             label: 'Overview',
             key: `/recruit/overview`,
         },
         {
-            label: 'Products',
-            subMenu: [
-                { id: 1, label: "Recruit Pro", details: "More filters, candidate information, & workflow tools", key: "/recruit/products/recruit-pro" },
-                { id: 1, label: "Curated", details: "Vetted list of the top local & remote tech talent sent to you 2x week", key: "/recruit/products/curated" },
-            ]
+            label: 'Find talent',
+            key: `/recruit/all-features/find-talent`,
         },
         {
-            label: 'Pricing',
-            key: `/recruit/pricing`,
+            label: 'Post a jobs',
+            key: `/recruit/all-features/post-a-job`,
+        },
+        {
+            label: 'Free ATS',
+            key: `/recruit/all-features/free-ats`,
+        },
+        {
+            label: 'Customers',
+            key: `/recruit/customers`,
+        },
+        {
+            label: 'Join Directory',
+            key: `/recruit/plans/recruit-plans`,
         },
         {
             label: 'For job seekers',
@@ -46,10 +55,10 @@ const navItems = (role: any) => {
 
 
     const candidateNavItem = [
-        {
-            label: 'Discover',
-            key: `/discover`,
-        },
+        // {
+        //     label: 'Discover',
+        //     key: `/discover`,
+        // },
         {
             label: 'Overview',
             key: `/candidates/overview`,

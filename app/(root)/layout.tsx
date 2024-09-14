@@ -14,8 +14,7 @@ export default function RootLayouts({
     // overflow-hidden
     return (
         <div className="relative ">
-            <MobileNav />
-
+            {/* <MobileNav /> */}
             <main>{children}</main>
             <Toaster richColors />
         </div>
