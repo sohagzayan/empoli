@@ -18,7 +18,7 @@ const NavItems = ({ variant }: any) => {
     console.log("currentUser", currentUser)
 
     return (
-        <div className=' hidden lg:block font-apercu-medium text-primary '>
+        <div className=' hidden lg:block text-white '>
             <Menubar className='border-none'>
                 <NavigationMenu>
                     <NavigationMenuList>
@@ -27,7 +27,7 @@ const NavItems = ({ variant }: any) => {
                                 {menu.key ?
                                     <NavigationMenuItem className="">
                                         <NavigationMenuTrigger className="[&>svg]:hidden px-4">
-                                            <Link href={menu.key} className='text-base'>
+                                            <Link href={menu.key} className='text-white font-500 '>
                                                 {menu.label}
                                             </Link>
                                         </NavigationMenuTrigger>

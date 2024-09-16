@@ -14,8 +14,8 @@ const PopularSearches = () => {
     return (
         <div className='py-4'>
             <div className='flex items-center'>
-                <span className='text-[14px] text-purple'>Popular Searches : </span>
-                <div className='flex gap-2 items-center ml-2'>
+                <span className='text-[14px] text-gray400'>Popular Searches : </span>
+                <div className='flex gap-2 text-gray400 items-center ml-2'>
                     {keywords.map((k, i) => <span className='text-[13px] text-purple' key={k + i}>{k},</span>)}
                 </div>
             </div>

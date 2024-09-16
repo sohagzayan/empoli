@@ -97,13 +97,13 @@ const HeaderController = () => {
                     <Button
                         variant="outline"
                         onClick={() => router.push('/members/sign-in')}
-                        className='bg-transparent text-blue-midnight_blue hover:bg-gray-50 whitespace-nowrap cursor-pointer font-bold flex items-center  rounded-xl border-translucent_black transition-all duration-200 ease-in-out hover:border-primary hover:text-primary  border-border '>
+                        className='bg-transparent text-primary border border-primary hover:bg-primary hover:text-white whitespace-nowrap cursor-pointer font-bold flex items-center  rounded-xl  transition-all duration-200 ease-in-out  '>
                         Log in
                     </Button>
 
                     <Button
                         onClick={() => router.push('/members/sign-up')}
-                        variant="outline" className='bg-bgSecondary text-white   whitespace-nowrap cursor-pointer  flex items-center  px-3 py-0 rounded-md transition-all duration-200 ease-in-out hover:bg-primary hover:border-primary hover:text-white font-apercu-light  text-base '>
+                        variant="outline" className='bg-primary text-white border-transparent hover:bg-transparent  whitespace-nowrap cursor-pointer  flex items-center  px-3 py-0 rounded-md transition-all duration-200 ease-in-out hover:text-primary hover:border-primary hover:text-white font-apercu-light  text-base '>
                         Be Part
                     </Button>
 

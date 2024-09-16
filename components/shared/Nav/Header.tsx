@@ -20,6 +20,8 @@ import { signOut } from 'next-auth/react'
 import { MdFavoriteBorder } from 'react-icons/md'
 import { AiOutlineUser } from 'react-icons/ai'
 import HeaderController from '../header-controller/HeaderController'
+import { motion } from 'framer-motion';
+
 
 interface HeaderType {
     variant?: string,
@@ -48,11 +50,15 @@ const Header = ({ variant, bg }: HeaderType) => {
             style={{
                 backdropFilter: scrollY >= 70 ? 'blur(5px)' : ""
             }}
-            className={` px-4 transition-all duration-300 z-50    ${scrollY >= 70 ? `sticky top-0 left-0   header ` : ` z-40 relative top-0 left-0 right-0 border-b `}`}>
-            <div className='flex container lg:px-16 xl:px-20  items-center justify-between h-16 '>
+            className={` px-4 transition-all duration-300 z-50    ${scrollY >= 70 ? `sticky top-0 left-0   header ` : ` z-40 relative top-0 left-0 right-0  `}`}>
+            <div className='flex container lg:px-16 xl:px-20 relative items-center justify-between h-16 '>
+
+
+
+
                 <div className='flex items-center gap-10'>
                     <Link href='/'>
-                        <div className='flex items-center  gap-1 text-primary text-medium font-apercu-bold '>
+                        <div className='flex items-center  gap-1 text-white font-700  '>
                             JobJoy.
                         </div>
                     </Link>

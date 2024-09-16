@@ -63,7 +63,8 @@ const Marquee = () => {
 
     return (
         <div
-            className="overflow-hidden whitespace-nowrap w-full flex items-center bg-gray_light_400 py-3 font-apercu-regular  text-sm"
+            style={{ backgroundColor: "rgba(255,255,255,.1)" }}
+            className="overflow-hidden whitespace-nowrap w-full flex items-center  py-3 font-400   text-sm"
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
         >
@@ -75,14 +76,14 @@ const Marquee = () => {
             >
                 {/* First set of messages */}
                 {messages.map((msg, index) => (
-                    <span key={index} className="inline-block mr-10 odd:font-medium font-bold">
+                    <span key={index} className="inline-block mr-10 odd:font-medium odd:text-gray400 font-bold text-white">
                         {msg}
                     </span>
                 ))}
 
                 {/* Duplicate set of messages for seamless looping */}
                 {messages.map((msg, index) => (
-                    <span key={index + messages.length} className="inline-block mr-10  ">
+                    <span key={index + messages.length} className="inline-block mr-10  odd:font-medium odd:text-gray400 font-bold text-white">
                         {msg}
                     </span>
                 ))}
