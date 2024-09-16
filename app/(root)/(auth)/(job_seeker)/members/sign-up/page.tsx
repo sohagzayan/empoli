@@ -25,9 +25,6 @@ const SignUp = () => {
                         <div className=''>
                             <div className='mb-6'>
                                 <h2 className='text-5xl  font-700 text-white'>How it works</h2>
-                                {/* <p className=' font-400 text-white mt-4'>
-                                    Pick up where you left off.
-                                </p> */}
                             </div>
                             <AuthTimeline />
                         </div>

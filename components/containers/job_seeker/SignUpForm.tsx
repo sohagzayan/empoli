@@ -181,8 +181,6 @@ const SignUpForm = () => {
                                                 type="text"
                                                 style={{ backgroundColor: "rgba(255,255,255,.1)" }}
                                                 className={`block p-3 w-full rounded-md ${errors.fullName ? 'border-red-600' : ''} py-1.5  shadow-sm  rounded-md focus:ring-indigo-500 sm:text-base sm:leading-6 border-none outline-none text-white text-sm font-400`}
-
-
                                                 placeholder='Full Name' />
 
                                             {errors.fullName && <div className='absolute inset-y-0 right-0 pl-3 pr-1 flex space-x-1 items-center top-5'>
