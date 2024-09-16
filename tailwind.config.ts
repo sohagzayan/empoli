@@ -1,5 +1,13 @@
-/** @type {import('tailwindcss').Config} */
 import { withUt } from "uploadthing/tw";
+
+// function withOpacity(variableName: any) {
+//   return ({ opacityValue }: any) => {
+//     if (opacityValue !== undefined) {
+//       return `rgba(var(${variableName}), ${opacityValue})`;
+//     }
+//     return `rgba(var(${variableName}), 1)`; // Default to full opacity
+//   };
+// }
 
 module.exports = withUt({
   darkMode: ["class"],
@@ -18,56 +26,92 @@ module.exports = withUt({
     },
     extend: {
       colors: {
-        primary: "var(--color-primary)", // Matches --color-primary
-        white: "var(--color-white)", // Matches --color-white
-        orange: "var(--color-orange)", // Matches --color-orange
-        blue: "var(--color-blue)", // Matches --color-blue
-        connect: "var(--color-connect)", // Matches --color-connect
-        connect2: "var(--color-connect-2)", // Matches --color-connect-2
-        connect3: "var(--color-connect-3)", // Matches --color-connect-3
-        inspire: "var(--color-inspire)", // Matches --color-inspire
-        inspire2: "var(--color-inspire-2)", // Matches --color-inspire-2
-        inspire3: "var(--color-inspire-3)", // Matches --color-inspire-3
-        awards: "var(--color-awards)", // Matches --color-awards
-        awards2: "var(--color-awards-2)", // Matches --color-awards-2
-        awards3: "var(--color-awards-3)", // Matches --color-awards-3
-        read: "var(--color-read)", // Matches --color-read
-        read2: "var(--color-read-2)", // Matches --color-read-2
-        read3: "var(--color-read-3)", // Matches --color-read-3
-        learn: "var(--color-learn)", // Matches --color-learn
-        learn2: "var(--color-learn-2)", // Matches --color-learn-2
-        learn3: "var(--color-learn-3)", // Matches --color-learn-3
-        jobs: "var(--color-jobs)", // Matches --color-jobs
-        jobs2: "var(--color-jobs-2)", // Matches --color-jobs-2
-        jobs3: "var(--color-jobs-3)", // Matches --color-jobs-3
-        gray_light_400: "#f0f0f0", // Static value, matches light gray
-        light_gray: "var(--color-odd-rows)", // Matches --color-odd-rows
-        black: "#000000", // Static black color
-        border: "var(--border-gray)", // Matches --border-gray
-
-        /* Background colors */
-        bgPrimary: "var(--bg-primary)", // Matches --bg-primary
-        bgPrimaryRgb: "var(--bg-primary-rgb)", // Matches --bg-primary-rgb
-        bgSecondary: "var(--bg-secondary)", // Matches --bg-secondary
-        bgThird: "var(--bg-3rd)", // Matches --bg-3rd
-        bgFourth: "var(--bg-4rd)", // Matches --bg-4rd
-        bgWhite: "var(--bg-white)", // Matches --bg-white
+        customDarkBg: "var(--bs-bg-custom-dark)",
+        primary: "var(--bs-primary)",
+        white: "var(--bs-light-light)",
+        gray100: "var(--bs-gray-100)",
+        gray200: "var(--bs-gray-200)",
+        gray300: "var(--bs-gray-300)",
+        gray400: "var(--bs-gray-400)",
+        gray500: "var(--bs-gray-500)",
+        gray600: "var(--bs-gray-600)",
+        gray700: "var(--bs-gray-700)",
+        gray800: "var(--bs-gray-800)",
+        gray900: "var(--bs-gray-900)",
+        success: "var(--bs-success)",
+        info: "var(--bs-info)",
+        warning: "var(--bs-warning)",
+        danger: "var(--bs-danger)",
+        dark: "var(--bs-dark)",
+        primaryActive: "var(--bs-primary-active)",
+        secondaryActive: "var(--bs-secondary-active)",
+        successActive: "var(--bs-success-active)",
+        infoActive: "var(--bs-info-active)",
+        warningActive: "var(--bs-warning-active)",
+        dangerActive: "var(--bs-danger-active)",
+        primaryLight: "var(--bs-primary-light)",
+        secondaryLight: "var(--bs-secondary-light)",
+        successLight: "var(--bs-success-light)",
+        infoLight: "var(--bs-info-light)",
+        warningLight: "var(--bs-warning-light)",
+        dangerLight: "var(--bs-danger-light)",
+        textMuted: "var(--bs-text-muted)",
+        textPrimary: "var(--bs-text-primary)",
+        textSecondary: "var(--bs-text-secondary)",
+        textSuccess: "var(--bs-text-success)",
+        textInfo: "var(--bs-text-info)",
+        textWarning: "var(--bs-text-warning)",
+        textDanger: "var(--bs-text-danger)",
+        textDark: "var(--bs-text-dark)",
+        textLight: "var(--bs-text-light)",
+        borderColor: "var(--bs-border-color)",
+        borderDashedColor: "var(--bs-border-dashed-color)",
+        bgPrimary: "var(--bs-light)",
+        bgSecondary: "var(--bs-secondary)",
+        bgGray100: "var(--bs-gray-100)",
+        bgGray200: "var(--bs-gray-200)",
+        bgGray300: "var(--bs-gray-300)",
+        bgGray400: "var(--bs-gray-400)",
+        bgGray500: "var(--bs-gray-500)",
+        bgWhite: "var(--bs-light-light)",
+        shadowXs: "var(--bs-box-shadow-xs)",
+        shadowSm: "var(--bs-box-shadow-sm)",
+        shadow: "var(--bs-box-shadow)",
+        shadowLg: "var(--bs-box-shadow-lg)",
+        // Adding RGB values using the correct format
+        lightRgb: "var(--bs-light-rgb)",
+        primaryRgb: "var(--bs-primary-rgb)",
+        secondaryRgb: "var(--bs-secondary-rgb)",
+        successRgb: "var(--bs-success-rgb)",
+        infoRgb: "var(--bs-info-rgb)",
+        warningRgb: "var(--bs-warning-rgb)",
+        dangerRgb: "var(--bs-danger-rgb)",
+        darkRgb: "var(--bs-dark-rgb)",
       },
-      fontSize: {
-        small: "var(--text-size-small)", // Matches --text-size-small (12px)
-        base: "var(--text-size-primary)", // Matches --text-size-primary (16px)
-        medium: "var(--text-size-medium)", // Matches --text-size-medium (18px)
-        large: "var(--text-size-large)", // Matches --text-size-large (24px)
-      },
-      borderRadius: {
-        sm: "var(--rounded-small)",
-        md: "var(--rounded-normal)",
-        lg: "var(--rounded-large)",
-      },
+      // fontSize: {
+      //   small: "var(--text-size-small)",
+      //   base: "var(--text-size-primary)",
+      //   medium: "var(--text-size-medium)",
+      //   large: "var(--text-size-large)",
+      // },
+      // borderRadius: {
+      //   sm: "var(--rounded-small)",
+      //   md: "var(--rounded-normal)",
+      //   lg: "var(--rounded-large)",
+      // },
       fontFamily: {
-        "apercu-bold": ["Apercu Bold", "sans-serif"],
-        "apercu-medium": ["Apercu Medium", "sans-serif"],
-        "apercu-regular": ["Apercu Regular", "sans-serif"],
+        inter: ['"Inter"', "sans-serif"],
+      },
+      fontWeight: {
+        100: "100",
+        200: "200",
+        300: "300",
+        400: "400",
+        500: "500",
+        600: "600",
+        700: "700",
+        800: "800",
+        900: "900",
       },
     },
   },

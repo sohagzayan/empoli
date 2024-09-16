@@ -51,7 +51,7 @@ const JobJoyTimeline: React.FC = () => {
     };
 
     return (
-        <ol className="relative border-s border-gray-200 dark:border-gray-700 text-primary ">
+        <ol className="relative border-s border-white dark:border-gray-700 text-primary ">
             {milestones.map((milestone, index) => (
                 <motion.li
                     key={index}
@@ -62,22 +62,22 @@ const JobJoyTimeline: React.FC = () => {
                     variants={textRevealVariants}
                 >
                     <motion.div
-                        className="absolute w-2 h-2 bg-blue-500 rounded-full mt-1.5 -start-1.5 border border-white dark:border-gray-900 dark:bg-blue-700"
+                        className="absolute w-3 h-3 bg-customDarkBg rounded-full mt-1.5 -start-1.5 border border-white dark:border-gray-900 dark:bg-blue-700"
                         animate={pulseAnimation}
                     />
-                    <time className="mb-1 text-xs font-normal leading-none text-gray-400 dark:text-gray-500">
+                    <time className="mb-1 text-xs font-400 text-gray300">
                         {milestone.date}
                     </time>
-                    <h3 className="text-sm font-semibold text-gray-900 dark:text-white">
+                    <h3 className="text-sm font-600 text-white">
                         {milestone.title}
                     </h3>
-                    <p className="mb-2 text-xs w-[400px] font-normal text-gray-500 dark:text-gray-400">
+                    <p className="mb-2 text-xs w-full md:w-[300px] lg:w-[400px] font-400 text-gray200 ">
                         {milestone.description}
                     </p>
-                    {milestone.link && (
+                    {/* {milestone.link && (
                         <a
                             href={milestone.link}
-                            className="inline-flex items-center px-3 py-1 text-xs font-medium text-gray-900 bg-white border border-gray-200 rounded-lg hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:outline-none focus:ring-gray-100 focus:text-blue-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700 dark:focus:ring-gray-700"
+                            className="inline-flex items-center px-3 py-1 text-xs  font-700 bg-white text-primary  rounded-lg hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:outline-none focus:ring-gray-100 focus:text-blue-700"
                         >
                             Learn more
                             <svg
@@ -96,7 +96,7 @@ const JobJoyTimeline: React.FC = () => {
                                 />
                             </svg>
                         </a>
-                    )}
+                    )} */}
                 </motion.li>
             ))}
         </ol>
