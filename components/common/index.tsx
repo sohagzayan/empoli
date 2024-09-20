@@ -1,3 +1,7 @@
 // export { Heading, headingVariants } from './app-heading'
 export { default as Logo } from './logo'
 export { default as Select } from './select'
+export { default as Button } from './button'
+export { default as WebsiteReviews } from './website-reviews'
+export { default as SocialMediaLinkGroup } from './social-media-link-group'
+export { default as SubscriptionForm } from './subscription-form'

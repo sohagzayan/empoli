@@ -100,6 +100,44 @@ body {
   box-sizing: border-box; /* Ensure consistent sizing across elements */
 }
 
+.custom-container {
+  width: 100%;
+  padding-right: var(--bs-gutter-x, 0.75rem);
+  padding-left: var(--bs-gutter-x, 0.75rem);
+  margin-right: auto;
+  margin-left: auto;
+}
+
+@media (min-width: 576px) {
+  .custom-container {
+    max-width: 540px;
+  }
+}
+
+@media (min-width: 768px) {
+  .custom-container {
+    max-width: 720px;
+  }
+}
+
+@media (min-width: 992px) {
+  .custom-container {
+    max-width: 960px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .custom-container {
+    max-width: 1140px;
+  }
+}
+
+@media (min-width: 1400px) {
+  .custom-container {
+    max-width: 1230px;
+  }
+}
+
 .tiptap {
   ul,
   ol {
@@ -209,4 +247,13 @@ body {
 .input-range__label-container {
   margin-right: 20px !important;
   font-size: 14px;
+}
+
+/* Edit reviews slider navigation */
+
+.reviews .swiper-button-prev,
+.reviews .swiper-button-next {
+  top: -10px; /* Adjust the vertical position */
+  transform: none;
+  z-index: 999999999;
 }
