@@ -1,4 +1,5 @@
 "use client"
+import { Divider, SocialLogin } from '@/components/common'
 import LoadingCircle from '@/components/shared/loading-circle/LoadingCircle'
 import { Button } from '@/components/ui/button'
 import { loginValidationSchema } from '@/utils/validation-schemas'
@@ -94,7 +95,7 @@ const SignInForm = () => {
 
                                 <div className='mb-8 text-center'>
                                     <h3 className=' text-white mt-8 mb-2 text-xl font-700'>Sign In</h3>
-                                    <p className='text-sm text-gray500 font-400'>
+                                    <p className='text-sm text-text6 font-400'>
                                         Use social media accounts
                                     </p>
                                 </div>
@@ -102,26 +103,12 @@ const SignInForm = () => {
 
                                 <div>
                                     <div className=' bg-transparent w-full flex items-center justify-center'>
-                                        <button
-                                            onClick={signInWithGoogle}
-                                            className='relative cursor-pointer space-x-2 text-sm text-center border border-gray400 font-500 text-white ease-out duration-200  outline-none transition-all outline-0 focus-visible:outline-4 focus-visible:outline-offset-1 rounded-[5px] text-foreground  border-strong hover:border-stronger focus-visible:outline-border-strong data-[state=open]:border-stronger data-[state=open]:outline-border-strong w-full flex items-center justify-center text-base px-4 py-2 gap-3 bg-transparent font-apercu-regular'>
-                                            <PiGoogleLogo size={22} className='mr-2' />
-                                            Continue with google
-                                        </button>
+                                        <SocialLogin />
                                     </div>
                                 </div>
 
 
-                                <div className='relative my-8'>
-                                    <div className='absolute inset-0 flex items-center'>
-                                        <div className='w-full border-t border-gray400 border-strong'></div>
-                                    </div>
-                                    <div className='relative flex justify-center text-sm'>
-                                        <span className='px-2 text-sm bg-studio text-gray500 font-500 bg-customDarkBg'>
-                                            Or with email
-                                        </span>
-                                    </div>
-                                </div>
+                                <Divider text='Or with email' />
 
 
                                 <div className='mb-4'>
@@ -158,25 +145,25 @@ const SignInForm = () => {
                                     </p>
                                 </div>
                                 <div className='text-end mb-6'>
-                                    <Link href="/" className='text-primaryRgb font-600 text-sm'>Forgot Password?</Link>
+                                    <Link href="/" className='text-theme1 font-600 text-sm'>Forgot Password?</Link>
                                 </div>
 
                                 <Button
-                                    className={`relative cursor-pointer  space-x-2 text-center font-regular ease-out duration-200 rounded-md outline-none transition-all outline-0 py-5 text-white border-brand shadow-sm  ${loading ? '  hover:bg-primary/60 pointer-events-none  ' : 'bg-primary  hover:bg-primary pointer-events-auto'
+                                    className={`relative cursor-pointer  space-x-2 text-center font-regular ease-out duration-200 rounded-md outline-none transition-all outline-0 py-5 text-white border-brand shadow-sm  ${loading ? '  hover:bg-primary/60 pointer-events-none  ' : 'bg-theme1  hover:bg-bg-theme1 rounded-full pointer-events-auto'
                                         }`}>
                                     {loading && <LoadingCircle />}
                                     Sign In
                                 </Button>
 
 
-                                <div className='my-8 self-center text-sm text-blue-midnight_blue font-light'>
+                                <div className='my-8 self-center text-sm text-text6 font-light'>
                                     <span
                                         className='text-gray400 font-400 '>
                                         Not a Member yet?
                                     </span>
                                     <Link
                                         href='/members/sign-up'
-                                        className='font-600 ml-1 cursor-pointer text-primaryRgb'>
+                                        className='font-600 ml-1 cursor-pointer text-theme1'>
                                         Sign Up
                                     </Link>
                                 </div>

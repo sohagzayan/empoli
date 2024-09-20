@@ -7,7 +7,7 @@ import React from 'react'
 const SignInPage = () => {
     const router = useRouter()
     return (
-        <div className='bg-white min-h-full'>
+        <div className='bg-themeDark min-h-full'>
             <div className='bg-primary w-full text-white py-6 text-center text-xl font-700 block md:hidden lg:hidden'>
                 JobJoy.
             </div>

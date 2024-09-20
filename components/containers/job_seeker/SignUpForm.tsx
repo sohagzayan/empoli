@@ -1,10 +1,13 @@
 "use client"
+import { Divider } from '@/components/common'
+import SocialLogin from '@/components/common/auth/social-login'
 import MiniLoadingCircle from '@/components/shared/mini-loading-circle/MiniLoadingCircle'
 import { Button } from '@/components/ui/button'
 import { registerValidationAsCandidateSchema } from '@/utils/validation-schemas'
 import { Checkbox } from '@radix-ui/react-checkbox'
 import { Formik, FormikHelpers } from 'formik'
 import { signIn, useSession } from 'next-auth/react'
+import Image from 'next/image'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import React, { useState } from 'react'
@@ -127,7 +130,7 @@ const SignUpForm = () => {
 
 
                     return (
-                        <div className=' '>
+                        <div className='h-full '>
                             <form onSubmit={(e) => {
                                 e.stopPropagation()
                                 handleSubmit(e)
@@ -139,34 +142,19 @@ const SignUpForm = () => {
 
                                     <div className='mb-8 text-center'>
                                         <h3 className=' text-white mt-8 mb-2 text-xl font-700'>Sign Up</h3>
-                                        <p className='text-sm text-gray500 font-400'>Use social media accounts</p>
+                                        <p className='text-sm text-text6 font-400'>Use social media accounts</p>
                                     </div>
 
 
 
                                     <div>
                                         <div className=' bg-transparent w-full flex items-center justify-center'>
-                                            <button
-                                                onClick={signInWithGoogle}
-                                                className='relative cursor-pointer space-x-2 text-sm text-center border border-gray400 font-500 text-white ease-out duration-200  outline-none transition-all outline-0 focus-visible:outline-4 focus-visible:outline-offset-1 rounded-[5px] text-foreground  border-strong hover:border-stronger focus-visible:outline-border-strong data-[state=open]:border-stronger data-[state=open]:outline-border-strong w-full flex items-center justify-center text-base px-4 py-2 gap-3 bg-transparent font-apercu-regular' >
-                                                <PiGoogleLogo size={22} className='text-white' />
-                                                Sign in  with google
-                                            </button>
+                                            <SocialLogin />
                                         </div>
                                     </div>
 
 
-                                    <div className='relative my-8'>
-                                        <div className='absolute inset-0 flex items-center'>
-                                            <div className='w-full border-t border-gray400 border-strong'></div>
-                                        </div>
-                                        <div className='relative flex justify-center text-sm'>
-                                            <span className='px-2 text-sm bg-studio text-gray500 font-500 bg-customDarkBg'>
-                                                Or with email
-                                            </span>
-                                        </div>
-                                    </div>
-
+                                    <Divider text='Or with emails' />
 
                                     <div className='mb-6 '>
                                         <div className='relative'>
@@ -276,7 +264,8 @@ const SignUpForm = () => {
                                     </div>
 
                                     <div>
-                                        <p className='text-sm text-gray700 mb-4'>Use 8 or more characters with a mix of letters, numbers & symbols.
+                                        <p className='text-sm text-text6 mb-4'>
+                                            Use 8 or more characters with a mix of letters, numbers & symbols.
                                         </p>
                                     </div>
 
@@ -329,16 +318,16 @@ const SignUpForm = () => {
                                         />
                                         <label
                                             htmlFor="terms"
-                                            className='text-gray700 text-sm cursor-pointer'>I Agree & <Link href="/" className='text-primaryRgb'>Terms and conditions.</Link></label>
+                                            className='text-text6 text-sm cursor-pointer'>I Agree & <Link href="/" className='text-primaryRgb'>Terms and conditions.</Link></label>
                                     </div>
 
                                     <Button
                                         disabled={isFormDisabled}
                                         type='submit'
-                                        className={`relative cursor-pointer space-x-2 text-center font-regular ease-out duration-200 rounded-md outline-none transition-all outline-0 focus-visible:outline-4 focus-visible:outline-offset-1 flex items-center gap-2 font-600 bg-primary hover:bg-primary text-white border-brand shadow-sm opacity-50 ${true ? ' outline-brand-600 opacity-100' : ''
+                                        className={`relative cursor-pointer space-x-2 text-center font-regular ease-out duration-200 rounded-full outline-none transition-all outline-0 focus-visible:outline-4 focus-visible:outline-offset-1 flex items-center gap-2 font-600 bg-theme1 hover:bg-primary text-white border-brand shadow-sm opacity-50 ${true ? ' outline-brand-600 opacity-100' : ''
                                             }`}>
                                         {loading && <MiniLoadingCircle width="20" />}
-                                        Sign Up
+                                        Register
                                     </Button>
 
 

@@ -51,7 +51,7 @@ const JobJoyTimeline: React.FC = () => {
     };
 
     return (
-        <ol className="relative border-s border-white dark:border-gray-700 text-primary ">
+        <ol className="relative border-s border-theme1  text-primary ">
             {milestones.map((milestone, index) => (
                 <motion.li
                     key={index}
@@ -62,16 +62,16 @@ const JobJoyTimeline: React.FC = () => {
                     variants={textRevealVariants}
                 >
                     <motion.div
-                        className="absolute w-3 h-3 bg-customDarkBg rounded-full mt-1.5 -start-1.5 border border-white dark:border-gray-900 dark:bg-blue-700"
+                        className="absolute w-3 h-3 bg-theme1 rounded-full mt-1.5 -start-1.5 border border-white  "
                         animate={pulseAnimation}
                     />
-                    <time className="mb-1 text-xs font-400 text-gray300">
+                    <time className="mb-1 text-xs font-600 text-theme1">
                         {milestone.date}
                     </time>
                     <h3 className="text-sm font-600 text-white">
                         {milestone.title}
                     </h3>
-                    <p className="mb-2 text-xs w-full md:w-[300px] lg:w-[400px] font-400 text-gray200 ">
+                    <p className="mb-2 text-xs w-full md:w-[300px] lg:w-[400px] font-400 text-text6 ">
                         {milestone.description}
                     </p>
                     {/* {milestone.link && (
