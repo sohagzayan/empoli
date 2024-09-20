@@ -6,112 +6,86 @@
 
 @layer base {
   :root {
-    --bs-bg-custom-dark: rgb(17, 24, 39); /* Custom dark background */
-    --bs-text-muted: rgb(153, 161, 183);
-    --bs-gray-100: rgb(249, 249, 249);
-    --bs-gray-100-rgb: 249, 249, 249;
-    --bs-gray-200: rgb(241, 241, 244);
-    --bs-gray-200-rgb: 241, 241, 244;
-    --bs-gray-300: rgb(219, 223, 233);
-    --bs-gray-300-rgb: 219, 223, 233;
-    --bs-gray-400: rgb(196, 202, 218);
-    --bs-gray-400-rgb: 196, 202, 218;
-    --bs-gray-500: rgb(153, 161, 183);
-    --bs-gray-500-rgb: 153, 161, 183;
-    --bs-gray-600: rgb(120, 130, 157);
-    --bs-gray-600-rgb: 120, 130, 157;
-    --bs-gray-700: rgb(75, 86, 117);
-    --bs-gray-700-rgb: 75, 86, 117;
-    --bs-gray-800: rgb(37, 47, 74);
-    --bs-gray-800-rgb: 37, 47, 74;
-    --bs-gray-900: rgb(7, 20, 55);
-    --bs-gray-900-rgb: 7, 20, 55;
-    --bs-light: rgb(249, 249, 249);
-    --bs-primary: rgb(103, 12, 236);
-    --bs-secondary: rgb(241, 241, 244);
-    --bs-success: rgb(23, 198, 83);
-    --bs-info: rgb(114, 57, 234);
-    --bs-warning: rgb(246, 192, 0);
-    --bs-danger: rgb(248, 40, 90);
-    --bs-dark: rgb(30, 33, 41);
-    --bs-primary-active: rgb(94, 10, 216);
-    --bs-secondary-active: rgb(196, 202, 218);
-    --bs-light-active: rgb(241, 241, 244);
-    --bs-success-active: rgb(4, 180, 64);
-    --bs-info-active: rgb(80, 20, 208);
-    --bs-warning-active: rgb(222, 173, 0);
-    --bs-danger-active: rgb(216, 26, 72);
-    --bs-dark-active: rgb(17, 19, 24);
-    --bs-primary-light: rgb(233, 243, 255);
-    --bs-secondary-light: rgb(249, 249, 249);
-    --bs-success-light: rgb(223, 255, 234);
-    --bs-info-light: rgb(248, 245, 255);
-    --bs-warning-light: rgb(255, 248, 221);
-    --bs-danger-light: rgb(255, 238, 243);
-    --bs-dark-light: rgb(249, 249, 249);
-    --bs-light-light: rgb(255, 255, 255);
-    --bs-primary-inverse: rgb(255, 255, 255);
-    --bs-secondary-inverse: rgb(37, 47, 74);
-    --bs-light-inverse: rgb(37, 47, 74);
-    --bs-success-inverse: rgb(255, 255, 255);
-    --bs-info-inverse: rgb(255, 255, 255);
-    --bs-warning-inverse: rgb(255, 255, 255);
-    --bs-danger-inverse: rgb(255, 255, 255);
-    --bs-dark-inverse: rgb(255, 255, 255);
-    --bs-primary-clarity: rgba(27, 132, 255, 0.2);
-    --bs-secondary-clarity: rgba(249, 249, 249, 0.2);
-    --bs-success-clarity: rgba(23, 198, 83, 0.2);
-    --bs-info-clarity: rgba(114, 57, 234, 0.2);
-    --bs-warning-clarity: rgba(246, 192, 0, 0.2);
-    --bs-danger-clarity: rgba(248, 40, 90, 0.2);
-    --bs-dark-clarity: rgba(30, 33, 41, 0.2);
-    --bs-light-clarity: rgba(255, 255, 255, 0.2);
-    --bs-light-rgb: rgb(249, 249, 249);
-    --bs-primary-rgb: rgb(27, 132, 255);
-    --bs-secondary-rgb: rgb(241, 241, 244);
-    --bs-success-rgb: rgb(23, 198, 83);
-    --bs-info-rgb: rgb(114, 57, 234);
-    --bs-warning-rgb: rgb(246, 192, 0);
-    --bs-danger-rgb: rgb(248, 40, 90);
-    --bs-dark-rgb: rgb(30, 33, 41);
-    --bs-text-white: rgb(255, 255, 255);
-    --bs-text-primary: rgb(103, 12, 236);
-    --bs-text-secondary: rgb(241, 241, 244);
-    --bs-text-light: rgb(249, 249, 249);
-    --bs-text-success: rgb(23, 198, 83);
-    --bs-text-info: rgb(114, 57, 234);
-    --bs-text-warning: rgb(246, 192, 0);
-    --bs-text-danger: rgb(248, 40, 90);
-    --bs-text-dark: rgb(30, 33, 41);
-    --bs-text-muted: rgb(153, 161, 183);
-    --bs-text-gray-100: rgb(249, 249, 249);
-    --bs-text-gray-200: rgb(241, 241, 244);
-    --bs-text-gray-300: rgb(219, 223, 233);
-    --bs-text-gray-400: rgb(196, 202, 218);
-    --bs-text-gray-500: rgb(153, 161, 183);
-    --bs-text-gray-600: rgb(120, 130, 157);
-    --bs-text-gray-700: rgb(75, 86, 117);
-    --bs-text-gray-800: rgb(37, 47, 74);
-    --bs-text-gray-900: rgb(7, 20, 55);
-    --bs-border-color: rgb(241, 241, 244);
-    --bs-border-dashed-color: rgb(219, 223, 233);
-    --bs-box-shadow-xs: 0 0.1rem 0.75rem 0.25rem rgba(0, 0, 0, 0.05);
-    --bs-box-shadow-sm: 0 0.1rem 1rem 0.25rem rgba(0, 0, 0, 0.05);
-    --bs-box-shadow: 0 0.5rem 1.5rem 0.5rem rgba(0, 0, 0, 0.075);
-    --bs-box-shadow-lg: 0 1rem 2rem 1rem rgba(0, 0, 0, 0.1);
+    --tp-common-white-rgb: rgb(255, 255, 255); /* #ffffff */
+    --tp-common-black-rgb: rgb(12, 25, 57); /* #0C1939 */
+    --tp-common-black-2-rgb: rgb(15, 19, 51); /* #0F1333 */
+    --tp-common-black-3-rgb: rgb(16, 25, 47); /* #10192F */
+    --tp-common-black-4-rgb: rgb(5, 9, 43); /* #05092B */
+    --tp-common-black-5-rgb: rgb(25, 28, 60); /* #191C3C */
+    --tp-common-black-6-rgb: rgb(16, 36, 83); /* #102453 */
+    --tp-common-black-7-rgb: rgb(15, 19, 51); /* #0F1333 */
+    --tp-common-green-rgb: rgb(60, 184, 108); /* #3CB86C */
+    --tp-common-green-2-rgb: rgb(11, 191, 94); /* #0BBF5E */
+    --tp-common-orange-rgb: rgb(255, 104, 56); /* #FF6838 */
+    --tp-common-red-rgb: rgb(255, 72, 93); /* #FF485D */
+    --tp-common-purple-rgb: rgb(145, 78, 255); /* #914EFF */
+    --tp-common-yellow-rgb: rgb(255, 161, 83); /* #FFA153 */
+    --tp-common-yellow-2-rgb: rgb(254, 218, 3); /* #FEDA03 */
+    --tp-common-pink-rgb: rgb(254, 94, 120); /* #FE5E78 */
+
+    /* Heading and text */
+    --tp-heading-primary-rgb: rgb(12, 25, 57); /* #0C1939 */
+    --tp-text-body-rgb: rgb(86, 93, 109); /* #565D6D */
+    --tp-text-1-rgb: rgb(86, 93, 109); /* #565D6D */
+    --tp-text-2-rgb: rgb(168, 176, 195); /* #A8B0C3 */
+    --tp-text-3-rgb: rgb(141, 149, 168); /* #8D95A8 */
+    --tp-text-4-rgb: rgb(129, 131, 149); /* #818395 */
+    --tp-text-5-rgb: rgb(193, 200, 219); /* #C1C8DB */
+    --tp-text-6-rgb: rgb(161, 163, 178); /* #A1A3B2 */
+    --tp-text-7-rgb: rgb(137, 145, 165); /* #8991A5 */
+    --tp-text-8-rgb: rgb(117, 125, 147); /* #757D93 */
+    --tp-text-9-rgb: rgb(190, 196, 210); /* #BEC4D2 */
+    --tp-text-10-rgb: rgb(114, 118, 148); /* #727694 */
+    --tp-text-11-rgb: rgb(165, 167, 182); /* #A5A7B6 */
+    --tp-text-12-rgb: rgb(148, 156, 174); /* #949CAE */
+    --tp-text-13-rgb: rgb(153, 158, 170); /* #999EAA */
+    --tp-text-14-rgb: rgb(141, 141, 141); /* #8D8D8D */
+
+    /* Grays */
+    --tp-grey-1-rgb: rgb(241, 241, 241); /* #F1F1F1 */
+    --tp-grey-2-rgb: rgb(245, 246, 248); /* #F5F6F8 */
+
+    /* Theme colors */
+    --tp-theme-1-rgb: rgb(55, 113, 254); /* #3771FE */
+    --tp-theme-2-rgb: rgb(0, 123, 255); /* #007BFF */
+    --tp-theme-dark-rgb: rgb(5, 9, 43); /* #05092B */
+    --tp-theme-dark-2-rgb: rgb(5, 9, 43); /* #05092B */
+    --tp-theme-white-rgb: rgb(255, 255, 255); /* #fff */
+
+    /* Borders */
+    --tp-border-1-rgb: rgb(25, 27, 29); /* #191B1D */
+    --tp-border-2-rgb: rgb(18, 22, 54); /* #121636 */
+    --tp-border-3-rgb: rgb(222, 222, 222); /* #dedede */
+    --tp-border-4-rgb: rgb(45, 49, 75); /* #2D314B */
   }
 
-  /* Dark Mode Variables */
-  .dark {
-    --bg-primary: rgb(27, 27, 27);
-    --color-primary: rgb(255, 255, 255);
-    --color-white: rgb(34, 34, 34);
-    --border-gray: rgb(68, 68, 68);
+  .light-theme {
+    --bs-body-color-rgb: rgb(33, 37, 41); /* #212529 */
+    --bs-body-bg-rgb: rgb(255, 255, 255); /* #fff */
+    --bs-primary-rgb: rgb(55, 113, 254); /* #3771FE */
+    --bs-secondary-rgb: rgb(173, 181, 189); /* #adb5bd */
+    --bs-success-rgb: rgb(25, 135, 84); /* #198754 */
+    --bs-danger-rgb: rgb(255, 72, 93); /* #FF485D */
+    --bs-warning-rgb: rgb(255, 161, 83); /* #FFA153 */
+    --bs-light-rgb: rgb(241, 241, 241); /* #f1f1f1 */
+    --bs-dark-rgb: rgb(52, 58, 64); /* #343a40 */
+
+    /* Typography colors */
+    --tp-theme-dark-rgb: rgb(255, 255, 255); /* #fff */
+    --tp-common-black-rgb: rgb(5, 9, 43); /* #05092B */
+    --tp-text-body-rgb: rgb(86, 93, 109); /* #565D6D */
   }
 }
 
+.no-ring-shadow {
+  --tw-ring-offset-shadow: none !important;
+  --tw-ring-shadow: none !important;
+  box-shadow: none !important;
+  outline: none !important;
+}
+
 body {
-  font-family: "Inter", sans-serif;
+  font-family: "Be Vietnam Pro", sans-serif;
   font-optical-sizing: auto;
   font-style: normal;
   font-smooth: always; /* Enables font smoothing */

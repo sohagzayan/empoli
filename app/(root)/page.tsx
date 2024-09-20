@@ -13,10 +13,8 @@ import Recruiting from '@/components/shared/recruiting/Recruiting'
 
 export default function Home() {
   return (
-    <main className='bg-customDarkBg '>
-      {/* <Header variant="primary" /> */}
-      <Marquee />
-      <Header />
+    <main className='bg-themeDark '>
+      {/* <Marquee /> */}
       <HeroSection />
       <PopularJobCategories />
       <FeaturedJobs />

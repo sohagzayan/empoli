@@ -14,7 +14,6 @@ export default function RootLayouts({
 
     return (
         <div className="bg-light_gray">
-            <Header />
             <OnboardingTabs />
             <main>{children}</main>
         </div>
