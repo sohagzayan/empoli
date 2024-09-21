@@ -16,7 +16,12 @@ import { MdErrorOutline } from 'react-icons/md'
 import { PiGoogleLogo } from 'react-icons/pi'
 import { toast } from 'sonner'
 
-const SignUpForm = () => {
+
+interface SignUpFormType {
+    selectRole: string | null
+}
+
+const SignUpForm = ({ selectRole }: SignUpFormType) => {
     const router = useRouter()
     const [loading, setLoading] = useState(false)
     const [showPassword, setShowPassword] = useState(false)
@@ -67,7 +72,7 @@ const SignUpForm = () => {
                     email,
                     password,
                     fullName,
-
+                    selectRole
                 }),
             })
             const data = await response.json()
@@ -83,12 +88,15 @@ const SignUpForm = () => {
             // })
             setLoading(false)
             toast.success(data.message)
-            router.push("/members/sign-in")
+            router.push("/ab/account-security/login")
 
 
         } catch (error: any) {
             setLoading(false)
-            toast.error(error.message)
+            toast.error(error.message, {
+                duration: 4000, // Time in milliseconds (5000ms = 5 seconds)
+            });
+
             actions.setErrors({ email: error.message || 'An error occurred' })
         }
         actions.setSubmitting(false)
@@ -177,7 +185,7 @@ const SignUpForm = () => {
                                             </div>}
                                         </div>
 
-                                        <p className='text-red-600 transition-all data-show:mt-2 data-show:animate-slide-down-normal data-hide:animate-slide-up-normal text-sm mt-1'>{errors.fullName}</p>
+                                        <p className='text-rose-500 transition-all data-show:mt-2 data-show:animate-slide-down-normal data-hide:animate-slide-up-normal text-sm mt-1'>{errors.fullName}</p>
                                     </div>
 
 
@@ -203,7 +211,7 @@ const SignUpForm = () => {
                                                 </div>
                                             </div>}
                                         </div>
-                                        <p className='text-red-600 transition-all data-show:mt-2 data-show:animate-slide-down-normal data-hide:animate-slide-up-normal text-sm mt-1'>{errors.email}</p>
+                                        <p className='text-rose-500 transition-all data-show:mt-2 data-show:animate-slide-down-normal data-hide:animate-slide-up-normal text-sm mt-1'>{errors.email}</p>
                                     </div>
 
                                     <div className='mb-4'>
@@ -259,7 +267,7 @@ const SignUpForm = () => {
                                                                 'Very strong password'}
                                             </div>
                                         </div>
-                                        <p className='text-red-600 transition-all data-show:mt-2 data-show:animate-slide-down-normal data-hide:animate-slide-up-normal text-sm mt-1'>{errors.password}</p>
+                                        <p className='text-rose-500 transition-all data-show:mt-2 data-show:animate-slide-down-normal data-hide:animate-slide-up-normal text-sm mt-1'>{errors.password}</p>
                                     </div>
 
                                     <div>
@@ -299,7 +307,7 @@ const SignUpForm = () => {
                                                 </button>
                                             </div>
                                         </div>
-                                        <p className='text-red-600 transition-all data-show:mt-2 data-show:animate-slide-down-normal data-hide:animate-slide-up-normal text-sm mt-1'>{errors.cPassword}</p>
+                                        <p className='text-rose-500 transition-all data-show:mt-2 data-show:animate-slide-down-normal data-hide:animate-slide-up-normal text-sm mt-1'>{errors.cPassword}</p>
                                     </div>
 
                                     <div className='flex items-center gap-3 mb-6 cursor-pointer'>
@@ -323,18 +331,18 @@ const SignUpForm = () => {
                                     <Button
                                         disabled={isFormDisabled}
                                         type='submit'
-                                        className={`relative cursor-pointer space-x-2 text-center font-regular ease-out duration-200 rounded-full outline-none transition-all outline-0 focus-visible:outline-4 focus-visible:outline-offset-1 flex items-center gap-2 font-600 bg-theme1 hover:bg-primary text-white border-brand shadow-sm opacity-50 ${true ? ' outline-brand-600 opacity-100' : ''
+                                        className={`relative cursor-pointer space-x-2 text-center font-regular ease-out duration-200 rounded-full outline-none transition-all outline-0 focus-visible:outline-4 focus-visible:outline-offset-1 flex items-center gap-2 font-600 bg-theme1 hover:bg-primary text-white border-brand shadow-sm opacity-50 ${loading ? ' bg-theme1  opacity-40' : ''
                                             }`}>
                                         {loading && <MiniLoadingCircle width="20" />}
                                         Register
                                     </Button>
 
 
-                                    <div className='my-8 self-center text-sm text-blue-midnight_blue font-light'>
-                                        <span className='text-gray400'>Already a Member? </span>
+                                    <div className='my-8 self-center text-sm  font-light'>
+                                        <span className='text-text6'>Already a Member? </span>
                                         <Link
-                                            href='/members/sign-in'
-                                            className='font-600 text-primaryRgb'
+                                            href='/ab/account-security/login'
+                                            className='font-600 text-theme1 ml-1'
                                         >
                                             Sign in
                                         </Link>

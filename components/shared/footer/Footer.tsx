@@ -62,7 +62,7 @@ const Footer = () => {
                                     <p className='text-wrap text-text6 font-400 mb-3'>Signup for our newsletter to get the latest news <br /> in your inbox.</p>
                                     <SubscriptionForm />
                                     <p className='text-wrap text-text6 font-400 mb-3 mt-3'>
-                                        Your email is safe with us. We don't spam.
+                                        Your email is safe with us. We don{"'"}t spam.
                                     </p>
                                 </div>
                             </div>
