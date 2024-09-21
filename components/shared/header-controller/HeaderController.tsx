@@ -86,7 +86,7 @@ const HeaderController = () => {
                     </Button>
 
                     <Button
-                        onClick={() => router.push('/members/sign-up')}
+                        onClick={() => router.push('/nx/signup')}
                         variant="outline" className='bg-theme2 text-white border-transparent hover:bg-transparent  whitespace-nowrap cursor-pointer  flex items-center  px-3 py-0 rounded-md transition-all duration-200 ease-in-out hover:text-primary hover:border-theme1 hover:text-theme1 font-apercu-light  text-base '>
                         Be Part
                     </Button>

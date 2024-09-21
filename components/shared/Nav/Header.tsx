@@ -4,6 +4,7 @@ import NavItems from './NavItems'
 import HeaderController from '../header-controller/HeaderController'
 import Marquee from '../Marquee/Marquee'
 import { Logo } from '@/components/common'
+import { usePathname } from 'next/navigation'
 
 
 interface HeaderType {
@@ -12,7 +13,7 @@ interface HeaderType {
 
 const Header = ({ variant }: HeaderType) => {
     const [scrollY, setScrollY] = useState(0)
-
+    const pathname = usePathname()
 
     useEffect(() => {
         const handleScroll = () => {
@@ -21,6 +22,11 @@ const Header = ({ variant }: HeaderType) => {
         };
         window.addEventListener('scroll', handleScroll);
     }, [])
+
+
+
+    const isAuthPage = pathname.includes("/signup")
+
 
 
     return (
@@ -32,15 +38,20 @@ const Header = ({ variant }: HeaderType) => {
                 <div className='flex container lg:px-16 xl:px-20 relative items-center justify-between h-16 '>
                     <div className='flex items-center gap-10'>
                         <Logo />
-                        <NavItems variant={variant} scrollY={scrollY} />
+                        {!isAuthPage && <NavItems variant={variant} scrollY={scrollY} />}
                     </div>
                     <div className='flex items-center gap-4'>
-                        <HeaderController />
+                        {
+                            !isAuthPage
+                                ? <HeaderController /> :
+                                <div>
+                                    <h3>Here to hire talent? </h3>
+                                </div>
+                        }
                     </div>
                 </div>
             </div>
         </>
-
     )
 }
 

@@ -40,20 +40,19 @@ const SignUpForm = () => {
     };
 
 
-
     // Function to dynamically set the strength bar class
     const getStrengthBarClass = () => {
         switch (passwordStrength) {
             case 1:
-                return 'bg-red-500 w-1/4'; // Weak
+                return 'bg-[#FF0000] w-1/4'; // Weak (Red)
             case 2:
-                return 'bg-yellow-500 w-1/2'; // Medium
+                return 'bg-[#FFD700] w-1/2'; // Medium (Yellow)
             case 3:
-                return 'bg-green-500 w-3/4'; // Strong
+                return 'bg-[#008000] w-3/4'; // Strong (Green)
             case 4:
-                return 'bg-teal-500 w-full'; // Very Strong
+                return 'bg-theme1 w-full'; // Very Strong (Teal)
             default:
-                return 'bg-gray-300 w-1/4'; // Default
+                return 'bg-[#D3D3D3] w-1/4'; // Default (Light Gray)
         }
     };
 
@@ -130,7 +129,7 @@ const SignUpForm = () => {
 
 
                     return (
-                        <div className='h-full '>
+                        <div className=' '>
                             <form onSubmit={(e) => {
                                 e.stopPropagation()
                                 handleSubmit(e)
@@ -138,7 +137,7 @@ const SignUpForm = () => {
 
 
 
-                                <div className='flex-1 flex  my-10 flex-col justify-center w-[90%] mx-auto md:w-[350px] lg:w-[450px]'>
+                                <div className='flex-1 flex  my-5 flex-col justify-center w-[90%] mx-auto md:w-[400px] lg:w-[500px]'>
 
                                     <div className='mb-8 text-center'>
                                         <h3 className=' text-white mt-8 mb-2 text-xl font-700'>Sign Up</h3>
@@ -340,15 +339,6 @@ const SignUpForm = () => {
                                             Sign in
                                         </Link>
                                     </div>
-                                    {/* <div className='sm:text-center'>
-                                    <p className='text-xs text-foreground-lighter text-blue-midnight_blue sm:mx-auto sm:max-w-sm'>
-                                        By continuing, you agree to Supabases
-                                        <Link href="/" className='underline hover:text-foreground-light'> Terms of Service </Link>
-                                        and
-                                        <Link href="/" className='underline hover:text-foreground-light'> Privacy Policy </Link>
-                                        , and to receive periodic emails with updates.
-                                    </p>
-                                </div> */}
                                 </div>
                             </form>
                         </div>
