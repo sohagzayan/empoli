@@ -36,7 +36,7 @@ const WhyRecruitersLoveUs = () => {
                         </div>
                         <div className='col-span-10'>
                             <p className='text-text6 text-wrap'>
-                                Say goodbye to cover letters - your profile is all you need. One click to apply and you're done.
+                                Say goodbye to cover letters - your profile is all you need. One click to apply and you{"'"}re done.
                             </p>
                         </div>
                     </div>
