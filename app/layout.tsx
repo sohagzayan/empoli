@@ -1,16 +1,14 @@
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
+import { Be_Vietnam_Pro } from 'next/font/google'
 import './globals.css'
 import ReduxProvider from '@/redux/provider'
 import 'remixicon/fonts/remixicon.css'
-import Header from '@/components/shared/Nav/Header'
-import { useSession, SessionProvider } from "next-auth/react"
 import Provider from '@/context/client-provider'
 import { getServerSession } from 'next-auth'
 import { authOptions } from '@/utils/authOptions'
 import 'tailwindcss/tailwind.css'
 import { TooltipProvider, } from "@/components/ui/tooltip"
-const inter = Inter({
+const inter = Be_Vietnam_Pro({
   subsets: ['latin'],
   weight: ['100', '200', '200', '400', '500', '600', '700', '800', '900'],
   variable: '--font-inter'
@@ -37,7 +35,7 @@ export default async function RootLayout({
         <Provider session={session}>
           <TooltipProvider>
             <ReduxProvider>
-              <div >
+              <div>
                 {children}
               </div>
             </ReduxProvider>

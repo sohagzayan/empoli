@@ -1,18 +1,10 @@
 "use client"
 import React from 'react'
-import PropTypes from 'prop-types'
 import { Button } from '@/components/ui/button'
 import { useRouter } from 'next/navigation'
-import { BiSearchAlt2 } from 'react-icons/bi'
 import { signOut, useSession } from 'next-auth/react'
-import { MdFavoriteBorder } from 'react-icons/md'
-import { AiOutlineUser } from 'react-icons/ai'
-import { IoBriefcaseOutline } from 'react-icons/io5'
-import { LuUser2 } from 'react-icons/lu'
 import { DropdownMenu, DropdownMenuContent, DropdownMenuGroup, DropdownMenuItem, DropdownMenuLabel, DropdownMenuPortal, DropdownMenuSeparator, DropdownMenuShortcut, DropdownMenuSub, DropdownMenuSubContent, DropdownMenuSubTrigger, DropdownMenuTrigger } from '@/components/ui/dropdown-menu'
 import Image from 'next/image'
-import { CreditCard, User } from 'lucide-react'
-import ActiveLoginUserProfile from '../active-login-user-profile/ActiveLoginUserProfile'
 import VisibilitySetting from '../visibility-setting/VisibilitySetting'
 
 const HeaderController = () => {
@@ -21,19 +13,11 @@ const HeaderController = () => {
     return (
         <div>
             <div className='flex items-center gap-2'>
-
-
-
-
                 {session && <>
-
                     <VisibilitySetting />
-
                     <DropdownMenu>
                         <DropdownMenuTrigger asChild>
                             <button onClick={() => router.push('/jobs')} className='bg-transparent text-blue-midnight_blue hover:bg-gray-50 whitespace-nowrap cursor-pointer font-bold flex items-center rounded-full border-none outline-none'>
-                                {/* <AiOutlineUser size={22} className='text-blue-midnight_blue mr-1' />   */}
-
                                 <Image src="/assets/images/girl-user.webp" width={36} height={36} alt="user" className='rounded-full border-2 border-primary' />
                             </button>
                         </DropdownMenuTrigger>
@@ -96,14 +80,14 @@ const HeaderController = () => {
 
                     <Button
                         variant="outline"
-                        onClick={() => router.push('/members/sign-in')}
-                        className='bg-transparent text-blue-midnight_blue hover:bg-gray-50 whitespace-nowrap cursor-pointer font-bold flex items-center  rounded-xl border-translucent_black transition-all duration-200 ease-in-out hover:border-primary hover:text-primary  border-border '>
+                        onClick={() => router.push('/ab/account-security/login')}
+                        className='bg-transparent text-theme1 border border-theme2 hover:bg-primary hover:text-white whitespace-nowrap cursor-pointer font-bold flex items-center  rounded-md  transition-all duration-200 ease-in-out  '>
                         Log in
                     </Button>
 
                     <Button
-                        onClick={() => router.push('/members/sign-up')}
-                        variant="outline" className='bg-bgSecondary text-white   whitespace-nowrap cursor-pointer  flex items-center  px-3 py-0 rounded-md transition-all duration-200 ease-in-out hover:bg-primary hover:border-primary hover:text-white font-apercu-light  text-base '>
+                        onClick={() => router.push('/nx/signup')}
+                        variant="outline" className='bg-theme2 text-white border-transparent hover:bg-transparent  whitespace-nowrap cursor-pointer  flex items-center  px-3 py-0 rounded-md transition-all duration-200 ease-in-out hover:text-primary hover:border-theme1 hover:text-theme1 font-apercu-light  text-base '>
                         Be Part
                     </Button>
 

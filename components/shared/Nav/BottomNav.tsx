@@ -38,7 +38,7 @@ const BottomNav: React.FC<BottomNavProps> = () => {
     };
 
     return (
-        <div className="fixed bottom-0 left-0 right-0 bg-white p-4 z-50 shadow-lg block lg:hidden">
+        <div className="fixed bottom-0 left-0 right-0 bg-themeDark p-4 z-50 shadow-lg block lg:hidden">
             <style jsx>{`
                 /* Hide scrollbar for WebKit browsers */
                 .custom-scrollbar::-webkit-scrollbar {

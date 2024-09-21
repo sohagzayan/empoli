@@ -17,10 +17,9 @@ const messages = [
 
 const Marquee = () => {
     const controls = useAnimation();
-    const [currentX, setCurrentX] = useState<any>(0); // Track the current position
+    const [currentX, setCurrentX] = useState<any>(0);
     const [direction, setDirection] = useState("left");
 
-    // Function to start scrolling to the left (default)
     const startScrollingLeft = (fromX: any) => {
         controls.start({
             x: [fromX, "-100%"],
@@ -32,10 +31,9 @@ const Marquee = () => {
         });
     };
 
-    // Function to reverse the direction and scroll to the right on hover
     const startScrollingRight = (fromX: any) => {
         controls.start({
-            x: [fromX, "0%"], // Start from the current position
+            x: [fromX, "0%"],
             transition: {
                 duration: 50,
                 repeat: Infinity,
@@ -44,26 +42,25 @@ const Marquee = () => {
         });
     };
 
-    // Default animation runs on initial render (scrolling left to right)
     useEffect(() => {
-        startScrollingLeft("0%"); // Start at the beginning (0%)
+        startScrollingLeft("0%");
     }, []);
 
     const handleMouseEnter = () => {
         setDirection("right");
         controls.stop();
-        startScrollingRight(currentX); // Continue scrolling right from the current position
+        startScrollingRight(currentX);
     };
 
     const handleMouseLeave = () => {
         setDirection("left");
         controls.stop();
-        startScrollingLeft(currentX); // Continue scrolling left from the current position
+        startScrollingLeft(currentX);
     };
 
     return (
         <div
-            className="overflow-hidden whitespace-nowrap w-full flex items-center bg-gray_light_400 py-3 font-apercu-regular  text-sm"
+            className=" bg-themeDark overflow-hidden whitespace-nowrap w-full flex items-center  py-3 font-400   text-sm"
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
         >
@@ -71,18 +68,16 @@ const Marquee = () => {
                 className="flex text-"
                 animate={controls}
                 style={{ display: 'flex', minWidth: '200%' }}
-                onUpdate={(latest) => setCurrentX(latest.x)} // Track the x position dynamically
+                onUpdate={(latest) => setCurrentX(latest.x)}
             >
-                {/* First set of messages */}
                 {messages.map((msg, index) => (
-                    <span key={index} className="inline-block mr-10 odd:font-medium font-bold">
+                    <span key={index} className="inline-block mr-10 odd:font-medium font-bold text-text6">
                         {msg}
                     </span>
                 ))}
 
-                {/* Duplicate set of messages for seamless looping */}
                 {messages.map((msg, index) => (
-                    <span key={index + messages.length} className="inline-block mr-10  ">
+                    <span key={index + messages.length} className="inline-block mr-10  odd:font-medium  font-bold text-text6">
                         {msg}
                     </span>
                 ))}

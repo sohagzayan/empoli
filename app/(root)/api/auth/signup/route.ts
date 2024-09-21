@@ -6,7 +6,7 @@ import bcrypt from "bcrypt";
 export async function POST(request: Request) {
   try {
     const body = await request.json();
-    const { email, password, fullName } = body;
+    const { email, password, fullName, selectRole } = body;
 
     if (password.length < 8) {
       return NextResponse.json(
@@ -37,7 +37,7 @@ export async function POST(request: Request) {
           email: email,
           password: hashedPassword,
           emailVerified: false,
-          createdAt: Math.floor(Date.now() / 1000),
+          role: selectRole?.toUpperCase(),
         },
       });
       // Create the specific profile based on the role
@@ -47,6 +47,7 @@ export async function POST(request: Request) {
       );
     } catch (error) {
       console.error(error);
+      console.log("error", error);
       return NextResponse.json(
         { message: "Internal Server Error" },
         { status: 500 }

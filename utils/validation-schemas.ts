@@ -17,6 +17,9 @@ export const registerValidationAsCandidateSchema = Yup.object().shape({
   password: Yup.string()
     .required("Password field is required.")
     .min(6, "The password is too short: it must be at least 6 characters."),
+  cPassword: Yup.string()
+    .required("Password field is required.")
+    .min(6, "The password is too short: it must be at least 6 characters."),
 });
 
 export const registerSurveyValidationSchema = Yup.object().shape({

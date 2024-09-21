@@ -2013,3 +2013,111 @@ export const flexible_remote_work_policy = [
   "Important",
   "Not important",
 ];
+
+export const website_reviews = [
+  {
+    id: 1,
+    userName: "JohnDoe",
+    reviewTitle: "Amazing Platform",
+    reviewText:
+      "I love Jobjoy! I got my current job at a startup entirely through the site last year. It's super easy to use and the UI is fantastic.",
+  },
+  {
+    id: 2,
+    userName: "JaneSmith",
+    reviewTitle: "Great for Job Seekers",
+    reviewText:
+      "Jobjoy helped me find my dream job. The filtering options made it simple to narrow down the perfect role!",
+  },
+  {
+    id: 3,
+    userName: "Mike23",
+    reviewTitle: "User-Friendly",
+    reviewText:
+      "The site is very intuitive, and I found multiple job opportunities in my field quickly. Highly recommend it!",
+  },
+  {
+    id: 4,
+    userName: "Emily_R",
+    reviewTitle: "Best Job Portal",
+    reviewText:
+      "I was able to secure interviews within a week of signing up! Jobjoy has really streamlined the job search process for me.",
+  },
+  {
+    id: 5,
+    userName: "ChrisT",
+    reviewTitle: "Found My Perfect Role",
+    reviewText:
+      "The design and user experience are fantastic. I found a great role in no time!",
+  },
+  {
+    id: 6,
+    userName: "SarahW",
+    reviewTitle: "Super Helpful",
+    reviewText:
+      "Jobjoy made it easy to connect with employers, and the job alerts were a huge bonus.",
+  },
+  {
+    id: 7,
+    userName: "RyanH",
+    reviewTitle: "Highly Efficient",
+    reviewText:
+      "The platform’s speed and reliability are top-notch. I could easily track my applications and responses.",
+  },
+  {
+    id: 8,
+    userName: "KateM",
+    reviewTitle: "Fantastic Job Board",
+    reviewText:
+      "Found Jobjoy very helpful in my job search. Got hired within a few weeks after applying!",
+  },
+  {
+    id: 9,
+    userName: "AlexP",
+    reviewTitle: "Great Job Alerts",
+    reviewText:
+      "The job alerts were on point. I applied to multiple companies and got quick responses.",
+  },
+  {
+    id: 10,
+    userName: "Mark_91",
+    reviewTitle: "Wonderful Experience",
+    reviewText:
+      "Had a wonderful experience using Jobjoy. The platform’s UI is clean and it’s easy to navigate.",
+  },
+  {
+    id: 11,
+    userName: "LisaA",
+    reviewTitle: "Seamless Process",
+    reviewText:
+      "The job application process was seamless. Got my first interview within days of applying!",
+  },
+  {
+    id: 12,
+    userName: "TomB",
+    reviewTitle: "Good for Startups",
+    reviewText:
+      "If you're looking for startup roles, this is the place! I found the perfect startup position via Jobjoy.",
+  },
+  {
+    id: 13,
+    userName: "Nina_K",
+    reviewTitle: "Easy to Use",
+    reviewText:
+      "Jobjoy is so easy to use! The interface is smooth, and finding relevant job listings was a breeze.",
+  },
+  {
+    id: 14,
+    userName: "OmarZ",
+    reviewTitle: "Highly Recommend",
+    reviewText:
+      "I found a fantastic job within weeks of using Jobjoy. Great service, highly recommend!",
+  },
+  {
+    id: 15,
+    userName: "RachelB",
+    reviewTitle: "Efficient and Effective",
+    reviewText:
+      "Efficient job search engine, and I appreciate the personalized job recommendations. Found a role I love.",
+  },
+];

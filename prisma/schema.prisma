@@ -18,31 +18,28 @@ enum OnboardingStep {
   COMPLETED
 }
 
+// Enum values
+
+enum Role {
+  SEEKER
+  RECRUITER
+  ADMIN
+}
+
 model User {
-  id                Int                 @id @default(autoincrement())
-  name              String?
-  email             String              @unique
-  password          String?
-  emailVerified     Boolean?            @default(false)
-  image             String?
-  role              Role?               @default(CANDIDATE)
-  Account           Account[]
-  phone             String?
-  dob               DateTime?
-  major             String?
-  language          String?             @default("") @db.VarChar(12)
-  picture           Int?                @default(0)
-  updatedAt         Int?
-  createdAt         Int?
-  application       Application[]
-  recentCoverLetter RecentCoverLetter[]
-  userPreference    UserPreference[]
-  profile           Profile?
-  preferences       Preferences?
-  culture           Culture?
-  resume            Resume?
-  // Profile_Preferences         Profile_Preferences[]
-  // USAWorkAuthorization        USAWorkAuthorization[]
+  id            Int       @id @default(autoincrement())
+  name          String?
+  email         String    @unique
+  password      String?
+  emailVerified Boolean?  @default(false)
+  image         String?
+  role          Role
+  phone         String?
+  dob           DateTime?
+  language      String?   @default("") @db.VarChar(12)
+  updatedAt     DateTime  @updatedAt
+  createdAt     DateTime  @default(now())
+  Account       Account[]
 }
 
 model Recruiter {
@@ -123,153 +120,6 @@ model JobListing {
   recruiterCompanyInfoId Int?
 }
 
-model Profile {
-  id                    Int                  @id @default(autoincrement())
-  where_you_based       String?
-  currentRole           String?
-  experienceInRole      String
-  isStudentOrNewGrad    String?
-  job_title             String?
-  company               String?
-  isEmployed            Boolean?
-  linkedinProfile       String?
-  personalWebsite       String?
-  social_profiles       Json?
-  Your_work_experience  UserWorkExperience[]
-  UserEducation         UserEducation[]
-  currently_looking_for String[]
-  work_mode             String[]
-  createdDate           DateTime             @default(now())
-  updatedDate           DateTime             @updatedAt
-  UserSkills            String[]
-  achievements          String?
-  UserIdentity          UserIdentity[]
-  user                  User                 @relation(fields: [userId], references: [id], onDelete: Cascade)
-  userId                Int                  @unique
-  updatedAt             Int?
-  createdAt             Int?
-}
-
-model Preferences {
-  id                       Int      @id @default(autoincrement())
-  job_search_status        String
-  preferred_job_type       String
-  desired_salary           String
-  desired_salary_info      Json
-  preferred_role           String[]
-  preferred_work_locations String
-  remote_work_flexibility  Boolean
-  user                     User     @relation(fields: [userId], references: [id], onDelete: Cascade)
-  userId                   Int      @unique
-  updatedAt                Int?
-  createdAt                Int?
-}
-
-model Culture {
-  id                                 Int      @id @default(autoincrement())
-  technology_interests               String[]
-  unpreferred_technologies           String[]
-  primary_motivators                 String
-  future_career_aspirations          String
-  preferred_work_environment         String
-  most_important_to_you_for_next_job String[]
-  remote_work_flexibility_preference String
-  quiet_office_preference_priority   String
-  next_job_desires                   String
-  user                               User     @relation(fields: [userId], references: [id], onDelete: Cascade)
-  userId                             Int      @unique
-  updatedAt                          Int?
-  createdAt                          Int?
-}
-
-model Resume {
-  id        Int     @id @default(autoincrement())
-  resume    String
-  resumeId  String?
-  user      User    @relation(fields: [userId], references: [id], onDelete: Cascade)
-  userId    Int     @unique
-  updatedAt Int?
-  createdAt Int?
-}
-
-model UserWorkExperience {
-  id                    Int      @id @default(autoincrement())
-  company_name          String
-  job_title             String
-  start_date            String
-  end_date              String?
-  currently_work_here   Boolean  @default(false)
-  description           String
-  currently_looking_for String[]
-  position              String
-  seles_position        Json?
-  tecnical_position     String[]
-  profileId             Int
-  profile               Profile? @relation(fields: [profileId], references: [id])
-  createdDate           DateTime @default(now())
-  updatedDate           DateTime @updatedAt
-  // Profile_Preferences   Profile_Preferences? @relation(fields: [profile_PreferencesId], references: [id])
-  // profile_PreferencesId Int?
-}
-
-model UserEducation {
-  id                 Int      @id @default(autoincrement())
-  college_university String
-  graduation         String
-  degree_major       String
-  GPA_min            Int
-  GPA_max            Int
-  profileId          Int
-  profile            Profile? @relation(fields: [profileId], references: [id])
-  createdDate        DateTime @default(now())
-  updatedDate        DateTime @updatedAt
-  // Profile_Preferences   Profile_Preferences? @relation(fields: [profile_PreferencesId], references: [id])
-  // profile_PreferencesId Int?
-}
-
-model UserIdentity {
-  id                          Int      @id @default(autoincrement())
-  pronouns                    String
-  display_pronouns_my_profile Boolean  @default(false)
-  gender_identity             String
-  race_ethnicity              Int
-  profileId                   Int
-  profile                     Profile? @relation(fields: [profileId], references: [id])
-  createdDate                 DateTime @default(now())
-  updatedDate                 DateTime @updatedAt
-  // Profile_Preferences         Profile_Preferences? @relation(fields: [profile_PreferencesId], references: [id])
-  // profile_PreferencesId       Int?
-}
-
-// model Recruiter {
-//   id                    Int       @id @default(autoincrement())
-//   jobTitle              String?
-//   firstName             String?
-//   lastName              String?
-//   email                 String    @unique
-//   password              String?
-//   emailVerified         Boolean?  @default(false)
-//   image                 String?
-//   role                  Role?     @default(CANDIDATE)
-//   Account               Account[]
-//   updatedAt             Int?
-//   createdAt             Int?
-//   companyName           String?
-//   companyWebsite        String?
-//   howDidYouHearAboutUs  String?
-//   howHeard              String?
-//   phone                 String?
-//   survey                Json?
-//   billing               Json?
-//   company_logo          String?
-//   subscribeToNewsletter Boolean?  @default(false)
-//   companyInfo           Json?
-//   billingInfo           Json?
-//   language              String?   @default("") @db.VarChar(12)
-//   picture               Int?      @default(0)
-//   Job                   Job[]
-// }
-
 model Account {
   id                Int     @id @default(autoincrement())
   type              String
@@ -289,166 +139,3 @@ model Account {
 
   @@unique([provider, providerAccountId])
 }
-
-// Role ENUM
-enum Role {
-  STUDENT
-  MEMBER
-  CANDIDATE
-  RECRUITER
-  EMPLOYER
-  SUPER_ADMIN
-}
-
-model Job {
-  id                   Int                 @id @default(autoincrement())
-  job_title            String              @db.VarChar(255)
-  job_type             String              @db.VarChar(255)
-  job_description      String
-  location             String              @db.VarChar(255)
-  office_location      String
-  salary_range_min     Float
-  salary_range_max     Float
-  required_skills      String[]
-  how_to_apply         Json?
-  experience           String
-  qualifications       String?             @db.Text
-  job_responsibilities String              @db.Text
-  applicationDeadline  String
-  assessmentQuestions  Json?
-  numberOfOpenings     Int
-  job_duration         Int
-  company              String
-  perks                String[]
-  createdDate          DateTime            @default(now())
-  updatedDate          DateTime            @updatedAt
-  startDate            DateTime?
-  userId               Int
-  Application          Application[]
-  RecentCoverLetter    RecentCoverLetter[]
-
-  @@map("jobs")
-}
-
-model Application {
-  id                 Int      @id @default(autoincrement())
-  cover_latter       String
-  your_availability  Boolean
-  assessment         Json[]
-  resume             String?
-  unavailable_reason String?
-  createdDate        DateTime @default(now())
-  updatedDate        DateTime @updatedAt
-  userId             Int
-  User               User?    @relation(fields: [userId], references: [id])
-  jobId              Int
-  Job                Job?     @relation(fields: [jobId], references: [id])
-}
-
-// enum JobType {
-//   FULL_TIME 000000000
-//   PART_TIME
-//   CONTRACT
-//   FREELANCE
-//   TEMPORARY
-//   INTERNSHIP
-//   REMOTE
-// }
-
-enum JobCategory {
-  INFORMATION_TECHNOLOGY
-  ENGINEERING
-  MARKETING
-  FINANCE
-  DESIGN
-  CUSTOMER_SERVICE
-  SALES
-  ADMINISTRATION
-  HUMAN_RESOURCES
-  OTHER
-}
-
-enum InternshipType {
-  IN_OFFICE
-  HYBRID
-  REMOTE
-  PART_TIME
-  FULL_TIME
-}
-
-enum OpportunityType {
-  INTERNSHIP
-  JOB
-}
-
-enum StipendType {
-  FIXED
-  NEGOTIABLE
-  PERFORMANCE_BASED
-  UNPAID
-}
-
-model RecentCoverLetter {
-  id           Int      @id @default(autoincrement())
-  cover_latter String
-  category     String
-  userId       Int
-  User         User?    @relation(fields: [userId], references: [id])
-  jobId        Int
-  Job          Job?     @relation(fields: [jobId], references: [id])
-  createdDate  DateTime @default(now())
-  updatedDate  DateTime @updatedAt
-}
-
-// oldest 
-model UserPreference {
-  id                    Int      @id @default(autoincrement())
-  interest_of_areas     String[]
-  currently_looking_for String[]
-  work_mode             String[]
-  userId                Int
-  User                  User?    @relation(fields: [userId], references: [id])
-  createdDate           DateTime @default(now())
-  updatedDate           DateTime @updatedAt
-}
-
-// model Profile_Preferences {
-//   id                    Int      @id @default(autoincrement())
-//   profile_status        String
-//   us_work_authorization String[]
-//   job_interest          String
-
-//   userId                   Int
-//   User                     User?                      @relation(fields: [userId], references: [id])
-//   createdDate              DateTime                   @default(now())
-//   updatedDate              DateTime                   @updatedAt
-//   USAWorkAuthorization     USAWorkAuthorization[]
-//   UserWorkExperience       UserWorkExperience[]
-//   UserEducation            UserEducation[]
-//   UserIdentity             UserIdentity[]
-//   PreferencesWorkLocations PreferencesWorkLocations[]
-// }
-
-// model PreferencesWorkLocations {
-//   id                       Int     @id @default(autoincrement())
-//   location                 String
-//   open_to_working_remotely Boolean @default(false)
-//   prefereed_location       String?
-
-//   Profile_Preferences_Id Int
-//   Profile_Preferences    Profile_Preferences? @relation(fields: [Profile_Preferences_Id], references: [id])
-//   createdDate            DateTime             @default(now())
-//   updatedDate            DateTime             @updatedAt
-// }
-
-// model USAWorkAuthorization {
-//   id                        Int                  @id @default(autoincrement())
-//   requiresUSVisaSponsorship Boolean              @default(false)
-//   legallyAuthorizedToWorkUS Boolean              @default(false)
-//   preferencesId             Int
-//   Profile_Preferences       Profile_Preferences? @relation(fields: [preferencesId], references: [id])
-//   createdDate               DateTime             @default(now())
-//   updatedDate               DateTime             @updatedAt
-//   User                      User?                @relation(fields: [userId], references: [id])
-//   userId                    Int?
-// }

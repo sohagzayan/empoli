@@ -1,6 +1,5 @@
 "use client"
 import Link from 'next/link'
-import React, { useEffect, useState } from 'react'
 import { Menubar } from "@/components/ui/menubar"
 import navItems from '@/constants/nav-items'
 import { NavigationMenu, NavigationMenuContent, NavigationMenuItem, NavigationMenuLink, NavigationMenuList, NavigationMenuTrigger } from '@/components/ui/navigation-menu'
@@ -8,17 +7,13 @@ import { usePathname } from 'next/navigation'
 
 
 const NavItems = ({ variant }: any) => {
-    const [userType, setUserType] = useState("employers")
-    const [headerMenu, setHeaderMenu] = useState<any>([])
     const pathname = usePathname()
     const currentUser = pathname.split('/')[1]
-
     const navItem = navItems(currentUser)
 
-    console.log("currentUser", currentUser)
 
     return (
-        <div className=' hidden lg:block font-apercu-medium text-primary '>
+        <div className=' hidden lg:block text-white '>
             <Menubar className='border-none'>
                 <NavigationMenu>
                     <NavigationMenuList>
@@ -27,7 +22,7 @@ const NavItems = ({ variant }: any) => {
                                 {menu.key ?
                                     <NavigationMenuItem className="">
                                         <NavigationMenuTrigger className="[&>svg]:hidden px-4">
-                                            <Link href={menu.key} className='text-base'>
+                                            <Link href={menu.key} className='text-text6 font-500 '>
                                                 {menu.label}
                                             </Link>
                                         </NavigationMenuTrigger>

@@ -9,18 +9,19 @@ export const authOptions: NextAuthOptions = {
   adapter: PrismaAdapter(prisma),
   providers: [
     GoogleProvider({
-      clientId: process.env.GOOGLE_CLIENT_ID ?? "",
-      clientSecret: process.env.GOOGLE_CLIENT_SECRET ?? "",
+      clientId: process.env.GOOGLE_CLIENT_ID!,
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET!,
+      // Google profile handling
       async profile(profile) {
-        return profile;
-        // return {
-        //   id: profile.sub,
-        //   email: profile.email,
-        //   image: profile.picture,
-        //   firstName: profile.name,
-        //   lastName: profile.lastName,
-        //   role: profile.role,
-        // };
+        // You can fetch or define the role dynamically here if needed
+        // For example, set default "user" role if it's not present
+        return {
+          id: profile.sub, // Required unique identifier
+          email: profile.email,
+          image: profile.picture,
+          name: profile.name,
+          role: "SEEKER", // Default role as "user", or fetch from your logic if necessary
+        };
       },
     }),
 
@@ -30,40 +31,22 @@ export const authOptions: NextAuthOptions = {
         email: { label: "email", type: "email" },
         password: { label: "password", type: "password" },
       },
-
       async authorize(credentials: any) {
         if (!credentials) {
           throw new Error("Please provide credentials");
         }
-        console.log("credentials >>", credentials);
 
-        const user: any =
-          credentials?.role === "RECRUITER"
-            ? await prisma.recruiter.findUnique({
-                where: {
-                  email: credentials.email,
-                },
-                include: {
-                  recruiter_company_info: true,
-                  recruiter_billing_info: true,
-                  recruiter_payment_info: true,
-                },
-              })
-            : await prisma.user.findUnique({
-                where: {
-                  email: credentials.email,
-                },
-                include: {
-                  preferences: true,
-                  culture: true,
-                  profile: true,
-                  resume: true,
-                },
-              });
+        const user: any = await prisma.user.findUnique({
+          where: {
+            email: credentials.email,
+          },
+        });
 
         if (!user) {
           throw new Error("Sorry, unrecognized username or password");
         }
+
+        // Check if the user has signed up with Google and doesn't have a password
         if (user && !user.password) {
           const account: any = await prisma.account.findFirst({
             where: {
@@ -77,42 +60,46 @@ export const authOptions: NextAuthOptions = {
             );
           }
         }
+
         const passwordMatch = await bcrypt.compare(
           credentials.password,
           user.password
         );
+
         if (!passwordMatch) {
           throw new Error("Sorry, unrecognized username or password");
         }
+
         return user;
       },
     }),
   ],
+
   secret: process.env.NEXT_PUBLIC_SECRET,
-  session: { strategy: "jwt" },
+  session: {
+    strategy: "jwt",
+  },
+
   callbacks: {
+    // JWT callback is called whenever a token is created or updated
     async jwt({ token, user, trigger, session: newData }) {
       if (user) {
-        // console.log("user form jwt >", user);
-        // token.userId = user.id;
-        console.log("checking user list >>", user);
-        Object.assign(token, user);
+        // Assign role from the user if available (for new sign-ins)
+        token.role = user.role || token.role || "user"; // Default to 'user' if role is not provided
       }
-      if (trigger === "update") {
-        token = newData;
+      // Handle token updates
+      if (trigger === "update" && newData) {
+        token = { ...token, ...newData };
       }
       return token;
     },
-    async session({ session, token }) {
-      // console.log("session?.user", session?.user);
-      // console.log("session?.user token", token);
 
+    // Session callback is called when a session is checked
+    async session({ session, token }) {
+      // Attach role from token to the session object
       if (session?.user) {
-        session.user = token;
-        // session.user.name = token.name;
-        // session.user.role = token.role as string;
+        session.user.role = token.role as string; // Ensure role is a string
       }
-      // console.log("session from auth", session);
       return session;
     },
   },

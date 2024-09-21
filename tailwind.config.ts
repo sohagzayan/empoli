@@ -1,4 +1,3 @@
-/** @type {import('tailwindcss').Config} */
 import { withUt } from "uploadthing/tw";
 
 module.exports = withUt({
@@ -18,56 +17,138 @@ module.exports = withUt({
     },
     extend: {
       colors: {
-        primary: "var(--color-primary)", // Matches --color-primary
-        white: "var(--color-white)", // Matches --color-white
-        orange: "var(--color-orange)", // Matches --color-orange
-        blue: "var(--color-blue)", // Matches --color-blue
-        connect: "var(--color-connect)", // Matches --color-connect
-        connect2: "var(--color-connect-2)", // Matches --color-connect-2
-        connect3: "var(--color-connect-3)", // Matches --color-connect-3
-        inspire: "var(--color-inspire)", // Matches --color-inspire
-        inspire2: "var(--color-inspire-2)", // Matches --color-inspire-2
-        inspire3: "var(--color-inspire-3)", // Matches --color-inspire-3
-        awards: "var(--color-awards)", // Matches --color-awards
-        awards2: "var(--color-awards-2)", // Matches --color-awards-2
-        awards3: "var(--color-awards-3)", // Matches --color-awards-3
-        read: "var(--color-read)", // Matches --color-read
-        read2: "var(--color-read-2)", // Matches --color-read-2
-        read3: "var(--color-read-3)", // Matches --color-read-3
-        learn: "var(--color-learn)", // Matches --color-learn
-        learn2: "var(--color-learn-2)", // Matches --color-learn-2
-        learn3: "var(--color-learn-3)", // Matches --color-learn-3
-        jobs: "var(--color-jobs)", // Matches --color-jobs
-        jobs2: "var(--color-jobs-2)", // Matches --color-jobs-2
-        jobs3: "var(--color-jobs-3)", // Matches --color-jobs-3
-        gray_light_400: "#f0f0f0", // Static value, matches light gray
-        light_gray: "var(--color-odd-rows)", // Matches --color-odd-rows
-        black: "#000000", // Static black color
-        border: "var(--border-gray)", // Matches --border-gray
+        /* Common Colors */
+        white: "var(--tp-common-white-rgb)",
+        black: "var(--tp-common-black-rgb)",
+        black2: "var(--tp-common-black-2-rgb)",
+        black3: "var(--tp-common-black-3-rgb)",
+        black4: "var(--tp-common-black-4-rgb)",
+        black5: "var(--tp-common-black-5-rgb)",
+        black6: "var(--tp-common-black-6-rgb)",
+        black7: "var(--tp-common-black-7-rgb)",
 
-        /* Background colors */
-        bgPrimary: "var(--bg-primary)", // Matches --bg-primary
-        bgPrimaryRgb: "var(--bg-primary-rgb)", // Matches --bg-primary-rgb
-        bgSecondary: "var(--bg-secondary)", // Matches --bg-secondary
-        bgThird: "var(--bg-3rd)", // Matches --bg-3rd
-        bgFourth: "var(--bg-4rd)", // Matches --bg-4rd
-        bgWhite: "var(--bg-white)", // Matches --bg-white
+        /* Primary Colors */
+        green: "var(--tp-common-green-rgb)",
+        green2: "var(--tp-common-green-2-rgb)",
+        orange: "var(--tp-common-orange-rgb)",
+        red: "var(--tp-common-red-rgb)",
+        purple: "var(--tp-common-purple-rgb)",
+        yellow: "var(--tp-common-yellow-rgb)",
+        yellow2: "var(--tp-common-yellow-2-rgb)",
+        pink: "var(--tp-common-pink-rgb)",
+
+        /* Heading and Text Colors */
+        headingPrimary: "var(--tp-heading-primary-rgb)",
+        textBody: "var(--tp-text-body-rgb)",
+        text1: "var(--tp-text-1-rgb)",
+        text2: "var(--tp-text-2-rgb)",
+        text3: "var(--tp-text-3-rgb)",
+        text4: "var(--tp-text-4-rgb)",
+        text5: "var(--tp-text-5-rgb)",
+        text6: "var(--tp-text-6-rgb)",
+        text7: "var(--tp-text-7-rgb)",
+        text8: "var(--tp-text-8-rgb)",
+        text9: "var(--tp-text-9-rgb)",
+        text10: "var(--tp-text-10-rgb)",
+        text11: "var(--tp-text-11-rgb)",
+        text12: "var(--tp-text-12-rgb)",
+        text13: "var(--tp-text-13-rgb)",
+        text14: "var(--tp-text-14-rgb)",
+
+        /* Gray Shades */
+        gray1: "var(--tp-grey-1-rgb)",
+        gray2: "var(--tp-grey-2-rgb)",
+
+        /* Theme Colors */
+        theme1: "var(--tp-theme-1-rgb)",
+        theme2: "var(--tp-theme-2-rgb)",
+        themeDark: "var(--tp-theme-dark-rgb)",
+        themeDark2: "var(--tp-theme-dark-2-rgb)",
+        themeWhite: "var(--tp-theme-white-rgb)",
+
+        /* Border Colors */
+        border1: "var(--tp-border-1-rgb)",
+        border2: "var(--tp-border-2-rgb)",
+        border3: "var(--tp-border-3-rgb)",
+        border4: "var(--tp-border-4-rgb)",
+
+        /* Light Theme (Optional Override) */
+        light: {
+          bodyColor: "var(--bs-body-color-rgb)",
+          bodyBg: "var(--bs-body-bg-rgb)",
+          primary: "var(--bs-primary-rgb)",
+          secondary: "var(--bs-secondary-rgb)",
+          success: "var(--bs-success-rgb)",
+          danger: "var(--bs-danger-rgb)",
+          warning: "var(--bs-warning-rgb)",
+          light: "var(--bs-light-rgb)",
+          dark: "var(--bs-dark-rgb)",
+
+          /* Typography Colors */
+          themeDark: "var(--tp-theme-dark-rgb)",
+          commonBlack: "var(--tp-common-black-rgb)",
+          textBody: "var(--tp-text-body-rgb)",
+        },
       },
-      fontSize: {
-        small: "var(--text-size-small)", // Matches --text-size-small (12px)
-        base: "var(--text-size-primary)", // Matches --text-size-primary (16px)
-        medium: "var(--text-size-medium)", // Matches --text-size-medium (18px)
-        large: "var(--text-size-large)", // Matches --text-size-large (24px)
+      backgroundColor: {
+        /* Background Colors */
+
+        customWhiteTransparent: "rgba(255, 255, 255, 0.14)",
+        white: "var(--tp-common-white-rgb)",
+        black: "var(--tp-common-black-rgb)",
+        black2: "var(--tp-common-black-2-rgb)",
+        black3: "var(--tp-common-black-3-rgb)",
+        black4: "var(--tp-common-black-4-rgb)",
+        black5: "var(--tp-common-black-5-rgb)",
+        black6: "var(--tp-common-black-6-rgb)",
+        black7: "var(--tp-common-black-7-rgb)",
+
+        green: "var(--tp-common-green-rgb)",
+        green2: "var(--tp-common-green-2-rgb)",
+        orange: "var(--tp-common-orange-rgb)",
+        red: "var(--tp-common-red-rgb)",
+        purple: "var(--tp-common-purple-rgb)",
+        yellow: "var(--tp-common-yellow-rgb)",
+        yellow2: "var(--tp-common-yellow-2-rgb)",
+        pink: "var(--tp-common-pink-rgb)",
+
+        theme1: "var(--tp-theme-1-rgb)",
+        theme2: "var(--tp-theme-2-rgb)",
+        themeDark: "var(--tp-theme-dark-rgb)",
+        themeDark2: "var(--tp-theme-dark-2-rgb)",
+        themeWhite: "var(--tp-theme-white-rgb)",
+
+        /* Light Theme Background Colors */
+        light: {
+          bodyBg: "var(--bs-body-bg-rgb)",
+          primary: "var(--bs-primary-rgb)",
+          secondary: "var(--bs-secondary-rgb)",
+          success: "var(--bs-success-rgb)",
+          danger: "var(--bs-danger-rgb)",
+          warning: "var(--bs-warning-rgb)",
+          light: "var(--bs-light-rgb)",
+          dark: "var(--bs-dark-rgb)",
+        },
       },
-      borderRadius: {
-        sm: "var(--rounded-small)",
-        md: "var(--rounded-normal)",
-        lg: "var(--rounded-large)",
+      backgroundImage: {
+        customGradient:
+          "linear-gradient(-180deg, #61C6FF 1.9%, #283DFC 97.74%)",
       },
       fontFamily: {
-        "apercu-bold": ["Apercu Bold", "sans-serif"],
-        "apercu-medium": ["Apercu Medium", "sans-serif"],
-        "apercu-regular": ["Apercu Regular", "sans-serif"],
+        body: ['"Be Vietnam Pro"', "sans-serif"],
+        heading: ['"Be Vietnam Pro"', "sans-serif"],
+        fontawesome: ["Font Awesome 6 Pro"],
+      },
+      fontWeight: {
+        100: "100",
+        200: "200",
+        300: "300",
+        400: "400",
+        500: "500",
+        600: "600",
+        700: "700",
+        800: "800",
+        900: "900",
       },
     },
   },
