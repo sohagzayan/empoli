@@ -32,11 +32,11 @@ const Header = ({ variant }: HeaderType) => {
 
     return (
         <>
-            {!isAuthPage && <Marquee />}
+            {/* {!isAuthPage && <Marquee />} */}
             <div
                 style={{ backdropFilter: scrollY >= 70 ? 'blur(5px)' : "" }}
-                className={` bg-themeDark px-4 transition-all duration-300 z-[999] ${scrollY >= 70 ? `sticky top-0 left-0 header ` : ` z-40 relative top-0 left-0 right-0  `}`}>
-                <div className='flex container lg:px-16 xl:px-20 relative items-center justify-between h-16 '>
+                className={` bg-themeDark2 border-b border-[rgba(255,255,255,0.08)] px-4 transition-all duration-300 z-[999] ${scrollY >= 70 ? `sticky top-0 left-0 header ` : ` z-40 relative top-0 left-0 right-0  `}`}>
+                <div className='flex container lg:px-16 xl:px-20 relative items-center justify-between h-[90px] '>
                     <div className='flex items-center gap-10'>
                         <Logo />
                         {!isAuthPage && <NavItems variant={variant} scrollY={scrollY} />}

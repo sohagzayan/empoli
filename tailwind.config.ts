@@ -134,11 +134,11 @@ module.exports = withUt({
         customGradient:
           "linear-gradient(-180deg, #61C6FF 1.9%, #283DFC 97.74%)",
       },
-      fontFamily: {
-        body: ['"Be Vietnam Pro"', "sans-serif"],
-        heading: ['"Be Vietnam Pro"', "sans-serif"],
-        fontawesome: ["Font Awesome 6 Pro"],
-      },
+      // fontFamily: {
+      //   body: ['"Be Vietnam Pro"', "sans-serif"],
+      //   heading: ['"Be Vietnam Pro"', "sans-serif"],
+      //   fontawesome: ["Font Awesome 6 Pro"],
+      // },
       fontWeight: {
         100: "100",
         200: "200",

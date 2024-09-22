@@ -11,7 +11,7 @@ const QuickSearch = () => {
     const handleJobType = () => { }
 
     return (
-        <div className='md:w-5/6 mx-auto mt-4 text-[14px] relative   '>
+        <div className='md:w-3/4 mx-auto mt-4 text-[14px] relative  '>
             <div>
                 <div
                     className=' bg-transparent  border-0 shadow rounded-md p-3'>
