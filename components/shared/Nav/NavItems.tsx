@@ -22,7 +22,7 @@ const NavItems = ({ variant }: any) => {
                                 {menu.key ?
                                     <NavigationMenuItem className="">
                                         <NavigationMenuTrigger className="[&>svg]:hidden px-4">
-                                            <Link href={menu.key} className='text-text6 font-500 '>
+                                            <Link href={menu.key} className='text-text5 font-500 text-[16px] '>
                                                 {menu.label}
                                             </Link>
                                         </NavigationMenuTrigger>

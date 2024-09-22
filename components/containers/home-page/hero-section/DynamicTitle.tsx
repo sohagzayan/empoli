@@ -34,10 +34,15 @@ const DynamicTitle: React.FC = () => {
 
     return (
         <div style={{ textAlign: "center", color: "#fff" }}>
-            <h1 className="text-4xl font-bold tracking-tight text-white sm:text-6xl mb-2" >Dream Job Awaits!</h1>
+            <h1 className="text-[60px]  leading-10 text-white mb-2 " >Dream Job <span className="relative">
+                Awaits!
+                <div className="absolute bottom-0 left-0 w-full">
+                    <img src="/assets/images/slider-stoke-shape.svg" alt="stroke" />
+                </div>
+            </span></h1>
             <AnimatePresence mode="wait">
                 <motion.h2
-                    className="text-4xl font-00 tracking-tight text-white sm:text-6xl"
+                    className="text-[60px]  tracking-tight text-white "
                     key={index}
                     variants={variants}
                     initial="enter"

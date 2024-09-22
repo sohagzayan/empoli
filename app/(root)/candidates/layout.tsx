@@ -14,7 +14,7 @@ export default function RootLayouts({
 
     return (
         <div className="overflow-x-clip">
-            <Marquee />
+            {/* <Marquee /> */}
             {children}
             <BottomNav />
         </div>

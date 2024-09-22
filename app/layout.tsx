@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { Be_Vietnam_Pro } from 'next/font/google'
+import { Figtree } from 'next/font/google'
 import './globals.css'
 import ReduxProvider from '@/redux/provider'
 import 'remixicon/fonts/remixicon.css'
@@ -8,9 +8,9 @@ import { getServerSession } from 'next-auth'
 import { authOptions } from '@/utils/authOptions'
 import 'tailwindcss/tailwind.css'
 import { TooltipProvider, } from "@/components/ui/tooltip"
-const inter = Be_Vietnam_Pro({
+const inter = Figtree({
   subsets: ['latin'],
-  weight: ['100', '200', '200', '400', '500', '600', '700', '800', '900'],
+  weight: ['300', '400', '500', '600', '700', '800', '900'],
   variable: '--font-inter'
 })
 

@@ -1,21 +1,31 @@
 "use client"
 import { signIn } from 'next-auth/react'
 import Image from 'next/image'
+import { useRouter } from 'next/navigation'
 import React from 'react'
 
 const SocialLogin = () => {
+    const router = useRouter()
 
     const signInWithGoogle = async (event: any) => {
+        event.preventDefault()
+
         try {
-            event.preventDefault()
-            await signIn('google', {
-                redirect: false,
+            const result = await signIn('google', {
+                redirect: false, // disable automatic redirect
+                role: "SEEKER",
+                callbackUrl: '/' // specify the home page as the redirect target
             })
+
+            if (result?.ok) {
+                router.push('/') // manually redirect to home page
+            } else {
+                console.error('Error during sign in')
+            }
         } catch (error: any) {
             console.error(error)
         }
     }
-
 
 
 
