@@ -43,23 +43,25 @@ const VisibilitySetting = () => {
     return (
         <div>
             <div ref={modalRef} className='relative '>
-                <button onClick={() => setIsShowStatusPanel((prev) => !prev)} className='  mr-0 styles_button__DMJm9 rounded border-solid border gap-x-2 whitespace-nowrap font-medium
+                <button onClick={() => setIsShowStatusPanel((prev) => !prev)} className=' bg-themeDark   rounded border-[rgba(255,255,255,0.14)] border gap-x-2 whitespace-nowrap font-medium
       antialiased text-center text-sm no-underline cursor-pointer focus:outline-0
       disabled:cursor-default disabled:pointer-events-none disabled:opacity-50
-      transition duration-200 px-2 py-2 bg-light_gray border-gray_light_400 text-blue-midnight_blue flex items-center  hover:bg-light_gray/80
-               disabled:bg-gray-100 disabled:border-gray-500 hover:border-primary disabled:text-gray-500 w-[225px]'>
+      transition duration-200 px-4 py-2 bg-light_gray border-gray_light_400 text-blue-midnight_blue flex items-center  hover:bg-light_gray/80
+               disabled:bg-gray-100 disabled:border-gray-500 hover:border-primary disabled:text-gray-500 w-auto '>
                     <span className=''>{activeStatus.icon}</span>
-                    <span className=''>{activeStatus.label}</span>
-                    <span className='ml-auto'><IoIosArrowDown /></span>
+                    <span className={`${activeStatus?.id === 1 && "text-green"} ${activeStatus?.id === 2 && "text-yellow"} ${activeStatus?.id === 3 && "text-rose-500"}`}>{activeStatus.label}</span>
+                    <span className='ml-auto'><IoIosArrowDown className={`${activeStatus?.id === 1 && "text-green"} ${activeStatus?.id === 2 && "text-yellow"} ${activeStatus?.id === 3 && "text-rose-500"}`} /></span>
                 </button>
-                <ul className={`absolute top-[120%] w-[225px] left-0 bg-light_gray border border-gray_light_400 px-2 flex items-center flex-col gap-2 transition-all duration-200 ease-in-out ${isShowStatusPanel ? 'visible opacity-100 translate-y-0' : 'invisible opacity-0 translate-y-4'}`}>
-                    {visibilityData.map((status) =>
-                        <li key={status.label} onClick={() => handleStatusChange(status)} className='cursor-pointer bg-transparent hover:bg-primary/10 p-1'>
-                            <div className='flex items-center gap-3'>
-                                {status.icon}
-                                <span className='text-blue-midnight_blue font-bold'> {status.label}</span>
+                <ul className={`absolute top-[120%] w-[225px] left-0 bg-light_gray border border-[rgba(255,255,255,0.08)] bg-[#181C3B] shadow shadow-[0px 20px 30px rgba(3,6,31,0.2)] px-2 flex items-center flex-col gap-2 transition-all duration-200 ease-in-out ${isShowStatusPanel ? 'visible opacity-100 translate-y-0' : 'invisible opacity-0 translate-y-4'}`}>
+                    {visibilityData.map((status, index) =>
+                        <li key={status.label} onClick={() => handleStatusChange(status)} className='cursor-pointer bg-transparent hover:bg-primary/10 w-full p-1'>
+                            <div className='flex items-center gap-3 text-text6 font-600  w-full'>
+                                <div>
+                                    {status.icon}
+                                </div>
+                                <span className={`${index === 0 && "text-green"} ${index === 1 && "text-yellow"} ${index === 2 && "text-rose-500"}`}> {status.label}</span>
                             </div>
-                            <p className='text-[12px] mt-1'>{status.details}</p>
+                            {/* <p className='text-[12px] mt-1'>{status.details}</p> */}
                         </li>
                     )}
 

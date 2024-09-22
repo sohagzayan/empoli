@@ -6,6 +6,7 @@ import { signOut, useSession } from 'next-auth/react'
 import { DropdownMenu, DropdownMenuContent, DropdownMenuGroup, DropdownMenuItem, DropdownMenuLabel, DropdownMenuPortal, DropdownMenuSeparator, DropdownMenuShortcut, DropdownMenuSub, DropdownMenuSubContent, DropdownMenuSubTrigger, DropdownMenuTrigger } from '@/components/ui/dropdown-menu'
 import Image from 'next/image'
 import VisibilitySetting from '../visibility-setting/VisibilitySetting'
+import { IoMdNotificationsOutline } from 'react-icons/io'
 
 const HeaderController = () => {
     const router = useRouter()
@@ -14,6 +15,9 @@ const HeaderController = () => {
         <div>
             <div className='flex items-center gap-2'>
                 {session && <>
+                    <div>
+                        <IoMdNotificationsOutline className='text-text5' size={25} />
+                    </div>
                     <VisibilitySetting />
                     <DropdownMenu>
                         <DropdownMenuTrigger asChild>
@@ -21,7 +25,7 @@ const HeaderController = () => {
                                 <Image src="/assets/images/girl-user.webp" width={36} height={36} alt="user" className='rounded-full border-2 border-primary' />
                             </button>
                         </DropdownMenuTrigger>
-                        <DropdownMenuContent className="w-56">
+                        <DropdownMenuContent className="w-56  relative z-[999] bg-[#181C3B] border text-text6  border-[rgba(255,255,255,0.14)]">
                             <DropdownMenuLabel>My Account</DropdownMenuLabel>
                             <DropdownMenuSeparator />
                             <DropdownMenuGroup>
@@ -60,8 +64,8 @@ const HeaderController = () => {
                             <DropdownMenuItem>My Applications</DropdownMenuItem>
                             <DropdownMenuSub>
                                 <DropdownMenuSubTrigger>More</DropdownMenuSubTrigger>
-                                <DropdownMenuPortal>
-                                    <DropdownMenuSubContent>
+                                <DropdownMenuPortal >
+                                    <DropdownMenuSubContent className='bg-[#181C3B] border text-text6  border-[rgba(255,255,255,0.14)]'>
                                         <DropdownMenuItem>Manage Account</DropdownMenuItem>
                                         <DropdownMenuItem
                                             onClick={async () => {
