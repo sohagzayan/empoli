@@ -1,8 +1,7 @@
 import ChangePassword from "../change-password";
-import MyTickets from "../my-tickets";
 import Notification from "../notification";
-import Overview from "../overview";
 import ProfileInformation from "../profile-information";
+import EditProfile from "../edit-profile";
 
 interface SideProfileContentType {
     activeInsightsTab: number;
@@ -14,7 +13,7 @@ const SideProfileContent = ({ activeInsightsTab, setActiveInsightsTab }: SidePro
     const getActiveTabContent = (activeProfileTab: number) => {
         switch (activeProfileTab) {
             case 1:
-                return <Overview />;
+                return <EditProfile />;
             case 2:
                 return <ProfileInformation />;
             case 3:
