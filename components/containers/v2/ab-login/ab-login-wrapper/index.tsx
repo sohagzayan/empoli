@@ -1,5 +1,5 @@
+import SignInForm from '@/components/containers/job_seeker/SignInForm'
 import React from 'react'
-import SignInForm from '../../job_seeker/SignInForm'
 
 const AbLoginWrapper = () => {
     return (

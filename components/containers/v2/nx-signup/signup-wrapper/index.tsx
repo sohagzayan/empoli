@@ -1,7 +1,7 @@
 "use client"
 import React, { useState } from 'react'
 import RoleSelector from '../role-selector'
-import SignUpForm from '../../job_seeker/SignUpForm'
+import SignUpForm from '@/components/containers/job_seeker/SignUpForm'
 
 const SignupWrapper = () => {
     const [selectRole, setSelectRole] = useState<string | null>(null)

@@ -75,21 +75,19 @@ const ethnicityOptions = [
 
 const EditProfile = () => {
 
-
-
     return (
         <div>
             <div className=" mx-auto p-6 bg-[rgba(255,255,255,0.06)] rounded-xl mt-6">
                 <div className='grid grid-cols-12'>
-                    <div className='col-span-4'>
-                        <div className='w-[90%] md:w-[300px] lg:w-[330px]'>
-                            <h2 className='text-xl font-600 text-white mb-2'>About</h2>
-                            <p className='text-text6'>
+                    <div className='col-span-12 md:col-span-2 lg:col-span-4'>
+                        <div className='w-[90%]  lg:w-[330px]'>
+                            <h2 className='text-xl font-600 text-white '>About</h2>
+                            <p className='text-text6  mb-3 md:mb-0 lg:mb-0'>
                                 Tell us about yourself so startups know who you are.
                             </p>
                         </div>
                     </div>
-                    <div className="col-span-8">
+                    <div className="col-span-12 md:col-span-10 lg:col-span-8">
                         <div>
                             <InputField label='Your name' showLabel={true} />
                         </div>
@@ -98,14 +96,14 @@ const EditProfile = () => {
                         </div>
                         <div className='mt-4'>
                             <div className='grid grid-cols-12 gap-4'>
-                                <div className='col-span-8'>
+                                <div className='col-span-6 lg:col-span-8'>
                                     <SelectDropdown
                                         options={roleOptions}
                                         label='Select your primary role'
                                         showLabel={true}
                                     />
                                 </div>
-                                <div className='col-span-4'>
+                                <div className='col-span-6 lg:col-span-4'>
                                     <SelectDropdown
                                         options={exYearOptions}
                                         label='Years of experience'
@@ -131,13 +129,13 @@ const EditProfile = () => {
                 </div>
                 <hr className='border-text1 my-8' />
                 <div className='grid grid-cols-12'>
-                    <div className='col-span-4'>
+                    <div className=' col-span-12 md:col-span-2 lg:col-span-4'>
                         <h2 className='text-xl font-600 text-white '>Social Profiles</h2>
-                        <p className='text-text6'>
+                        <p className='text-text6 mb-3 md:mb-0 lg:mb-0'>
                             Where can people find you online?
                         </p>
                     </div>
-                    <div className="col-span-8">
+                    <div className=" col-span-12 md:col-span-10 lg:col-span-8">
                         <div>
                             <InputField
                                 label='Website'
@@ -175,13 +173,13 @@ const EditProfile = () => {
                 </div>
                 <hr className='border-text1 my-8' />
                 <div className='grid grid-cols-12'>
-                    <div className='col-span-4'>
+                    <div className='col-span-12 md:col-span-2 lg:col-span-4'>
                         <h2 className='text-xl font-600 text-white '>Your work experience</h2>
-                        <p className='text-text6'>
+                        <p className='text-text6 mb-3 md:mb-0 lg:mb-0'>
                             What other positions have you held?
                         </p>
                     </div>
-                    <div className="col-span-8 ">
+                    <div className="col-span-12 md:col-span-10 lg:col-span-8 ">
                         <div>
                             <div className='grid grid-cols-12 gap-3 bg-themeDark p-4 rounded-md'>
                                 <div className='col-span-1'>
@@ -209,13 +207,13 @@ const EditProfile = () => {
                 </div>
                 <hr className='border-text1 my-8' />
                 <div className='grid grid-cols-12'>
-                    <div className='col-span-4'>
+                    <div className='col-span-12 md:col-span-2 lg:col-span-4'>
                         <h2 className='text-xl font-600 text-white '>Education</h2>
-                        <p className='text-text6'>
+                        <p className='text-text6 mb-3 mb:mb-0 lg:mb-0'>
                             What schools have you studied at?
                         </p>
                     </div>
-                    <div className="col-span-8">
+                    <div className="col-span-12 md:col-span-10 lg:col-span-8">
                         <div>
                             <div className='grid grid-cols-12 gap-3 bg-themeDark p-3 rounded-md'>
                                 <div className='col-span-1'>
@@ -244,15 +242,15 @@ const EditProfile = () => {
                 </div>
                 <hr className='border-text1 my-8' />
                 <div className='grid grid-cols-12'>
-                    <div className='col-span-4'>
-                        <div className='w-[90%] md:w-[300px] lg:w-[330px]'>
-                            <h2 className='text-xl font-600 text-white mb-2'>Your Skills</h2>
-                            <p className='text-text6'>
+                    <div className='col-span-12 md:col-span-2 lg:col-span-4'>
+                        <div className='w-[90%]  lg:w-[330px]'>
+                            <h2 className='text-xl font-600 text-white '>Your Skills</h2>
+                            <p className='text-text6 mb-3 mb:mb-0 lg:mb-0'>
                                 This will help startups hone in on your strengths.
                             </p>
                         </div>
                     </div>
-                    <div className="col-span-8">
+                    <div className=" col-span-12 md:col-span-10 lg:col-span-8">
                         <div>
                             <div>
                                 <div className='flex items-center gap-3'>
@@ -270,15 +268,15 @@ const EditProfile = () => {
                 </div>
                 <hr className='border-text1 my-8' />
                 <div className='grid grid-cols-12'>
-                    <div className='col-span-4'>
-                        <div className='w-[90%] md:w-[300px] lg:w-[330px]'>
-                            <h2 className='text-xl font-600 text-white mb-2'>Achievements</h2>
+                    <div className='col-span-12 md:col-span-2 lg:col-span-4'>
+                        <div className='w-[90%]  lg:w-[330px]'>
+                            <h2 className='text-xl font-600 text-white '>Achievements</h2>
                             <p className='text-text6'>
                                 Sharing more details about yourself will help you stand out more.
                             </p>
                         </div>
                     </div>
-                    <div className="col-span-8">
+                    <div className="col-span-12 md:col-span-10 lg:col-span-8">
                         <div>
                             <div>
                                 <div className='mt-4'>
@@ -289,19 +287,19 @@ const EditProfile = () => {
                     </div>
                 </div>
                 <hr className='border-text1 my-8' />
-                <div className='grid grid-cols-12'>
-                    <div className='col-span-4'>
-                        <div className='w-[90%] md:w-[300px] lg:w-[330px]'>
+                <div className='grid grid-cols-12 mb-32'>
+                    <div className='col-span-12 md:col-span-2 lg:col-span-4'>
+                        <div className='w-[90%]  lg:w-[330px]'>
                             <h2 className='text-xl font-600 text-white mb-2 '>Identity</h2>
                             <p className='text-text6 mb-3'>
                                 At Jobjoy, we{"'"}re dedicated to helping companies hire in a more inclusive and diverse way. As part of this mission, we encourage candidates to voluntarily share demographic information to help recruiters build a more well-rounded hiring pipeline.
                             </p>
-                            <p className='text-text6'>
+                            <p className='text-text6 mb-3 md:mb-0 lg:mb-0'>
                                 Providing this information is completely optional, and we{"'"}ll ensure your data is handled with the utmost care. Your responses regarding gender and ethnicity will not be visible on your profile, and displaying your pronouns is also entirely up to you.
                             </p>
                         </div>
                     </div>
-                    <div className="col-span-8">
+                    <div className="col-span-12 md:col-span-10 lg:col-span-8">
                         <div>
                             <div>
                                 <div className='mt-4'>
@@ -311,11 +309,12 @@ const EditProfile = () => {
                                         showLabel={true}
                                     />
                                 </div>
-                                <div className='mt-4'>
+                                <div className='mt-4 flex items-center text-white gap-3'>
                                     <label className="inline-flex items-center cursor-pointer">
                                         <input type="checkbox" value="" className="sr-only peer" />
                                         <div className="relative w-11 h-6 bg-themeDark peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-theme1  rounded-full peer  peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px]  after:bg-theme1 after:border after:rounded-full after:h-5 after:w-5 after:transition-all  peer-checked:bg-theme1 peer-checked:after:bg-white border"></div>
                                     </label>
+                                    Display pronouns on my profile
                                 </div>
                                 <div className='mt-4'>
                                     <SelectDropdown
