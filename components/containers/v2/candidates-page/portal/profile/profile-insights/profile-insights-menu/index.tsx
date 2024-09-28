@@ -13,10 +13,10 @@ const tabData = [
     { id: 1, name: "Edit", icon: <FiEdit size={18} /> },
     { id: 2, name: "Note", icon: <StickyNote size={18} /> },
     { id: 3, name: "Tests", icon: <BookOpenCheck size={18} /> },
-    { id: 4, name: "Saved Jobs", icon: <FolderHeart size={18} /> },
-    { id: 5, name: "Resume", icon: <UserRoundPlus size={18} /> },
-    { id: 6, name: "Recommend", icon: <MdOutlineRecommend size={18} /> },
-    { id: 7, name: "History", icon: <History size={18} /> },
+    // { id: 4, name: "Saved Jobs", icon: <FolderHeart size={18} /> },
+    { id: 4, name: "Resume", icon: <UserRoundPlus size={18} /> },
+    { id: 5, name: "Recommend", icon: <MdOutlineRecommend size={18} /> },
+    { id: 6, name: "History", icon: <History size={18} /> },
 ];
 
 const ProfileInsightsMenu = ({ activeInsightsTab, setActiveInsightsTab }: SideProfileContentType) => {
