@@ -7,6 +7,7 @@ import { DropdownMenu, DropdownMenuContent, DropdownMenuGroup, DropdownMenuItem,
 import Image from 'next/image'
 import VisibilitySetting from '../visibility-setting/VisibilitySetting'
 import { IoMdNotificationsOutline } from 'react-icons/io'
+import { ShinyButton } from '@/components/common'
 
 const HeaderController = () => {
     const router = useRouter()
@@ -19,6 +20,7 @@ const HeaderController = () => {
                         <IoMdNotificationsOutline className='text-text5' size={25} />
                     </div>
                     <VisibilitySetting />
+                    {/* <ShinyButton /> */}
                     <DropdownMenu>
                         <DropdownMenuTrigger asChild>
                             <button onClick={() => router.push('/jobs')} className='bg-transparent text-blue-midnight_blue hover:bg-gray-50 whitespace-nowrap cursor-pointer font-bold flex items-center rounded-full border-none outline-none'>

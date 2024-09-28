@@ -1,0 +1,1 @@
+export { default as ProfileInsightsMenu } from "./profile-insights-menu"

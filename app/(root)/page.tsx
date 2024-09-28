@@ -1,6 +1,7 @@
 import { LiveStatusBar, TopBanner, WebsiteReviews } from '@/components/common'
-import { BenefitsForJobSeekersAndRecruiters, MeetRecruiterCloud, OurMission, SuccessHighlights } from '@/components/containers/home-page'
-import HeroSection from '@/components/containers/home-page/hero-section/HeroSection'
+import { BenefitsForJobSeekersAndRecruiters, MeetRecruiterCloud, OurMission, SuccessHighlights } from '@/components/containers/v2/home-page'
+import HeroSection from '@/components/containers/v2/home-page/hero-section/HeroSection'
+
 import BottomNav from '@/components/shared/Nav/BottomNav'
 import Footer from '@/components/shared/footer/Footer'
 

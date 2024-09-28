@@ -56,14 +56,14 @@ const Marquee = () => {
     };
 
     return (
-        <div className="relative w-full overflow-hidden">
+        <div className="relative w-full overflow-hidden  ">
             {/* Left overlay */}
             <div className="absolute inset-y-0 left-0 w-16 bg-gradient-to-r from-themeDark to-transparent pointer-events-none z-10" />
             {/* Right overlay */}
             <div className="absolute inset-y-0 right-0 w-16 bg-gradient-to-l from-themeDark to-transparent pointer-events-none z-10" />
 
             <div
-                className=" overflow-hidden whitespace-nowrap w-full flex items-center py-3 text-sm"
+                className=" overflow-hidden bg-themeDark whitespace-nowrap w-full flex items-center py-3 text-sm"
                 onMouseEnter={handleMouseEnter}
                 onMouseLeave={handleMouseLeave}
             >
