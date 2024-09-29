@@ -1,16 +1,13 @@
 'use client';
-import React, { useCallback, useEffect, useState } from 'react';
-import Header from '@/components/shared/Nav/Header';
-import { FiCopy } from 'react-icons/fi';
-import { IoCloudUploadOutline } from 'react-icons/io5';
-import { Button } from '@/components/ui/button';
 import Footer from '@/components/shared/footer/Footer';
-import { usePathname } from 'next/navigation';
-import axios from 'axios';
 import MiniLoadingCircle from '@/components/shared/mini-loading-circle/MiniLoadingCircle';
+import Header from '@/components/shared/Nav/Header';
+import { Button } from '@/components/ui/button';
+import axios from 'axios';
 import { useSession } from 'next-auth/react';
-import { useDropzone } from 'react-dropzone';
-import { truncateSync } from 'fs';
+import { usePathname } from 'next/navigation';
+import { useEffect, useState } from 'react';
+import { FiCopy } from 'react-icons/fi';
 import { toast } from 'sonner';
 
 const ApplicationForm = () => {
@@ -126,13 +123,13 @@ const ApplicationForm = () => {
     try {
       let resume = null;
       if (resumeFileEvent) {
-        let isUploadResume = await handleFileUpload(resumeFileEvent);
+        const isUploadResume = await handleFileUpload(resumeFileEvent);
         if (isUploadResume?.success) {
           resume = isUploadResume.resume;
         } else console.log('isUploadResume', isUploadResume);
       }
       const res = await axios.post('/api/user/application', {
-        id: id,
+        id,
         your_availability: yourAvailability,
         cover_latter: coverLatter,
         unavailable_reason: unavailableReason,
@@ -144,7 +141,7 @@ const ApplicationForm = () => {
           question: jobDetails.assessmentQuestions.question2,
           answer: question2,
         },
-        resume: resume,
+        resume,
         jobId: jobDetails?.id,
       });
       if (res?.statusText) {
@@ -206,7 +203,6 @@ const ApplicationForm = () => {
                     )}
                     <textarea
                       name="cover_letter"
-                      dirName="cover_letter"
                       required
                       value={coverLatter}
                       onChange={(e) => setCoverLatter(e.target.value)}
