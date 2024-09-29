@@ -1,5 +1,5 @@
-import { AbLoginWrapper } from '@/components/containers/v2/ab-login'
 import React from 'react'
+import AbLoginWrapper from './components/AbLoginWrapper'
 
 const LoginPage = () => {
     return (

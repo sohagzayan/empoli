@@ -1,6 +1,7 @@
 
-import { ProfileBannerAvatar, ProfileWrapper } from '@/components/containers/v2/candidates-page/portal/profile'
+import ProfileBannerAvatar from '@/components/common/ProfileBannerAvatar/ProfileBannerAvatar'
 import React from 'react'
+import ProfileWrapper from './components/ProfileWrapper'
 
 const UserProfileEdit = () => {
     return (
