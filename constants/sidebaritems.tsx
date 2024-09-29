@@ -5,15 +5,20 @@ import { CiBookmark, CiPaperplane } from 'react-icons/ci';
 import { FcFeedback } from 'react-icons/fc';
 import { GoHome } from 'react-icons/go';
 import { IoBriefcaseOutline } from 'react-icons/io5';
-import { LiaBoxOpenSolid, LiaFileInvoiceSolid, LiaUserAltSolid, LiaUserTieSolid } from 'react-icons/lia';
-import { LuInbox } from 'react-icons/lu';
 import {
-  MdFavoriteBorder,
-  MdManageAccounts
-} from 'react-icons/md';
-import { RiDeleteBin6Line, RiLogoutCircleRLine, RiLuggageCartFill } from 'react-icons/ri';
+  LiaBoxOpenSolid,
+  LiaFileInvoiceSolid,
+  LiaUserAltSolid,
+  LiaUserTieSolid,
+} from 'react-icons/lia';
+import { LuInbox } from 'react-icons/lu';
+import { MdFavoriteBorder, MdManageAccounts } from 'react-icons/md';
+import {
+  RiDeleteBin6Line,
+  RiLogoutCircleRLine,
+  RiLuggageCartFill,
+} from 'react-icons/ri';
 import { TbMessage, TbMessages } from 'react-icons/tb';
-
 
 export const sidebarItems = (role: string) => {
   const defaultSidebarItems = [

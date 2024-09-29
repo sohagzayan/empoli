@@ -1,6 +1,6 @@
 export const getFormatDate = (dateString: any) => {
-  let date = new Date(dateString);
-  var formattedDate = date.toLocaleDateString('en-GB', {
+  const date = new Date(dateString);
+  const formattedDate = date.toLocaleDateString('en-GB', {
     day: 'numeric',
     month: 'short',
     year: 'numeric',

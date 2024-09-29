@@ -10,8 +10,8 @@ const MiniLoadingCircle = ({ width = '35', height = '35' }: any) => {
         viewBox="0 0 24 24"
         fill="none"
         stroke="currentColor"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeLinecap="round"
+        strokeLinejoin="round"
         className="sbui-icon animate-spin"
       >
         <line x1="12" y1="2" x2="12" y2="6"></line>

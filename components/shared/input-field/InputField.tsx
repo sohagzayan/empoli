@@ -1,4 +1,3 @@
-
 const InputField = ({ icon, placeholder }: any) => {
   return (
     <form>

@@ -34,7 +34,7 @@ const PaginationC = ({ totalJobs, jobsPerPage }: any) => {
     const pageNumbers = [];
 
     let startPage = Math.max(1, currentPage - Math.floor(pagesToShow / 2));
-    let endPage = Math.min(totalPages, startPage + pagesToShow - 1);
+    const endPage = Math.min(totalPages, startPage + pagesToShow - 1);
 
     if (endPage - startPage < pagesToShow - 1) {
       startPage = Math.max(1, endPage - pagesToShow + 1);

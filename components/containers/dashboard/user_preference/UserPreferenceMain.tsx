@@ -74,7 +74,7 @@ const UserPreferenceMain = () => {
   }
 
   const handleRemoveSelectedInterest = (interest: string) => {
-    let exitsArray = selectedInterest.filter(
+    const exitsArray = selectedInterest.filter(
       (selectedTag) => selectedTag !== interest,
     );
     setSelectedInterest(exitsArray);
@@ -90,7 +90,7 @@ const UserPreferenceMain = () => {
 
   const handleCurrentlyLookingFor = (lookingFor: any) => {
     if (currentlyLookingFor.includes(lookingFor)) {
-      let exclude = currentlyLookingFor.filter((work) => work !== lookingFor);
+      const exclude = currentlyLookingFor.filter((work) => work !== lookingFor);
       setCurrentlyLookingFor(exclude);
     } else {
       setCurrentlyLookingFor((prev) => [...prev, lookingFor]);
@@ -99,7 +99,7 @@ const UserPreferenceMain = () => {
 
   const handleWorkMode = (mode: any) => {
     if (workMode.includes(mode)) {
-      let exclude = workMode.filter((work) => work !== mode);
+      const exclude = workMode.filter((work) => work !== mode);
       setWorkMode(exclude);
     } else {
       setWorkMode((prev) => [...prev, mode]);
@@ -134,7 +134,7 @@ const UserPreferenceMain = () => {
 
   const handlePreferences = async (e: any) => {
     e.preventDefault();
-    let isPass = validateField();
+    const isPass = validateField();
     if (!isPass) {
       toast.error('Please fill all required field!', {
         position: 'bottom-center',

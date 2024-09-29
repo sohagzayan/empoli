@@ -1,16 +1,15 @@
 'use client';
-
+import JobCart from '@/components/shared/job_card/JobCard';
+import PaginationC from '@/components/shared/pagination/PaginationC';
 import { useGetAllJobsQuery } from '@/redux/features/getJobs';
 import { useState } from 'react';
 import { PropagateLoader } from 'react-spinners';
-import PaginationC from '@/components/shared/pagination/PaginationC';
-import JobCart from '@/components/shared/job_card/JobCard';
 
 const JobResults = ({ searchParams }: any) => {
   const [isOpenFilter, setIsOpenFilter] = useState(false);
   const [allJobs, setAllJobs] = useState([]);
   const [itemOffset, setItemOffset] = useState(0);
-  let itemsPerPage = 4;
+  const itemsPerPage = 4;
   const endOffset = itemOffset + itemsPerPage;
   const items = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14];
 
@@ -19,18 +18,16 @@ const JobResults = ({ searchParams }: any) => {
   const { data, isLoading } = useGetAllJobsQuery(queryString);
 
   console.log('res form rtk', data);
-  const currentItems = items.slice(itemOffset, endOffset);
-  const pageCount = Math.ceil(items.length / itemsPerPage);
+  // const currentItems = items.slice(itemOffset, endOffset);
+  // const pageCount = Math.ceil(items.length / itemsPerPage);
 
-  const handlePageClick = (event: any) => {
-    const newOffset = (event.selected * itemsPerPage) % items.length;
-    console.log(
-      `User requested page number ${event.selected}, which is offset ${newOffset}`,
-    );
-    setItemOffset(newOffset);
-  };
-
-  console.log('jobs', data);
+  // const handlePageClick = (event: any) => {
+  //   const newOffset = (event.selected * itemsPerPage) % items.length;
+  //   console.log(
+  //     `User requested page number ${event.selected}, which is offset ${newOffset}`,
+  //   );
+  //   setItemOffset(newOffset);
+  // };
 
   return (
     <>

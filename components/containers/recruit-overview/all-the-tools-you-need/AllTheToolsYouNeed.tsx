@@ -1,6 +1,5 @@
 'use client';
-import React from 'react';
-import { Card, CardContent } from '@/components/ui/card';
+import { Button } from '@/components/ui/button';
 import {
   Carousel,
   CarouselContent,
@@ -10,9 +9,9 @@ import {
 } from '@/components/ui/carousel';
 import Autoplay from 'embla-carousel-autoplay';
 import Image from 'next/image';
-import { Button } from '@/components/ui/button';
+import React from 'react';
 
-let review = [
+const review = [
   {
     id: 1,
     image: 'Message.png',

@@ -1,7 +1,7 @@
 import React from 'react';
 
-let titleStyle = 'font-medium text-[20px] text-purple mb-4';
-let detailsStyle = 'font-normal text-[14px] leading-7';
+const titleStyle = 'font-medium text-[20px] text-purple mb-4';
+const detailsStyle = 'font-normal text-[14px] leading-7';
 
 const JobInsights = () => {
   return (

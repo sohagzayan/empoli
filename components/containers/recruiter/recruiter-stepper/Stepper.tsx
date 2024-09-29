@@ -1,22 +1,15 @@
 'use client';
-import { Button } from '@/components/ui/button';
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipTrigger,
-} from '@/components/ui/tooltip';
 import '@/styles/recruter-stepper/recruter-stepper.css';
 import { useSession } from 'next-auth/react';
 import { usePathname } from 'next/navigation';
-import { useEffect, useRef, useState } from 'react';
 import { IoBriefcaseOutline } from 'react-icons/io5';
 import { MdOutlineAccountBalance, MdOutlineAccountBox } from 'react-icons/md';
 
-const Stepper = ({}: any) => {
+const Stepper = () => {
   const pathname = usePathname();
   const { data: session } = useSession();
 
-  let activeIcon = (
+  const activeIcon = (
     <svg
       className="text-green-500 dark:text-green-400 h-3.5 w-3.5"
       aria-hidden="true"
@@ -26,9 +19,9 @@ const Stepper = ({}: any) => {
     >
       <path
         stroke="currentColor"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        stroke-width="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth="2"
         d="M1 5.917 5.724 10.5 15 1.5"
       />
     </svg>
@@ -37,8 +30,6 @@ const Stepper = ({}: any) => {
   const isActiveSignUpStep = pathname == '/members/recruiter/sign-up';
   const isActiveSurvey = pathname == '/members/recruiter/survey';
   const isActiveBilling = pathname == '/members/recruiter/billing';
-
-  console.log('session', session);
 
   return (
     <>

@@ -6,7 +6,7 @@ import { Button } from '@/components/ui/button';
 
 const CandidatesHeroSection = () => {
   useLayoutEffect(() => {
-    let text = new SplitType('#candidates_overview_title');
+    const text = new SplitType('#candidates_overview_title');
     gsap.from('.char', {
       y: 100,
       stagger: 0.05,

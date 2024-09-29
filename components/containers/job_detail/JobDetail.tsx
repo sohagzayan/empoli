@@ -1,4 +1,5 @@
 'use client';
+import MiniLoadingCircle from '@/components/shared/mini-loading-circle/MiniLoadingCircle';
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -10,19 +11,14 @@ import {
 import { Button } from '@/components/ui/button';
 import axios from 'axios';
 import { SlashIcon } from 'lucide-react';
-import Link from 'next/link';
 import { useParams, useRouter } from 'next/navigation';
-import React, { useEffect, useState } from 'react';
-import he from 'he'; // Import the he library
-import { stateToHTML } from 'draft-js-export-html';
-import { EditorState, convertFromHTML, ContentState, Editor } from 'draft-js';
-import MiniLoadingCircle from '@/components/shared/mini-loading-circle/MiniLoadingCircle';
+import { useEffect, useState } from 'react';
 
 const JobDetail = () => {
   const [loading, setLoading] = useState(true);
   const { id } = useParams();
   const [jobDetails, setJobDetails] = useState<any>({});
-  const [editorState, setEditorState] = useState<any>(null);
+  // const [editorState, setEditorState] = useState<any>(null);
   const router = useRouter();
 
   useEffect(() => {
@@ -127,9 +123,9 @@ const JobDetail = () => {
                         viewBox="0 0 24 24"
                         fill="none"
                         stroke="currentColor"
-                        stroke-width="2"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
                         className="lucide lucide-plug rotate-90"
                       >
                         <path d="M12 22v-5"></path>
@@ -161,9 +157,9 @@ const JobDetail = () => {
                               viewBox="0 0 24 24"
                               fill="none"
                               stroke="currentColor"
-                              stroke-width="2"
-                              stroke-linecap="round"
-                              stroke-linejoin="round"
+                              strokeWidth="2"
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
                               className="h-5 w-5"
                             >
                               <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
@@ -186,9 +182,9 @@ const JobDetail = () => {
                               viewBox="0 0 24 24"
                               fill="none"
                               stroke="currentColor"
-                              stroke-width="2"
-                              stroke-linecap="round"
-                              stroke-linejoin="round"
+                              strokeWidth="2"
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
                               className="h-5 w-5"
                             >
                               <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
@@ -210,9 +206,9 @@ const JobDetail = () => {
                               viewBox="0 0 24 24"
                               fill="none"
                               stroke="currentColor"
-                              stroke-width="2"
-                              stroke-linecap="round"
-                              stroke-linejoin="round"
+                              strokeWidth="2"
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
                               className="h-5 w-5"
                             >
                               <rect
@@ -242,9 +238,9 @@ const JobDetail = () => {
                               viewBox="0 0 24 24"
                               fill="none"
                               stroke="currentColor"
-                              stroke-width="2"
-                              stroke-linecap="round"
-                              stroke-linejoin="round"
+                              strokeWidth="2"
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
                               className="h-5 w-5"
                             >
                               <rect
@@ -273,9 +269,9 @@ const JobDetail = () => {
                               viewBox="0 0 24 24"
                               fill="none"
                               stroke="currentColor"
-                              stroke-width="2"
-                              stroke-linecap="round"
-                              stroke-linejoin="round"
+                              strokeWidth="2"
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
                               className="h-5 w-5"
                             >
                               <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
@@ -297,9 +293,9 @@ const JobDetail = () => {
                               viewBox="0 0 24 24"
                               fill="none"
                               stroke="currentColor"
-                              stroke-width="2"
-                              stroke-linecap="round"
-                              stroke-linejoin="round"
+                              strokeWidth="2"
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
                               className="h-5 w-5"
                             >
                               <line x1="12" y1="1" x2="12" y2="23"></line>
@@ -322,9 +318,9 @@ const JobDetail = () => {
                               viewBox="0 0 24 24"
                               fill="none"
                               stroke="currentColor"
-                              stroke-width="2"
-                              stroke-linecap="round"
-                              stroke-linejoin="round"
+                              strokeWidth="2"
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
                               className="h-5 w-5"
                             >
                               <circle cx="12" cy="12" r="10"></circle>

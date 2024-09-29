@@ -5,7 +5,7 @@ import ReadyToInterview from '@/components/icons/ready-to-interview/ReadyToInter
 import React, { useEffect, useRef, useState } from 'react';
 import { IoIosArrowDown } from 'react-icons/io';
 
-let visibilityData = [
+const visibilityData = [
   {
     id: 1,
     label: 'Ready to interview',

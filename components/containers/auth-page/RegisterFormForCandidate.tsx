@@ -1,14 +1,12 @@
 'use client';
+import LoadingCircle from '@/components/shared/loading-circle/LoadingCircle';
+import { Button } from '@/components/ui/button';
 import { registerValidationAsCandidateSchema } from '@/utils/validation-schemas';
 import { Formik, FormikHelpers } from 'formik';
-import React, { useState } from 'react';
-import { FaCheck, FaTimes, FaExclamationTriangle } from 'react-icons/fa';
-import { Input } from '@/components/ui/input';
 import { KeyRound } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { toast } from 'sonner';
 import { signIn } from 'next-auth/react';
-import LoadingCircle from '@/components/shared/loading-circle/LoadingCircle';
+import { useState } from 'react';
+import { toast } from 'sonner';
 
 const STRONG = 'Strong';
 const MEDIUM = 'Medium';
@@ -50,7 +48,7 @@ const RegisterFormForCandidate = () => {
       (value) => value,
     ).length;
 
-    let passwordStrength =
+    const passwordStrength =
       verifiedListLength == 5
         ? STRONG
         : verifiedListLength >= 2
@@ -95,22 +93,22 @@ const RegisterFormForCandidate = () => {
     return '';
   };
 
-  const renderPasswordIcon = (strength: string) => {
-    if (strength === STRONG || strength === MATCHED) {
-      return <FaCheck className="h-5 w-5" />;
-    } else if (strength === MEDIUM) {
-      return <FaExclamationTriangle className="h-5 w-5" />;
-    } else if (strength === WEAK || strength === UNMATCHED) {
-      return <FaTimes className="h-5 w-5" />;
-    } else return;
-  };
+  // const renderPasswordIcon = (strength: string) => {
+  //   if (strength === STRONG || strength === MATCHED) {
+  //     return <FaCheck className="h-5 w-5" />;
+  //   } else if (strength === MEDIUM) {
+  //     return <FaExclamationTriangle className="h-5 w-5" />;
+  //   } else if (strength === WEAK || strength === UNMATCHED) {
+  //     return <FaTimes className="h-5 w-5" />;
+  //   } else return;
+  // };
 
   const onSubmit = async (values: any, actions: FormikHelpers<any>) => {
     setLoading(true);
     try {
       const { email, password, role, firstName, lastName } = values;
 
-      let response: any = await fetch('/api/auth/signup', {
+      const response: any = await fetch('/api/auth/signup', {
         method: 'POST',
         body: JSON.stringify({
           email,
@@ -140,10 +138,10 @@ const RegisterFormForCandidate = () => {
   };
 
   const {
-    showPasswordCriteria,
-    conditions,
+    // showPasswordCriteria,
+    // conditions,
     passwordStrength,
-    confirmPasswordStrength,
+    // confirmPasswordStrength,
     progress,
   } = passwordState;
 
@@ -166,14 +164,7 @@ const RegisterFormForCandidate = () => {
             onSubmit(values, actions);
           }}
         >
-          {({
-            values,
-            errors,
-            handleChange,
-            handleBlur,
-            handleSubmit,
-            isSubmitting,
-          }) => (
+          {({ values, errors, handleChange, handleBlur, handleSubmit }) => (
             <div>
               <form
                 onSubmit={(e) => {

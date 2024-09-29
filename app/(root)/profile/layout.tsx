@@ -1,12 +1,10 @@
 'use client';
-import Header from '@/components/shared/Nav/Header';
-import AuthNav from '@/components/shared/auth-nav/AuthNav';
 import HeaderController from '@/components/shared/header-controller/HeaderController';
-import Image from 'next/image';
-import React, { useState } from 'react';
-import Link from 'next/link';
 import { sidebarItems } from '@/constants/sidebaritems';
+import Image from 'next/image';
+import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import React, { useState } from 'react';
 import { IoSearchOutline, IoSettingsOutline } from 'react-icons/io5';
 import { LuUser2 } from 'react-icons/lu';
 
@@ -16,14 +14,14 @@ export default function RootLayouts({
   children: React.ReactNode;
 }) {
   const [isExpanded, setIsExpanded] = useState(false);
-  const [isOpenSideBar, setIsOpenSideBar] = useState(false);
+  // const [isOpenSideBar, setIsOpenSideBar] = useState(false);
   const pathname = usePathname();
 
   const handleExpandSideBar = () => {
     setIsExpanded((prev) => !prev);
   };
 
-  let sideBarItem = sidebarItems('candidate');
+  const sideBarItem = sidebarItems('candidate');
 
   return (
     <div className="h-screen min-h-[0px] flex-1 basis-0">

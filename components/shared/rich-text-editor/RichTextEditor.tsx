@@ -11,7 +11,7 @@ const Editor = dynamic(
   { ssr: false },
 );
 
-export default forwardRef<Object, EditorProps>(
+export default forwardRef<object, EditorProps>(
   function RichTextEditor(props, ref) {
     return (
       <Editor

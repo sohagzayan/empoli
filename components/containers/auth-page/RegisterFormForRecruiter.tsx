@@ -7,7 +7,6 @@ import { KeyRound } from 'lucide-react';
 import { signIn } from 'next-auth/react';
 import Link from 'next/link';
 import { useState } from 'react';
-import { FaCheck, FaExclamationTriangle, FaTimes } from 'react-icons/fa';
 import PhoneInput from 'react-phone-input-2';
 import 'react-phone-input-2/lib/style.css';
 import { toast } from 'sonner';
@@ -53,7 +52,7 @@ const RegisterFormForRecruiter = () => {
       (value) => value,
     ).length;
 
-    let passwordStrength =
+    const passwordStrength =
       verifiedListLength == 5
         ? STRONG
         : verifiedListLength >= 2
@@ -98,22 +97,22 @@ const RegisterFormForRecruiter = () => {
     return '';
   };
 
-  const renderPasswordIcon = (strength: string) => {
-    if (strength === STRONG || strength === MATCHED) {
-      return <FaCheck className="h-5 w-5" />;
-    } else if (strength === MEDIUM) {
-      return <FaExclamationTriangle className="h-5 w-5" />;
-    } else if (strength === WEAK || strength === UNMATCHED) {
-      return <FaTimes className="h-5 w-5" />;
-    } else return;
-  };
+  // const renderPasswordIcon = (strength: string) => {
+  //   if (strength === STRONG || strength === MATCHED) {
+  //     return <FaCheck className="h-5 w-5" />;
+  //   } else if (strength === MEDIUM) {
+  //     return <FaExclamationTriangle className="h-5 w-5" />;
+  //   } else if (strength === WEAK || strength === UNMATCHED) {
+  //     return <FaTimes className="h-5 w-5" />;
+  //   } else return;
+  // };
 
   const onSubmit = async (values: any, actions: FormikHelpers<any>) => {
     setLoading(true);
     try {
       const { email, password, firstName, lastName } = values;
       console.log('values', values);
-      let response: any = await fetch('/api/auth/signup', {
+      const response: any = await fetch('/api/auth/signup', {
         method: 'POST',
         body: JSON.stringify({
           email,
@@ -143,10 +142,10 @@ const RegisterFormForRecruiter = () => {
     actions.setSubmitting(false);
   };
   const {
-    showPasswordCriteria,
-    conditions,
+    // showPasswordCriteria,
+    // conditions,
     passwordStrength,
-    confirmPasswordStrength,
+    // confirmPasswordStrength,
     progress,
   } = passwordState;
 
@@ -168,14 +167,7 @@ const RegisterFormForRecruiter = () => {
             onSubmit(values, actions);
           }}
         >
-          {({
-            values,
-            errors,
-            handleChange,
-            handleBlur,
-            handleSubmit,
-            isSubmitting,
-          }) => (
+          {({ values, errors, handleChange, handleBlur, handleSubmit }) => (
             <div>
               <form
                 onSubmit={(e) => {

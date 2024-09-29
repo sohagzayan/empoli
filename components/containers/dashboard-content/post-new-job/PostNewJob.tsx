@@ -1,53 +1,44 @@
 'use client';
-import { Label } from '@/components/ui/label';
-import {
-  duration,
-  jobCategory,
-  jobType,
-  required_skills,
-  skills,
-} from '@/utils/data';
-import React, { useEffect, useState } from 'react';
-import { LuDollarSign } from 'react-icons/lu';
-import { City, Country, State } from 'country-state-city';
-import { Button } from '@/components/ui/button';
-import { Formik, FormikHelpers } from 'formik';
-import { toast } from 'sonner';
-import {
-  job_facilities,
-  postNewJobValidationSchema,
-} from '@/utils/validation-schemas';
-import makeAnimated from 'react-select/animated';
-import { MultiSelect } from 'react-multi-select-component';
-import DatePicker from 'react-datepicker';
-import 'react-datepicker/dist/react-datepicker.css';
+import RichTextEditor from '@/components/shared/rich-text-editor/RichTextEditor';
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
 } from '@/components/ui/accordion';
-import { getFormatDate } from '@/utils/utilati_func';
-import RequiredSkills from './required-skills/RequiredSkills';
-import RichTextEditor from '@/components/shared/rich-text-editor/RichTextEditor';
-import { draftToMarkdown } from 'markdown-draft-js';
-import JobResponsibilities from './job-responsibilities/JobResponsibilities';
+import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
-import axios from 'axios';
+import { Label } from '@/components/ui/label';
+import { duration, jobType, required_skills } from '@/utils/data';
+import { getFormatDate } from '@/utils/utilati_func';
+import {
+  job_facilities,
+  postNewJobValidationSchema,
+} from '@/utils/validation-schemas';
+import { Country } from 'country-state-city';
+import { Formik, FormikHelpers } from 'formik';
+import { draftToMarkdown } from 'markdown-draft-js';
+import { useState } from 'react';
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
+import { LuDollarSign } from 'react-icons/lu';
+import { toast } from 'sonner';
+import JobResponsibilities from './job-responsibilities/JobResponsibilities';
+import RequiredSkills from './required-skills/RequiredSkills';
 
 export default function PostNewJob() {
-  let countryData = Country.getAllCountries();
+  const countryData = Country.getAllCountries();
   const [stateData, setStateData] = useState<any>();
   const defaultBD = countryData.filter((c) => c.name == 'Bangladesh');
   const defaultState = stateData?.filter(
     (c: any) => c.name == 'Dhaka District',
   );
-  const [cityData, setCityData] = useState<any>();
-  const [country, setCountry] = useState(defaultBD[0]);
+  const [_cityData, setCityData] = useState<any>();
+  const [country, _setCountry] = useState(defaultBD[0]);
   const [state, setState] = useState<any>(defaultState);
-  const [loading, setLoading] = useState(false);
-  const [listOfSkills, setListOfSkills] = useState([]);
-  const [skillsError, setSkillsError] = useState<any>(null);
+  const [_loading, setLoading] = useState(false);
+  // const [listOfSkills, setListOfSkills] = useState([]);
+  // const [skillsError, setSkillsError] = useState<any>(null);
   const [applicationDeadline, setApplicationDeadline] = useState<any>(
     getFormatDate(new Date()),
   );
@@ -62,7 +53,7 @@ export default function PostNewJob() {
   const [jobResponsibilities, setJobResponsibilities] = useState<any>('');
   const [jobResponsibilitiesError, setJobResponsibilitiesError] =
     useState<any>(null);
-  const [companyLogoUrl, setCompanyLogoUrl] = useState<any>('');
+  const [companyLogoUrl, _setCompanyLogoUrl] = useState<any>('');
   const [imageUploadEvent, setImageUploadEvent] = useState<any>(null);
   const [imageUploadEventError, setImageUploadEventError] = useState<any>(null);
   const [validateHowToApplyError, setValidateHowToApplyError] =
@@ -72,55 +63,55 @@ export default function PostNewJob() {
   const [isExternalFieldValidate, setIsExternalFieldValidate] =
     useState<any>(false);
 
-  const handleImageUpload = async (event: any) => {
-    if (event) {
-      const [imgData] = event.target.files;
-      console.log('event.target.files', event.target.files);
-      const formData = new FormData();
-      formData.append('file', imgData);
-      formData.append('upload_preset', 'apper_upload');
-      try {
-        const res = await axios.post(
-          'https://api.cloudinary.com/v1_1/da0dxyn2l/image/upload',
-          formData,
-        );
-        setCompanyLogoUrl(res.data.url);
-        console.log('imagedata', res);
-      } catch (error) {
-        console.log('image upload error >', error);
-      }
-    }
-  };
+  // const handleImageUpload = async (event: any) => {
+  //   if (event) {
+  //     const [imgData] = event.target.files;
+  //     console.log('event.target.files', event.target.files);
+  //     const formData = new FormData();
+  //     formData.append('file', imgData);
+  //     formData.append('upload_preset', 'apper_upload');
+  //     try {
+  //       const res = await axios.post(
+  //         'https://api.cloudinary.com/v1_1/da0dxyn2l/image/upload',
+  //         formData,
+  //       );
+  //       setCompanyLogoUrl(res.data.url);
+  //       console.log('imagedata', res);
+  //     } catch (error) {
+  //       console.log('image upload error >', error);
+  //     }
+  //   }
+  // };
 
-  useEffect(() => {
-    setStateData(State.getStatesOfCountry(country?.isoCode));
-  }, [country]);
+  // useEffect(() => {
+  //   setStateData(State.getStatesOfCountry(country?.isoCode));
+  // }, [country?.isoCode]);
 
-  useEffect(() => {
-    setCityData(City.getCitiesOfState(country?.isoCode, state?.isoCode));
-  }, [state]);
+  // useEffect(() => {
+  //   setCityData(City.getCitiesOfState(country?.isoCode, state?.isoCode));
+  // }, [country?.isoCode,state?.isoCode ]);
 
-  useEffect(() => {
-    stateData && setState(stateData);
-  }, [stateData]);
+  // useEffect(() => {
+  //   stateData && setState(stateData);
+  // }, [stateData]);
 
-  function validateSkills(listOfSkills: any) {
-    const minSkills = 1;
-    const maxSkills = 10;
+  // function validateSkills(listOfSkills: any) {
+  //   const minSkills = 1;
+  //   const maxSkills = 10;
 
-    const numberOfSkills = listOfSkills.length;
+  //   const numberOfSkills = listOfSkills.length;
 
-    if (numberOfSkills < minSkills) {
-      setSkillsError(`Please add at least ${minSkills} skill.`);
-      return false;
-    } else if (numberOfSkills > maxSkills) {
-      setSkillsError(`You can add a maximum of ${maxSkills} skills.`);
-      return false;
-    } else {
-      setSkillsError(null);
-      return true;
-    }
-  }
+  //   if (numberOfSkills < minSkills) {
+  //     setSkillsError(`Please add at least ${minSkills} skill.`);
+  //     return false;
+  //   } else if (numberOfSkills > maxSkills) {
+  //     setSkillsError(`You can add a maximum of ${maxSkills} skills.`);
+  //     return false;
+  //   } else {
+  //     setSkillsError(null);
+  //     return true;
+  //   }
+  // }
 
   const handleCheckboxChange = (facilityName: string) => {
     const index = selectedFacilities.indexOf(facilityName);
@@ -188,7 +179,7 @@ export default function PostNewJob() {
       setImageUploadEventError('Please upload a company logo.');
       return false;
     }
-    let file = event.target.files[0];
+    const file = event.target.files[0];
 
     // Check if the file is an image
     const allowedTypes = ['image/jpeg', 'image/png', 'image/gif'];
@@ -279,14 +270,14 @@ export default function PostNewJob() {
     }
 
     try {
-      const { job_title } = values;
+      // const { job_title } = values;
       console.log('all values >>>', values);
-      let response: any = await fetch('/api/recruiter/job/new', {
+      const response: any = await fetch('/api/recruiter/job/new', {
         method: 'POST',
         body: JSON.stringify({
           ...values,
           required_skills: selectedRequiredSkills,
-          applicationDeadline: applicationDeadline,
+          applicationDeadline,
           perks: selectedFacilities,
           company_logo: companyLogoUrl,
           job_description: jobDescription,
@@ -317,11 +308,11 @@ export default function PostNewJob() {
     actions.setSubmitting(false);
   };
 
-  const handleTagRemove = (tag: any) => {
-    setSelectedRequiredSkills(
-      selectedRequiredSkills.filter((selectedTag: any) => selectedTag !== tag),
-    );
-  };
+  // const handleTagRemove = (tag: any) => {
+  //   setSelectedRequiredSkills(
+  //     selectedRequiredSkills.filter((selectedTag: any) => selectedTag !== tag),
+  //   );
+  // };
 
   console.log('selectedRequiredSkills > >', selectedRequiredSkills);
 
@@ -504,7 +495,7 @@ export default function PostNewJob() {
                         className="w-full"
                         // value={values.company_logo}
                         // value={imageUploadEvent}
-                        onChange={(event) => setImageUploadEvent(event)}
+                        onChange={(event: any) => setImageUploadEvent(event)}
                       />
                     </div>
                     <p className="text-red-500 py-1 text-[14px] font-light">

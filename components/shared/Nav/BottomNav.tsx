@@ -8,9 +8,9 @@ import { AiOutlineNotification } from 'react-icons/ai';
 import { GoHome } from 'react-icons/go';
 import { TbMessages } from 'react-icons/tb';
 
-type BottomNavProps = {};
+// type BottomNavProps = {};
 
-const BottomNav: React.FC<BottomNavProps> = () => {
+const BottomNav: React.FC = () => {
   const router = useRouter();
   const pathname = usePathname();
   const currentUser = pathname.split('/')[1];
@@ -39,13 +39,10 @@ const BottomNav: React.FC<BottomNavProps> = () => {
 
   return (
     <div className="fixed bottom-0 left-0 right-0 z-50 block bg-themeDark p-4 shadow-lg lg:hidden">
-      <style jsx>{`
-        /* Hide scrollbar for WebKit browsers */
+      <style>{`
         .custom-scrollbar::-webkit-scrollbar {
           display: none;
         }
-
-        /* Hide scrollbar for Firefox */
         .custom-scrollbar {
           -ms-overflow-style: none; /* IE and Edge */
           scrollbar-width: none; /* Firefox */

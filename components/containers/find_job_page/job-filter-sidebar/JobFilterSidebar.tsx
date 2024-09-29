@@ -1,14 +1,13 @@
 'use client';
 
 import MultiSelectWithSearch from '@/components/shared/multi-select-with-search/MultiSelectWithSearch';
+import { job_profile } from '@/utils/data';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
+import 'react-datepicker/dist/react-datepicker.css';
 import { BiFilterAlt } from 'react-icons/bi';
 import { CiStickyNote } from 'react-icons/ci';
 import { IoIosArrowDown } from 'react-icons/io';
-import 'react-datepicker/dist/react-datepicker.css';
-import { LuSearch } from 'react-icons/lu';
-import { job_profile, required_skills, skills } from '@/utils/data';
 
 const JobFilterSidebar = ({ searchParamsObj }: any) => {
   const router = useRouter();
@@ -85,7 +84,7 @@ const JobFilterSidebar = ({ searchParamsObj }: any) => {
   };
 
   const handleInputChange = async (e: any) => {
-    const { name, value, checked } = e.target;
+    const { name, value } = e.target;
     console.log('checkbox name', e.target.name);
     console.log('checkbox value', e.target.value);
 
@@ -106,18 +105,18 @@ const JobFilterSidebar = ({ searchParamsObj }: any) => {
 
   const handleJobProfileSelect = (tag: string) => {
     setSelectedSkills([...selectedSkills, tag]);
-    let myTag = [...selectedSkills, tag];
-    let makeString = myTag.join(',');
+    const myTag = [...selectedSkills, tag];
+    const makeString = myTag.join(',');
     console.log('makeString', makeString);
     handleTagSearch(makeString, 'skills');
   };
 
   const handleJobProfileRemove = (tag: string) => {
-    let exitsArray = selectedSkills.filter(
+    const exitsArray = selectedSkills.filter(
       (selectedTag) => selectedTag !== tag,
     );
     setSelectedSkills(exitsArray);
-    let makeString = exitsArray.join(',');
+    const makeString = exitsArray.join(',');
     handleTagSearch(makeString, 'tag');
   };
 
@@ -132,7 +131,7 @@ const JobFilterSidebar = ({ searchParamsObj }: any) => {
       newCheckedValues.splice(currentIndex, 1);
     }
     setCheckedJobsTypeValues(newCheckedValues);
-    let makeString = newCheckedValues.join(',');
+    const makeString = newCheckedValues.join(',');
 
     handleTagSearch(makeString, 'job_type');
   };
@@ -148,7 +147,7 @@ const JobFilterSidebar = ({ searchParamsObj }: any) => {
       newCheckedValues.splice(currentIndex, 1);
     }
     setLocationStatus(newCheckedValues);
-    let makeString = newCheckedValues.join(',');
+    const makeString = newCheckedValues.join(',');
 
     handleTagSearch(makeString, 'location');
   };
@@ -164,7 +163,7 @@ const JobFilterSidebar = ({ searchParamsObj }: any) => {
       newCheckedValues.splice(currentIndex, 1);
     }
     setCheckedJobsPerksValues(newCheckedValues);
-    let makeString = newCheckedValues.join(',');
+    const makeString = newCheckedValues.join(',');
 
     handleTagSearch(makeString, 'perks');
   };

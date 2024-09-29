@@ -1,12 +1,10 @@
 'use client';
-import React, { useLayoutEffect, useRef } from 'react';
-import gsap from 'gsap';
-import SplitType from 'split-type';
 import { Button } from '@/components/ui/button';
+import gsap from 'gsap';
+import { useLayoutEffect } from 'react';
 
 const RecruitHeroSection = () => {
   useLayoutEffect(() => {
-    let text = new SplitType('#candidates_overview_title');
     gsap.from('.char', {
       y: 100,
       stagger: 0.05,

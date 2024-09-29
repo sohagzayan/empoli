@@ -5,14 +5,14 @@ import {
   NavigationMenuContent,
   NavigationMenuItem,
   NavigationMenuList,
-  NavigationMenuTrigger
+  NavigationMenuTrigger,
 } from '@/components/ui/navigation-menu';
 import navItems from '@/constants/nav-items';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
-const NavItems = ({ variant }: any) => {
+const NavItems = () => {
   const pathname = usePathname();
   const currentUser = pathname.split('/')[1];
   const navItem = navItems(currentUser);
@@ -22,7 +22,7 @@ const NavItems = ({ variant }: any) => {
       <Menubar className="border-none">
         <NavigationMenu>
           <NavigationMenuList>
-            {navItem.map((menu: any, index: any) => (
+            {navItem.map((menu: any) => (
               <div key={menu.key}>
                 {menu.key ? (
                   <NavigationMenuItem className="">

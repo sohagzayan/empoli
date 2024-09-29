@@ -4,16 +4,13 @@ import SocialLogin from '@/components/common/auth/social-login';
 import MiniLoadingCircle from '@/components/shared/mini-loading-circle/MiniLoadingCircle';
 import { Button } from '@/components/ui/button';
 import { registerValidationAsCandidateSchema } from '@/utils/validation-schemas';
-import { Checkbox } from '@radix-ui/react-checkbox';
 import { Formik, FormikHelpers } from 'formik';
-import { signIn, useSession } from 'next-auth/react';
-import Image from 'next/image';
+import { signIn } from 'next-auth/react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { BsEye, BsEyeSlash } from 'react-icons/bs';
 import { MdErrorOutline } from 'react-icons/md';
-import { PiGoogleLogo } from 'react-icons/pi';
 import { toast } from 'sonner';
 
 interface SignUpFormType {
@@ -62,7 +59,7 @@ const SignUpForm = ({ selectRole }: SignUpFormType) => {
     setLoading(true);
     try {
       const { email, password, fullName } = values;
-      let response: any = await fetch('/api/auth/signup', {
+      const response: any = await fetch('/api/auth/signup', {
         method: 'POST',
         body: JSON.stringify({
           email,

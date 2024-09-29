@@ -6,7 +6,7 @@ import gsap from 'gsap';
 
 const JobMatchMetrics = () => {
   useLayoutEffect(() => {
-    let title = new SplitType('.metrics');
+    const title = new SplitType('.metrics');
 
     gsap
       .timeline({

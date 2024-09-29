@@ -1,4 +1,13 @@
 'use client';
+import MiniLoadingCircle from '@/components/shared/mini-loading-circle/MiniLoadingCircle';
+import TextWrite from '@/components/shared/text-write/TextWrite';
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from '@/components/ui/accordion';
+import { Button } from '@/components/ui/button';
 import { Label } from '@/components/ui/label';
 import {
   duration,
@@ -6,45 +15,34 @@ import {
   jobType,
   job_profile,
   required_skills,
-  skills,
 } from '@/utils/data';
-import React, { useEffect, useState } from 'react';
-import { LuDollarSign } from 'react-icons/lu';
-import { City, Country, State } from 'country-state-city';
-import { Button } from '@/components/ui/button';
-import { Formik, FormikHelpers } from 'formik';
-import { toast } from 'sonner';
+import { getFormatDate } from '@/utils/utilati_func';
 import {
   job_facilities,
   postNewJobValidationSchema,
 } from '@/utils/validation-schemas';
+import { Country, State } from 'country-state-city';
+import { Formik, FormikHelpers } from 'formik';
+import { useEffect, useState } from 'react';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from '@/components/ui/accordion';
-import { getFormatDate } from '@/utils/utilati_func';
-import axios from 'axios';
+import { LuDollarSign } from 'react-icons/lu';
+import { toast } from 'sonner';
 import RequiredSkills from '../../dashboard-content/post-new-job/required-skills/RequiredSkills';
-import TextWrite from '@/components/shared/text-write/TextWrite';
-import MiniLoadingCircle from '@/components/shared/mini-loading-circle/MiniLoadingCircle';
 import JobProfileSelect from '../../find_job_page/job_profile_select/JobProfileSelect';
 
 const CreateJobPostForm = () => {
-  let countryData = Country.getAllCountries();
+  const countryData = Country.getAllCountries();
   const [stateData, setStateData] = useState<any>();
   const defaultBD = countryData.filter((c) => c.name == 'Bangladesh');
   const defaultState = stateData?.filter(
     (c: any) => c.name == 'Dhaka District',
   );
-  const [cityData, setCityData] = useState<any>();
-  const [country, setCountry] = useState(defaultBD[0]);
+  // const [cityData, setCityData] = useState<any>();
+  const [country, _setCountry] = useState(defaultBD[0]);
   const [state, setState] = useState<any>(defaultState);
   const [loading, setLoading] = useState(false);
-  const [skillsError, setSkillsError] = useState<any>(null);
+  const [_skillsError, _setSkillsError] = useState<any>(null);
   const [applicationDeadline, setApplicationDeadline] = useState<any>(
     getFormatDate(new Date()),
   );
@@ -62,8 +60,9 @@ const CreateJobPostForm = () => {
   const [jobResponsibilities, setJobResponsibilities] = useState<any>('');
   const [jobResponsibilitiesError, setJobResponsibilitiesError] =
     useState<any>(null);
-  const [companyLogoUrl, setCompanyLogoUrl] = useState<any>('');
-  const [imageUploadEventError, setImageUploadEventError] = useState<any>(null);
+  const [companyLogoUrl, _setCompanyLogoUrl] = useState<any>('');
+  const [_imageUploadEventError, _setImageUploadEventError] =
+    useState<any>(null);
   const [validateHowToApplyError, setValidateHowToApplyError] =
     useState<any>(null);
   const [applyEmail, setApplyEmail] = useState('');
@@ -71,55 +70,55 @@ const CreateJobPostForm = () => {
   const [isExternalFieldValidate, setIsExternalFieldValidate] =
     useState<any>(false);
 
-  const handleImageUpload = async (event: any) => {
-    if (event) {
-      const [imgData] = event.target.files;
-      console.log('event.target.files', event.target.files);
-      const formData = new FormData();
-      formData.append('file', imgData);
-      formData.append('upload_preset', 'apper_upload');
-      try {
-        const res = await axios.post(
-          'https://api.cloudinary.com/v1_1/da0dxyn2l/image/upload',
-          formData,
-        );
-        setCompanyLogoUrl(res.data.url);
-        console.log('imagedata', res);
-      } catch (error) {
-        console.log('image upload error >', error);
-      }
-    }
-  };
+  // const handleImageUpload = async (event: any) => {
+  //   if (event) {
+  //     const [imgData] = event.target.files;
+  //     console.log('event.target.files', event.target.files);
+  //     const formData = new FormData();
+  //     formData.append('file', imgData);
+  //     formData.append('upload_preset', 'apper_upload');
+  //     try {
+  //       const res = await axios.post(
+  //         'https://api.cloudinary.com/v1_1/da0dxyn2l/image/upload',
+  //         formData,
+  //       );
+  //       setCompanyLogoUrl(res.data.url);
+  //       console.log('imagedata', res);
+  //     } catch (error) {
+  //       console.log('image upload error >', error);
+  //     }
+  //   }
+  // };
 
   useEffect(() => {
     setStateData(State.getStatesOfCountry(country?.isoCode));
   }, [country]);
 
   useEffect(() => {
-    setCityData(City.getCitiesOfState(country?.isoCode, state?.isoCode));
+    // setCityData(City.getCitiesOfState(country?.isoCode, state?.isoCode));
   }, [state]);
 
-  useEffect(() => {
-    stateData && setState(stateData);
-  }, [stateData]);
+  // useEffect(() => {
+  //   stateData && setState(stateData);
+  // }, [stateData]);
 
-  function validateSkills(listOfSkills: any) {
-    const minSkills = 1;
-    const maxSkills = 10;
+  // function validateSkills(listOfSkills: any) {
+  //   const minSkills = 1;
+  //   const maxSkills = 10;
 
-    const numberOfSkills = listOfSkills.length;
+  //   const numberOfSkills = listOfSkills.length;
 
-    if (numberOfSkills < minSkills) {
-      setSkillsError(`Please add at least ${minSkills} skill.`);
-      return false;
-    } else if (numberOfSkills > maxSkills) {
-      setSkillsError(`You can add a maximum of ${maxSkills} skills.`);
-      return false;
-    } else {
-      setSkillsError(null);
-      return true;
-    }
-  }
+  //   if (numberOfSkills < minSkills) {
+  //     setSkillsError(`Please add at least ${minSkills} skill.`);
+  //     return false;
+  //   } else if (numberOfSkills > maxSkills) {
+  //     setSkillsError(`You can add a maximum of ${maxSkills} skills.`);
+  //     return false;
+  //   } else {
+  //     setSkillsError(null);
+  //     return true;
+  //   }
+  // }
 
   const handleCheckboxChange = (facilityName: string) => {
     const index = selectedFacilities.indexOf(facilityName.toLowerCase());
@@ -184,36 +183,36 @@ const CreateJobPostForm = () => {
     return true;
   };
 
-  const validateCompanyLogoField = (event: any) => {
-    // Check if a file is provided
-    if (!event) {
-      setImageUploadEventError('Please upload a company logo.');
-      return false;
-    }
-    let file = event.target.files[0];
+  // const validateCompanyLogoField = (event: any) => {
+  //   // Check if a file is provided
+  //   if (!event) {
+  //     setImageUploadEventError('Please upload a company logo.');
+  //     return false;
+  //   }
+  //   const file = event.target.files[0];
 
-    // Check if the file is an image
-    const allowedTypes = ['image/jpeg', 'image/png', 'image/gif'];
-    if (!allowedTypes.includes(file.type)) {
-      setImageUploadEventError(
-        'Please upload a valid image file (JPEG, PNG, or GIF).',
-      );
-      return false;
-    }
+  //   // Check if the file is an image
+  //   const allowedTypes = ['image/jpeg', 'image/png', 'image/gif'];
+  //   if (!allowedTypes.includes(file.type)) {
+  //     setImageUploadEventError(
+  //       'Please upload a valid image file (JPEG, PNG, or GIF).',
+  //     );
+  //     return false;
+  //   }
 
-    // Check if the file size is within the allowed range
-    const maxSizeInBytes = 5 * 1024 * 1024; // 5MB
-    if (file.size > maxSizeInBytes) {
-      setImageUploadEventError(
-        'The file size exceeds the maximum allowed size of 5MB.',
-      );
-      return false;
-    }
+  //   // Check if the file size is within the allowed range
+  //   const maxSizeInBytes = 5 * 1024 * 1024; // 5MB
+  //   if (file.size > maxSizeInBytes) {
+  //     setImageUploadEventError(
+  //       'The file size exceeds the maximum allowed size of 5MB.',
+  //     );
+  //     return false;
+  //   }
 
-    // All validations pass, return true
-    setImageUploadEventError(null);
-    return true;
-  };
+  //   // All validations pass, return true
+  //   setImageUploadEventError(null);
+  //   return true;
+  // };
 
   const handleValidateHowToApplyField = (
     applyEmail: string,
@@ -282,14 +281,14 @@ const CreateJobPostForm = () => {
     console.log('companyLogoUrl >', companyLogoUrl);
 
     try {
-      const { job_title } = values;
+      // const { job_title } = values;
       console.log('all values >>>', values);
-      let response: any = await fetch('/api/recruiter/job/new', {
+      const response: any = await fetch('/api/recruiter/job/new', {
         method: 'POST',
         body: JSON.stringify({
           ...values,
           required_skills: selectedRequiredSkills,
-          applicationDeadline: applicationDeadline,
+          applicationDeadline,
           perks: selectedFacilities,
           job_title: jobTitleValue,
           job_description: jobDescription,
@@ -321,40 +320,40 @@ const CreateJobPostForm = () => {
     actions.setSubmitting(false);
   };
 
-  const handleTagRemove = (tag: any) => {
-    setSelectedRequiredSkills(
-      selectedRequiredSkills.filter((selectedTag: any) => selectedTag !== tag),
-    );
-  };
+  // const handleTagRemove = (tag: any) => {
+  //   setSelectedRequiredSkills(
+  //     selectedRequiredSkills.filter((selectedTag: any) => selectedTag !== tag),
+  //   );
+  // };
 
-  const calculateTimeAgo = (dateString: string): string => {
-    const currentDate = new Date();
-    const pastDate = new Date(dateString);
-    const timeDifference = currentDate.getTime() - pastDate.getTime(); // Explicitly casting to number
-    const seconds = Math.floor(timeDifference / 1000);
-    const minutes = Math.floor(seconds / 60);
-    const hours = Math.floor(minutes / 60);
-    const days = Math.floor(hours / 24);
-    const weeks = Math.floor(days / 7);
-    const months = Math.floor(days / 30);
-    const years = Math.floor(days / 365);
+  // const calculateTimeAgo = (dateString: string): string => {
+  //   const currentDate = new Date();
+  //   const pastDate = new Date(dateString);
+  //   const timeDifference = currentDate.getTime() - pastDate.getTime(); // Explicitly casting to number
+  //   const seconds = Math.floor(timeDifference / 1000);
+  //   const minutes = Math.floor(seconds / 60);
+  //   const hours = Math.floor(minutes / 60);
+  //   const days = Math.floor(hours / 24);
+  //   const weeks = Math.floor(days / 7);
+  //   const months = Math.floor(days / 30);
+  //   const years = Math.floor(days / 365);
 
-    if (years > 0) {
-      return `${years} year${years === 1 ? '' : 's'} ago`;
-    } else if (months > 0) {
-      return `${months} month${months === 1 ? '' : 's'} ago`;
-    } else if (weeks > 0) {
-      return `${weeks} week${weeks === 1 ? '' : 's'} ago`;
-    } else if (days > 0) {
-      return `${days} day${days === 1 ? '' : 's'} ago`;
-    } else if (hours > 0) {
-      return `${hours} hour${hours === 1 ? '' : 's'} ago`;
-    } else if (minutes > 0) {
-      return `${minutes} minute${minutes === 1 ? '' : 's'} ago`;
-    } else {
-      return `${seconds} second${seconds === 1 ? '' : 's'} ago`;
-    }
-  };
+  //   if (years > 0) {
+  //     return `${years} year${years === 1 ? '' : 's'} ago`;
+  //   } else if (months > 0) {
+  //     return `${months} month${months === 1 ? '' : 's'} ago`;
+  //   } else if (weeks > 0) {
+  //     return `${weeks} week${weeks === 1 ? '' : 's'} ago`;
+  //   } else if (days > 0) {
+  //     return `${days} day${days === 1 ? '' : 's'} ago`;
+  //   } else if (hours > 0) {
+  //     return `${hours} hour${hours === 1 ? '' : 's'} ago`;
+  //   } else if (minutes > 0) {
+  //     return `${minutes} minute${minutes === 1 ? '' : 's'} ago`;
+  //   } else {
+  //     return `${seconds} second${seconds === 1 ? '' : 's'} ago`;
+  //   }
+  // };
 
   // const handleSelect = (option: any) => {
   //     console.log('Selected:', option);
@@ -397,14 +396,7 @@ const CreateJobPostForm = () => {
               onSubmit(values, actions);
             }}
           >
-            {({
-              values,
-              errors,
-              handleChange,
-              handleBlur,
-              handleSubmit,
-              isSubmitting,
-            }) => (
+            {({ values, errors, handleChange, handleSubmit }) => (
               <form
                 onSubmit={(e) => {
                   e.stopPropagation();

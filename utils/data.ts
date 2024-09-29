@@ -1,4 +1,3 @@
-
 export const nav_items = [
   {
     id: 1,
@@ -1936,7 +1935,7 @@ export const resumeAlert = [
   },
 ];
 
-export let countryList = [
+export const countryList = [
   'China',
   'India',
   'United States',
@@ -1959,7 +1958,7 @@ export let countryList = [
   'Egypt',
 ];
 
-export let onboarding_experience = [
+export const onboarding_experience = [
   '< 1 Year',
   '1 Year',
   '2 Years',

@@ -24,7 +24,7 @@ const TextWrite = ({ content, onChange }: any) => {
         },
       }),
     ],
-    content: content,
+    content,
     editorProps: {
       attributes: {
         class:

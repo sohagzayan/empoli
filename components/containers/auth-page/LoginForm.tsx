@@ -1,25 +1,20 @@
 'use client';
+import LoadingCircle from '@/components/shared/loading-circle/LoadingCircle';
+import { Button } from '@/components/ui/button';
 import { LoginValidationSchema } from '@/utils/validation-schemas';
 import { Formik, FormikHelpers } from 'formik';
-import React, { useState } from 'react';
-import { FaCheck, FaTimes, FaExclamationTriangle } from 'react-icons/fa';
-import { Input } from '@/components/ui/input';
-import { KeyRound, LockKeyhole, User } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { Checkbox } from '@/components/ui/checkbox';
-import { Label } from '@/components/ui/label';
-import Link from 'next/link';
-import GoogleButton from 'react-google-button';
-import { useRouter } from 'next/navigation';
+import { LockKeyhole, User } from 'lucide-react';
 import { signIn } from 'next-auth/react';
-import LoadingCircle from '@/components/shared/loading-circle/LoadingCircle';
+import Link from 'next/link';
+import { useRouter } from 'next/navigation';
+import { useState } from 'react';
 import { toast } from 'sonner';
 
-const STRONG = 'Strong';
-const MEDIUM = 'Medium';
-const WEAK = 'Weak';
-const MATCHED = 'Matched';
-const UNMATCHED = 'Unmatched';
+// const STRONG = 'Strong';
+// const MEDIUM = 'Medium';
+// const WEAK = 'Weak';
+// const MATCHED = 'Matched';
+// const UNMATCHED = 'Unmatched';
 
 const activeTab =
   'border-b-2 transition-all   ease-in-out duration-300 w-full border-primary cursor-pointer  text-primary';
@@ -36,7 +31,7 @@ const LoginForm = () => {
     setLoading(true);
     try {
       const { email, password } = values;
-      let response: any = await signIn('credentials', {
+      const response: any = await signIn('credentials', {
         redirect: false,
         email,
         password,
