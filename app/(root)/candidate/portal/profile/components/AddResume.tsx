@@ -28,7 +28,7 @@ const AddResume = () => {
                         </div>
                         <div className='flex items-center gap-2 mt-2 text-white'>
                             <input type="checkbox" />
-                            <label htmlFor="">I'd like a free resume review</label>
+                            <label htmlFor="">I&#39;d like a free resume review</label>
                         </div>
                     </div>
                 </div>
