@@ -1,106 +1,144 @@
-"use client"
-import { Button } from '@/components/ui/button'
-import Image from 'next/image'
-import React, { useLayoutEffect } from 'react'
-import gsap from "gsap"
-import { ScrollTrigger } from "gsap/ScrollTrigger"
+'use client';
+import { Button } from '@/components/ui/button';
+import Image from 'next/image';
+import React, { useLayoutEffect } from 'react';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 gsap.registerPlugin(ScrollTrigger);
 
-
 const BrandYourself = () => {
-
-    useLayoutEffect(() => {
-        gsap.timeline({
-            scrollTrigger: {
-                trigger: "#brand_yourself_title",
-            }
-        }).fromTo("#brand_yourself_title",
-            {
-                y: 200, opacity: 0, duration: 0.7,
-                ease: "back.out(1.7)",
-            }, {
-            y: 0, duration: 0.7, opacity: 1,
-            ease: "back.out(1.7)"
-
+  useLayoutEffect(() => {
+    gsap
+      .timeline({
+        scrollTrigger: {
+          trigger: '#brand_yourself_title',
         },
-        )
-
-        gsap.timeline({
-            scrollTrigger: {
-                trigger: "#brand_yourself_image",
-            }
-        }).fromTo("#brand_yourself_image",
-            {
-                y: 200, opacity: 0, duration: 0.7,
-                ease: "back.out(1.7)"
-
-            }, {
-            y: 0, duration: 0.7, opacity: 1,
-            ease: "back.out(1.7)"
-
+      })
+      .fromTo(
+        '#brand_yourself_title',
+        {
+          y: 200,
+          opacity: 0,
+          duration: 0.7,
+          ease: 'back.out(1.7)',
         },
-        )
-
-        gsap.timeline({
-            scrollTrigger: {
-                trigger: "#brand_yourself_list",
-            }
-        }).fromTo("#brand_yourself_list",
-            {
-                y: 200, opacity: 0, duration: 0.7,
-                ease: "back.out(1.7)"
-
-            }, {
-            y: 0, duration: 0.7, opacity: 1,
-            // stagger: 0.05,
-            ease: "back.out(1.7)"
-
+        {
+          y: 0,
+          duration: 0.7,
+          opacity: 1,
+          ease: 'back.out(1.7)',
         },
-        )
-    }, [])
+      );
 
+    gsap
+      .timeline({
+        scrollTrigger: {
+          trigger: '#brand_yourself_image',
+        },
+      })
+      .fromTo(
+        '#brand_yourself_image',
+        {
+          y: 200,
+          opacity: 0,
+          duration: 0.7,
+          ease: 'back.out(1.7)',
+        },
+        {
+          y: 0,
+          duration: 0.7,
+          opacity: 1,
+          ease: 'back.out(1.7)',
+        },
+      );
 
-    return (
-        <div id='brand_yourselfBox' className='bg-white p-6 border-b'>
-            <div className='container lg:px-16 xl:px-20 py-6'>
+    gsap
+      .timeline({
+        scrollTrigger: {
+          trigger: '#brand_yourself_list',
+        },
+      })
+      .fromTo(
+        '#brand_yourself_list',
+        {
+          y: 200,
+          opacity: 0,
+          duration: 0.7,
+          ease: 'back.out(1.7)',
+        },
+        {
+          y: 0,
+          duration: 0.7,
+          opacity: 1,
+          // stagger: 0.05,
+          ease: 'back.out(1.7)',
+        },
+      );
+  }, []);
 
-                <div className='grid grid-cols-2 items-center gap-20'>
-                    <div className='align-middle'>
-                        <div >
-                            <Image id='brand_yourself_image' src="/assets/images/brand288.png" style={{ width: "100%", height: "100%" }} width={0} height={0} sizes='100wv' alt="Ranch Investor" />
-                        </div>
-                    </div>
-                    <div className='align-middle'>
-                        <div>
-                            <h2 id='brand_yourself_title' className='text-2xl sm:text-3xl xl:text-4xl  tracking-[-1.5px] font-medium text-blue-midnight_blue'>Brand yourself for new opportunities</h2>
-                            <p className='text-foreground-light mt-4 text-xs sm:text-sm lg:text-base md:w-5/6 lg:w-full'>Create a profile that highlights your unique skills and preferences, <br /> then apply to jobs with just one click</p>
-                            <div className='max-w-[300px] sm:max-w-md lg:max-w-md mt-10'>
-                                <div className="border-t-2 border-primary w-4/12"></div>
-
-                                <ul className='list-disc px-4 font-medium text-blue-midnight_blue mt-2 flex flex-col gap-3'>
-                                    <li id='brand_yourself_list'>
-                                        <h5 className='font-semibold text-blue-midnight_blue mb-1'>One click apply</h5>
-                                        <p className='text-sm text-blue-midnight_blue'>Say goodbye to cover letters - your profile is all you need. One click to apply then youre done.
-                                        </p>
-                                    </li>
-                                    <li id='brand_yourself_list'>
-                                        <h5 className='font-semibold text-blue-midnight_blue mb-1'>Set your preferences</h5>
-                                        <p className='text-sm text-blue-midnight_blue'>
-                                            Streamline the interview process by setting your expectations (salary, industry, culture, etc.) upfront.
-                                        </p>
-                                    </li>
-
-                                </ul>
-
-                                <Button className='bg-blue-midnight_blue hover:bg-blue-midnight_blue/90 mt-4'>Create your profile for free</Button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
+  return (
+    <div id="brand_yourselfBox" className="border-b bg-white p-6">
+      <div className="container py-6 lg:px-16 xl:px-20">
+        <div className="grid grid-cols-2 items-center gap-20">
+          <div className="align-middle">
+            <div>
+              <Image
+                id="brand_yourself_image"
+                src="/assets/images/brand288.png"
+                style={{ width: '100%', height: '100%' }}
+                width={0}
+                height={0}
+                sizes="100wv"
+                alt="Ranch Investor"
+              />
             </div>
-        </div>
-    )
-}
+          </div>
+          <div className="align-middle">
+            <div>
+              <h2
+                id="brand_yourself_title"
+                className="text-blue-midnight_blue text-2xl font-medium tracking-[-1.5px] sm:text-3xl xl:text-4xl"
+              >
+                Brand yourself for new opportunities
+              </h2>
+              <p className="text-foreground-light mt-4 text-xs sm:text-sm md:w-5/6 lg:w-full lg:text-base">
+                Create a profile that highlights your unique skills and
+                preferences, <br /> then apply to jobs with just one click
+              </p>
+              <div className="mt-10 max-w-[300px] sm:max-w-md lg:max-w-md">
+                <div className="border-primary w-4/12 border-t-2"></div>
 
-export default BrandYourself
+                <ul className="text-blue-midnight_blue mt-2 flex list-disc flex-col gap-3 px-4 font-medium">
+                  <li id="brand_yourself_list">
+                    <h5 className="text-blue-midnight_blue mb-1 font-semibold">
+                      One click apply
+                    </h5>
+                    <p className="text-blue-midnight_blue text-sm">
+                      Say goodbye to cover letters - your profile is all you
+                      need. One click to apply then youre done.
+                    </p>
+                  </li>
+                  <li id="brand_yourself_list">
+                    <h5 className="text-blue-midnight_blue mb-1 font-semibold">
+                      Set your preferences
+                    </h5>
+                    <p className="text-blue-midnight_blue text-sm">
+                      Streamline the interview process by setting your
+                      expectations (salary, industry, culture, etc.) upfront.
+                    </p>
+                  </li>
+                </ul>
+
+                <Button className="bg-blue-midnight_blue hover:bg-blue-midnight_blue/90 mt-4">
+                  Create your profile for free
+                </Button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default BrandYourself;

@@ -1,4 +1,4 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { createSlice } from '@reduxjs/toolkit';
 
 type InitialState = {
   value: dashboardSidebarState;
@@ -14,17 +14,17 @@ const initialState = {
 } as InitialState;
 
 export const mobileMenu = createSlice({
-  name: "sidebar",
+  name: 'sidebar',
   initialState,
   reducers: {
-    openSidebar: (state, action: PayloadAction) => {
+    openSidebar: () => {
       return {
         value: {
           isOpenSidebar: true,
         },
       };
     },
-    closeSidebar: (state, action: PayloadAction) => {
+    closeSidebar: () => {
       return {
         value: {
           isOpenSidebar: false,

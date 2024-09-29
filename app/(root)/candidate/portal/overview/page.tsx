@@ -1,9 +1,7 @@
-import React from 'react'
+import React from 'react';
 
 const OverviewPage = () => {
-    return (
-        <div>OverviewPage</div>
-    )
-}
+  return <div>OverviewPage</div>;
+};
 
-export default OverviewPage
+export default OverviewPage;

@@ -1,9 +1,9 @@
-import { NextAuthOptions } from "next-auth";
-import CredentialsProvider from "next-auth/providers/credentials";
-import GoogleProvider from "next-auth/providers/google";
-import { prisma } from "@/lib/database";
-import { PrismaAdapter } from "@next-auth/prisma-adapter";
-import bcrypt from "bcrypt";
+import { prisma } from '@/lib/database';
+import { PrismaAdapter } from '@next-auth/prisma-adapter';
+import bcrypt from 'bcrypt';
+import { NextAuthOptions } from 'next-auth';
+import CredentialsProvider from 'next-auth/providers/credentials';
+import GoogleProvider from 'next-auth/providers/google';
 
 export const authOptions: NextAuthOptions = {
   adapter: PrismaAdapter(prisma),
@@ -20,20 +20,20 @@ export const authOptions: NextAuthOptions = {
           email: profile.email,
           image: profile.picture,
           name: profile.name,
-          role: "SEEKER", // Default role as "user", or fetch from your logic if necessary
+          role: 'SEEKER', // Default role as "user", or fetch from your logic if necessary
         };
       },
     }),
 
     CredentialsProvider({
-      name: "Credentials",
+      name: 'Credentials',
       credentials: {
-        email: { label: "email", type: "email" },
-        password: { label: "password", type: "password" },
+        email: { label: 'email', type: 'email' },
+        password: { label: 'password', type: 'password' },
       },
       async authorize(credentials: any) {
         if (!credentials) {
-          throw new Error("Please provide credentials");
+          throw new Error('Please provide credentials');
         }
 
         const user: any = await prisma.user.findUnique({
@@ -43,7 +43,7 @@ export const authOptions: NextAuthOptions = {
         });
 
         if (!user) {
-          throw new Error("Sorry, unrecognized username or password");
+          throw new Error('Sorry, unrecognized username or password');
         }
 
         // Check if the user has signed up with Google and doesn't have a password
@@ -51,23 +51,23 @@ export const authOptions: NextAuthOptions = {
           const account: any = await prisma.account.findFirst({
             where: {
               userId: user.id,
-              provider: "google",
+              provider: 'google',
             },
           });
           if (account) {
             throw new Error(
-              "An account with an alternative sign-in method is already associated with this email address."
+              'An account with an alternative sign-in method is already associated with this email address.',
             );
           }
         }
 
         const passwordMatch = await bcrypt.compare(
           credentials.password,
-          user.password
+          user.password,
         );
 
         if (!passwordMatch) {
-          throw new Error("Sorry, unrecognized username or password");
+          throw new Error('Sorry, unrecognized username or password');
         }
 
         return user;
@@ -77,7 +77,7 @@ export const authOptions: NextAuthOptions = {
 
   secret: process.env.NEXT_PUBLIC_SECRET,
   session: {
-    strategy: "jwt",
+    strategy: 'jwt',
   },
 
   callbacks: {
@@ -85,10 +85,10 @@ export const authOptions: NextAuthOptions = {
     async jwt({ token, user, trigger, session: newData }) {
       if (user) {
         // Assign role from the user if available (for new sign-ins)
-        token.role = user.role || token.role || "user"; // Default to 'user' if role is not provided
+        token.role = user.role || token.role || 'user'; // Default to 'user' if role is not provided
       }
       // Handle token updates
-      if (trigger === "update" && newData) {
+      if (trigger === 'update' && newData) {
         token = { ...token, ...newData };
       }
       return token;

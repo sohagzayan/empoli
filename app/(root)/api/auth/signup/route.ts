@@ -1,6 +1,6 @@
-import { prisma } from "@/lib/database";
-import { NextResponse } from "next/server";
-import bcrypt from "bcrypt";
+import { prisma } from '@/lib/database';
+import { NextResponse } from 'next/server';
+import bcrypt from 'bcrypt';
 // import { v4 as uuid } from 'uuid'
 
 export async function POST(request: Request) {
@@ -10,8 +10,8 @@ export async function POST(request: Request) {
 
     if (password.length < 8) {
       return NextResponse.json(
-        { message: "Password must be at least 8 characters long." },
-        { status: 400 }
+        { message: 'Password must be at least 8 characters long.' },
+        { status: 400 },
       );
     }
 
@@ -24,8 +24,8 @@ export async function POST(request: Request) {
 
       if (existingUser) {
         return NextResponse.json(
-          { message: "Email is already in use." },
-          { status: 500 }
+          { message: 'Email is already in use.' },
+          { status: 500 },
         );
       }
 
@@ -42,19 +42,19 @@ export async function POST(request: Request) {
       });
       // Create the specific profile based on the role
       return NextResponse.json(
-        { message: "Signup successful" },
-        { status: 201 }
+        { message: 'Signup successful' },
+        { status: 201 },
       );
     } catch (error) {
       console.error(error);
-      console.log("error", error);
+      console.log('error', error);
       return NextResponse.json(
-        { message: "Internal Server Error" },
-        { status: 500 }
+        { message: 'Internal Server Error' },
+        { status: 500 },
       );
     }
   } catch (error: any) {
-    console.log("error auth", error);
-    return NextResponse.json({ message: "An error occurred" }, { status: 500 });
+    console.log('error auth', error);
+    return NextResponse.json({ message: 'An error occurred' }, { status: 500 });
   }
 }

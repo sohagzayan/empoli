@@ -1,14 +1,14 @@
-import { getToken } from "next-auth/jwt";
-import { NextRequest, NextResponse } from "next/server";
+import { getToken } from 'next-auth/jwt';
+import { NextRequest, NextResponse } from 'next/server';
 
 const secret = process.env.NEXT_PUBLIC_SECRET;
 
 export default async function middleware(req: NextRequest) {
   const token = await getToken({ req, secret });
-  console.log("token from middlewere", token);
+  console.log('token from middlewere', token);
   const isAuthenticated = !!token;
-  console.log("isAuthenticated >>>", isAuthenticated);
-  console.log("req.nextUrl.pathname >>>", req.nextUrl.pathname);
+  console.log('isAuthenticated >>>', isAuthenticated);
+  console.log('req.nextUrl.pathname >>>', req.nextUrl.pathname);
 
   // if (
   //   req.nextUrl.pathname.includes("/sign-up") ||

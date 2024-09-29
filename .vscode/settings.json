@@ -1,5 +1,46 @@
 {
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "editor.fontFamily": "'fira code'",
+  "editor.fontLigatures": true,
+  "editor.fontWeight": "normal",
+  "editor.formatOnSave": true,
+  "editor.formatOnPaste": false,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.inlineSuggest.enabled": true,
+
+  // Prettier Settings
+  "prettier.requireConfig": true,
+  "prettier.prettierPath": ".prettierrc",
+  "prettier.useEditorConfig": false,
+  "prettier.useTabs": false,
+  "prettier.configPath": ".prettierrc.json",
+
+  // ESLint Settings
+  "eslint.enable": true,
+  "eslint.run": "onSave",
+  "eslint.autoFixOnSave": true, // Auto-fix linting errors on save (ESLint)
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact"
+  ],
+
+  // Save-related Settings
   "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": true
-  }
+    "source.fixAll": true, // Auto-fix ESLint issues on save
+    "source.organizeImports": true // Organize and remove unused imports on save
+  },
+
+  // Optional: Show Prettier and ESLint status in the editor
+  "prettier.showStatus": true,
+  "eslint.format.enable": true // Enable Prettier formatting via ESLint
 }

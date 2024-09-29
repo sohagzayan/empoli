@@ -1,17 +1,16 @@
-
-import ProfileBannerAvatar from '@/components/common/ProfileBannerAvatar/ProfileBannerAvatar'
-import React from 'react'
-import ProfileWrapper from './components/ProfileWrapper'
+import ProfileBannerAvatar from '@/components/common/ProfileBannerAvatar/ProfileBannerAvatar';
+import React from 'react';
+import ProfileWrapper from './components/ProfileWrapper';
 
 const UserProfileEdit = () => {
-    return (
-        <div className='min-h-screen bg-themeDark flex flex-col relative'>
-            <ProfileBannerAvatar />
-            <div className=' mx-4 md:mx-8 lg:mx-10'>
-                <ProfileWrapper />
-            </div>
-        </div>
-    )
-}
+  return (
+    <div className="relative flex min-h-screen flex-col bg-themeDark">
+      <ProfileBannerAvatar />
+      <div className="mx-4 md:mx-8 lg:mx-10">
+        <ProfileWrapper />
+      </div>
+    </div>
+  );
+};
 
-export default UserProfileEdit
+export default UserProfileEdit;

@@ -1,5 +1,18 @@
-'use client'
-import React from 'react'
+'use client';
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuGroup,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuPortal,
+  DropdownMenuSeparator,
+  DropdownMenuShortcut,
+  DropdownMenuSub,
+  DropdownMenuSubContent,
+  DropdownMenuSubTrigger,
+  DropdownMenuTrigger,
+} from '@/components/ui/dropdown-menu';
 import {
   Bookmark,
   ChevronDown,
@@ -18,54 +31,45 @@ import {
   User,
   UserPlus,
   Users,
-} from "lucide-react"
-import { Button } from "@/components/ui/button"
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuGroup,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuPortal,
-  DropdownMenuSeparator,
-  DropdownMenuShortcut,
-  DropdownMenuSub,
-  DropdownMenuSubContent,
-  DropdownMenuSubTrigger,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu"
-import Image from 'next/image'
-import { useSession, } from 'next-auth/react'
-import { signOut } from "next-auth/react"
-
-
-
-
+} from 'lucide-react';
+import { signOut, useSession } from 'next-auth/react';
+import Image from 'next/image';
 
 const ActiveLoginUserProfile = () => {
-  const { data: session } = useSession()
-  console.log("session", session)
-
-
-
-
+  const { data: session } = useSession();
+  console.log('session', session);
 
   const handleLogout = async () => {
     await signOut({
       callbackUrl: '/',
-    })
-  }
-
+    });
+  };
 
   return (
     <DropdownMenu>
-      <div className='flex items-center gap-6'>
-        <button><Mails className='text-purple' /></button>
-        <button><Bookmark className='text-purple' /></button>
+      <div className="flex items-center gap-6">
+        <button>
+          <Mails className="text-purple" />
+        </button>
+        <button>
+          <Bookmark className="text-purple" />
+        </button>
         <DropdownMenuTrigger asChild>
-          <div className='cursor-pointer flex items-center gap-2'>
-            <Image src="/assets/images/company-6.webp" alt='logo' width={40} height={40} />
-            <h4 className='flex items-center gap-1 text-[13px]'>My Account <ChevronDown size={20} strokeWidth={2.75} className='text-primary' /></h4>
+          <div className="flex cursor-pointer items-center gap-2">
+            <Image
+              src="/assets/images/company-6.webp"
+              alt="logo"
+              width={40}
+              height={40}
+            />
+            <h4 className="flex items-center gap-1 text-[13px]">
+              My Account{' '}
+              <ChevronDown
+                size={20}
+                strokeWidth={2.75}
+                className="text-primary"
+              />
+            </h4>
           </div>
         </DropdownMenuTrigger>
       </div>
@@ -150,7 +154,7 @@ const ActiveLoginUserProfile = () => {
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
-  )
-}
+  );
+};
 
-export default ActiveLoginUserProfile
+export default ActiveLoginUserProfile;
