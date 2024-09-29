@@ -173,7 +173,7 @@ const ApplicationForm = () => {
         </div>
       ) : (
         <div className="w-full">
-          <Header variant="primary" />
+          <Header />
           <div className="flex justify-center py-6">
             <div>
               <h2 className="mb-2 mt-8 py-3 text-2xl lg:text-3xl">

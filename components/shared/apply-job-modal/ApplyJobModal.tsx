@@ -1,7 +1,6 @@
 'use client';
 import { Button } from '@/components/ui/button';
 import { Checkbox } from '@/components/ui/checkbox';
-import { Textarea } from '@/components/ui/textarea';
 import { motion } from 'framer-motion';
 import { X } from 'lucide-react';
 
@@ -32,10 +31,10 @@ const ApplyJobModal = ({ applyJobModal, setApplyJobModal }: any) => {
           <div className="border-primary mt-3 border border-dashed py-4 text-center text-[14px]">
             <span>Upload CV (doc, docx, pdf)</span>
           </div>
-          <Textarea
+          {/* <Textarea
             className="bg-primary-50 my-6 mt-5 max-h-[200px] min-h-[200px]"
             placeholder="Message"
-          />
+          /> */}
           <div className="mt-4 flex items-center space-x-2">
             <Checkbox id="terms" />
             <label

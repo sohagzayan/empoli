@@ -12,7 +12,7 @@ interface HeaderType {
 const Header = ({ variant }: HeaderType) => {
   const [scrollY, setScrollY] = useState(0);
   const pathname = usePathname();
-
+  console.log('variant', variant);
   useEffect(() => {
     const handleScroll = () => {
       const scrollY = window.scrollY;
@@ -39,7 +39,7 @@ const Header = ({ variant }: HeaderType) => {
         <div className="container relative flex h-[90px] items-center justify-between lg:px-16 xl:px-20">
           <div className="flex items-center gap-10">
             <Logo />
-            {!isAuthPage && <NavItems variant={variant} scrollY={scrollY} />}
+            {!isAuthPage && <NavItems />}
           </div>
           <div className="flex items-center gap-4">
             {!isAuthPage ? (
