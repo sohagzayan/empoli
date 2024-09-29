@@ -1,19 +1,19 @@
 'use client';
-import React, { useState } from 'react';
-import axios from 'axios';
-import * as Yup from 'yup';
-import { useFormik } from 'formik';
-import { useRouter } from 'next/navigation';
-import { Check, Circle } from 'lucide-react';
-import { CiCircleCheck } from 'react-icons/ci';
-import { Button } from '@/components/ui/button';
-import MultiSelect from '@/components/shared/multi-select/MultiSelect';
 import LoadingCircle from '@/components/shared/loading-circle/LoadingCircle';
+import MultiSelect from '@/components/shared/multi-select/MultiSelect';
+import { Button } from '@/components/ui/button';
 import {
   currencies,
   most_important_next_job,
   required_skills,
 } from '@/utils/data';
+import axios from 'axios';
+import { useFormik } from 'formik';
+import { Check, Circle } from 'lucide-react';
+import { useRouter } from 'next/navigation';
+import { useState } from 'react';
+import { CiCircleCheck } from 'react-icons/ci';
+import * as Yup from 'yup';
 
 const Culture = () => {
   const [activeCurrenciesSymbol, setActiveCurrenciesSymbol] = useState<any>(
@@ -412,9 +412,9 @@ const Culture = () => {
                           viewBox="0 0 24 24"
                           fill="none"
                           stroke="currentColor"
-                          stroke-width="1.25"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
+                          strokeWidth="1.25"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
                           className="lucide lucide-circle-check-big"
                         >
                           <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
