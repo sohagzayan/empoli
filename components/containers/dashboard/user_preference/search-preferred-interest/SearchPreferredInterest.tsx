@@ -1,7 +1,7 @@
 'use client';
-import React, { useEffect, useRef, useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { job_profile } from '@/utils/data';
+import { useEffect, useRef, useState } from 'react';
 
 const SearchPreferredInterest = ({
   isModalOpen,
@@ -107,7 +107,6 @@ const SearchPreferredInterest = ({
 
           <div
             className="text-border-strong overflow-hidden px-6 py-3"
-            cmdk-group=""
             role="presentation"
             data-value="documentation"
           >

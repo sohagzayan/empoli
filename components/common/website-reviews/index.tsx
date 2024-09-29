@@ -1,14 +1,14 @@
 'use client';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/autoplay'; // Import autoplay CSS
-import { Navigation, Autoplay } from 'swiper/modules'; // Import Autoplay module
 import { website_reviews } from '@/utils/data';
 import Image from 'next/image';
-import { useRef, useEffect } from 'react';
-import SwiperCore from 'swiper';
+import { useEffect, useRef } from 'react';
 import { FaArrowRight } from 'react-icons/fa';
+import SwiperCore from 'swiper';
+import 'swiper/css';
+import 'swiper/css/autoplay'; // Import autoplay CSS
+import 'swiper/css/navigation';
+import { Autoplay, Navigation } from 'swiper/modules'; // Import Autoplay module
+import { Swiper, SwiperSlide } from 'swiper/react';
 import { NavigationOptions } from 'swiper/types';
 
 // Ensure Swiper modules are used
@@ -56,9 +56,7 @@ const WebsiteReviews = () => {
           const navigation = swiper.params.navigation as NavigationOptions;
 
           if (navigation && typeof navigation !== 'boolean') {
-            //@ts-ignore
             navigation.prevEl = prevRef.current;
-            //@ts-ignore
             navigation.nextEl = nextRef.current;
             swiper.navigation.init();
             swiper.navigation.update();
