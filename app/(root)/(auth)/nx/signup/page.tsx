@@ -1,6 +1,5 @@
-import SignUpForm from '@/components/containers/job_seeker/SignUpForm';
-import { RoleSelector, SignupWrapper } from '@/components/containers/nx-signup';
 import React from 'react';
+import SignupWrapper from './components/SignupWrapper';
 
 const SignUpPage = () => {
     return (

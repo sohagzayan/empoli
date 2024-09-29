@@ -28,11 +28,13 @@ const Header = ({ variant }: HeaderType) => {
     const isAuthPage =
         pathname.includes("/signup") || pathname.includes("/login") || pathname.includes("/reset-password")
 
+    const noNeedHeaderAnyMore = pathname.includes("/profile")
 
 
     return (
         <>
             {/* {!isAuthPage && <Marquee />} */}
+
             <div
                 style={{ backdropFilter: scrollY >= 70 ? 'blur(5px)' : "" }}
                 className={` bg-themeDark2 border-b border-[rgba(255,255,255,0.08)] px-4 transition-all duration-300 z-[999] ${scrollY >= 70 ? `sticky top-0 left-0 header ` : ` z-40 relative top-0 left-0 right-0  `}`}>
