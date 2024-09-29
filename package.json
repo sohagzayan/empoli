@@ -122,9 +122,9 @@
   },
   "lint-staged": {
     "src/**/*.{ts,tsx}": [
-        "yarn lint-prettier"
+      "yarn lint-prettier"
     ]
-},
+  },
   "devDependencies": {
     "@types/bcrypt": "^5.0.2",
     "@types/editorjs__header": "^2.6.3",
@@ -143,7 +143,7 @@
     "@typescript-eslint/parser": "^8.7.0",
     "autoprefixer": "^10.4.18",
     "eslint": "^8.57.1",
-    "eslint-config-next": "^14.0.4",
+    "eslint-config-next": "^14.2.13",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-prettier": "^5.2.1",
     "husky": "^9.1.6",
