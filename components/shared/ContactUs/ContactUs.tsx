@@ -1,7 +1,5 @@
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
-import { Textarea } from '@/components/ui/textarea';
-import React from 'react';
 
 const ContactUs = () => {
   return (
@@ -20,12 +18,10 @@ const ContactUs = () => {
               type="text"
               placeholder="Email Address"
             />
-            <Textarea
-              rows={6}
-              cols={5}
+            {/* <Textarea
               className="bg-primary-50 text-primary"
               placeholder="Message"
-            />
+            /> */}
             <Button>Send Message</Button>
           </div>
         </form>
