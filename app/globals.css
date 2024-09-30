@@ -138,12 +138,11 @@ body {
   }
 }
 
-.tiptap {
-  ul,
-  ol {
-    padding: 0 1rem;
-  }
+.tiptap ul,
+.tiptap ol {
+  padding: 0 1rem;
 }
+
 body {
   font-family: var(--font-inter);
 }

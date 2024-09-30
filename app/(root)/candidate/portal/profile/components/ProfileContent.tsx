@@ -1,8 +1,9 @@
-import Notification from './Notification';
-import EditProfile from './EditProfile';
-import Notes from './Notes';
-import SkillTest from './SkillTest';
 import AddResume from './AddResume';
+import EditProfile from './EditProfile';
+import History from './History';
+import Notes from './Notes';
+import Recommend from './Recommend';
+import SkillTest from './SkillTest';
 
 interface SideProfileContentType {
   activeInsightsTab: number;
@@ -24,7 +25,9 @@ const ProfileContent = ({
       case 4:
         return <AddResume />;
       case 5:
-        return <Notification />;
+        return <Recommend />;
+      case 6:
+        return <History />;
       default:
         return null;
     }

@@ -1,9 +1,8 @@
 import Image from 'next/image';
-import React from 'react';
 
 const AddResume = () => {
   return (
-    <div>
+    <div className="mb-32">
       <div className="grid grid-cols-12">
         <div className="col-span-12 md:col-span-2 lg:col-span-4">
           <h2 className="text-xl font-600 text-white">
