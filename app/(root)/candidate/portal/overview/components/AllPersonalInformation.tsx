@@ -1,4 +1,4 @@
-import { CiMobile1 } from 'react-icons/ci';
+import { CiEdit, CiMobile1 } from 'react-icons/ci';
 import { FaBirthdayCake } from 'react-icons/fa';
 import { GrLocationPin } from 'react-icons/gr';
 import { RiMailSendLine, RiRemoteControlLine } from 'react-icons/ri';
@@ -7,11 +7,17 @@ const AllPersonalInformation = () => {
   return (
     <div>
       <div className="custom-container mt-10 rounded-lg bg-[rgba(255,255,255,0.06)] py-6">
-        <h2 className="mb-2 rounded-md p-2 px-10 text-2xl font-600 text-white">
-          All Personal Information
-        </h2>
-        <div className="mt-4 px-10">
-          <div className="grid grid-cols-3 gap-5">
+        <div className="flex items-center justify-between px-2 lg:px-10">
+          <h2 className="mb-2 rounded-md p-2 text-lg font-600 text-white lg:text-2xl">
+            All Personal Information
+          </h2>
+          <button className="flex items-center gap-2 text-theme1 lg:text-lg">
+            <CiEdit />
+            Edit
+          </button>
+        </div>
+        <div className="mt-4 px-2 lg:px-10">
+          <div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
             <div className="flex items-center gap-3">
               <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-themeDark text-white">
                 <RiMailSendLine />
