@@ -29,7 +29,6 @@ import {
   SelectValue,
 } from '@/components/ui/select';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { Textarea } from '@/components/ui/textarea';
 import {
   ArrowRight,
   Bell,
@@ -534,14 +533,6 @@ export default function EnhancedRecruiterDashboard() {
                           <label htmlFor="body" className="text-right">
                             Body
                           </label>
-                          <Textarea
-                            id="body"
-                            value={newEmail.body}
-                            onChange={(e) =>
-                              setNewEmail({ ...newEmail, body: e.target.value })
-                            }
-                            className="col-span-3"
-                          />
                         </div>
                       </div>
                       <DialogFooter>
@@ -600,7 +591,7 @@ export default function EnhancedRecruiterDashboard() {
                 <Input
                   type="text"
                   value={newTask}
-                  onChange={(e) => setNewTask(e.target.value)}
+                  onChange={(e: any) => setNewTask(e.target.value)}
                   placeholder="Add a new task..."
                   className="flex-grow"
                 />
@@ -651,7 +642,7 @@ export default function EnhancedRecruiterDashboard() {
                 <Input
                   type="text"
                   value={newMessage}
-                  onChange={(e) => setNewMessage(e.target.value)}
+                  onChange={(e: any) => setNewMessage(e.target.value)}
                   placeholder="Type your message..."
                   className="flex-grow"
                 />
