@@ -521,7 +521,7 @@ export default function EnhancedRecruiterDashboard() {
                           <Input
                             id="subject"
                             value={newEmail.subject}
-                            onChange={(e) =>
+                            onChange={(e: any) =>
                               setNewEmail({
                                 ...newEmail,
                                 subject: e.target.value,
