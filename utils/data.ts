@@ -2119,3 +2119,100 @@ export const website_reviews = [
       'Efficient job search engine, and I appreciate the personalized job recommendations. Found a role I love.',
   },
 ];
+
+// updated
+
+type Job = {
+  id: number;
+  title: string;
+  company: string;
+  status: 'Applied' | 'Screening' | 'Interview' | 'Offer' | 'Rejected';
+  messages: Message[];
+  assignments: number;
+  dueDate?: string;
+  salary?: string;
+  location: string;
+};
+
+type Message = {
+  id: number;
+  sender: string;
+  content: string;
+  timestamp: string;
+};
+
+export const jobs: Job[] = [
+  {
+    id: 1,
+    title: 'Senior Frontend Developer',
+    company: 'TechCorp',
+    status: 'Interview',
+    messages: [
+      {
+        id: 1,
+        sender: 'HR Manager',
+        content:
+          'Thank you for your application. We would like to schedule an interview.',
+        timestamp: '2 days ago',
+      },
+      {
+        id: 2,
+        sender: 'You',
+        content:
+          'Thank you for considering my application. Im available for an interview next week.',
+        timestamp: '1 day ago',
+      },
+    ],
+    assignments: 1,
+    location: 'San Francisco, CA',
+    salary: '$120,000 - $150,000',
+  },
+  {
+    id: 2,
+    title: 'UX/UI Designer',
+    company: 'DesignHub',
+    status: 'Applied',
+    messages: [],
+    assignments: 0,
+    location: 'Remote',
+    salary: '$90,000 - $110,000',
+  },
+  {
+    id: 3,
+    title: 'Data Scientist',
+    company: 'DataWise',
+    status: 'Offer',
+    messages: [
+      {
+        id: 1,
+        sender: 'Hiring Manager',
+        content:
+          'Were pleased to offer you the position of Data Scientist at DataWise.',
+        timestamp: '3 days ago',
+      },
+    ],
+    assignments: 2,
+    location: 'New York, NY',
+    salary: '$130,000 - $160,000',
+  },
+  {
+    id: 4,
+    title: 'Product Manager',
+    company: 'InnovateCo',
+    status: 'Screening',
+    messages: [],
+    assignments: 0,
+    location: 'Seattle, WA',
+    salary: '$110,000 - $140,000',
+  },
+  {
+    id: 5,
+    title: 'DevOps Engineer',
+    company: 'CloudTech',
+    status: 'Applied',
+    messages: [],
+    assignments: 1,
+    location: 'Austin, TX',
+    salary: '$100,000 - $130,000',
+  },
+];

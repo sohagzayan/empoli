@@ -37,8 +37,10 @@ const BottomNav: React.FC = () => {
     visible: { opacity: 1, y: 0 },
   };
 
+  //  hiden mobile nav for temporaly
+
   return (
-    <div className="fixed bottom-0 left-0 right-0 z-50 block bg-themeDark p-4 shadow-lg lg:hidden">
+    <div className="fixed bottom-0 left-0 right-0 z-50 block hidden bg-themeDark p-4 shadow-lg lg:hidden">
       <style>{`
         .custom-scrollbar::-webkit-scrollbar {
           display: none;

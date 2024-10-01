@@ -123,8 +123,8 @@ const navItems = (role: any) => {
       icon: <GrOverview />,
     },
     {
-      label: 'Applied',
-      key: `/candidate/portal/applied`,
+      label: 'Job Tracker',
+      key: `/candidate/portal/job-tracker`,
       icon: <IoBriefcaseOutline />,
     },
     {

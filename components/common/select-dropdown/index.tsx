@@ -1,8 +1,8 @@
 'use client';
+import { cn } from '@/lib/utils'; // Adjust the import path as necessary
+import { AnimatePresence, motion } from 'framer-motion'; // Import AnimatePresence
 import React, { useState } from 'react';
 import { FaChevronDown, FaChevronUp } from 'react-icons/fa';
-import { cn } from '@/lib/utils'; // Adjust the import path as necessary
-import { motion, AnimatePresence } from 'framer-motion'; // Import AnimatePresence
 
 interface SelectOption {
   label: string;
@@ -19,6 +19,7 @@ interface SelectDropdownProps {
   showLabel?: boolean;
   labelClassName?: string;
   icon?: React.ElementType | null; // Optional icon
+  onSelect?: (selectedOption: SelectOption | null) => void; // New onSelect prop
 }
 
 const SelectDropdown: React.FC<SelectDropdownProps> = ({
@@ -31,6 +32,7 @@ const SelectDropdown: React.FC<SelectDropdownProps> = ({
   showLabel = false, // Label visibility is controlled by this prop
   labelClassName = '',
   icon: Icon = null, // Optional icon, default is null
+  onSelect, // Destructure onSelect from props
 }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [selected, setSelected] = useState<SelectOption | null>(null);
@@ -38,6 +40,9 @@ const SelectDropdown: React.FC<SelectDropdownProps> = ({
   const handleSelect = (option: SelectOption) => {
     setSelected(option);
     setIsOpen(false);
+    if (onSelect) {
+      onSelect(option); // Call the onSelect prop function when an option is selected
+    }
   };
 
   return (
@@ -92,7 +97,7 @@ const SelectDropdown: React.FC<SelectDropdownProps> = ({
               >
                 <span>{option.label}</span>
                 {selected?.value === option.value && (
-                  <span className="text-blue-400">&#10003;</span> // Check mark
+                  <span className="text-blue-400">&#10003;</span>
                 )}
               </div>
             ))}

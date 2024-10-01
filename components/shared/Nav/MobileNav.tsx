@@ -1,10 +1,9 @@
 'use client';
-import React from 'react';
-import { Spin as Hamburger } from 'hamburger-react';
-import { nav_items } from '@/utils/data';
-import { useDispatch } from 'react-redux';
-import { AppDispatch, useAppSelector } from '@/redux/store';
 import { closeMenu } from '@/redux/slice/mobileMenu-slice';
+import { AppDispatch, useAppSelector } from '@/redux/store';
+import { nav_items } from '@/utils/data';
+import { Spin as Hamburger } from 'hamburger-react';
+import { useDispatch } from 'react-redux';
 
 const MobileNav = () => {
   const dispatch = useDispatch<AppDispatch>();
