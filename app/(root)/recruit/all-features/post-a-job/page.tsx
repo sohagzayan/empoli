@@ -1,11 +1,7 @@
-import React from 'react'
+import React from 'react';
 
 function page() {
-    return (
-        <div>
-            post-a-job
-        </div>
-    )
+  return <div>post-a-job</div>;
 }
 
-export default page
+export default page;

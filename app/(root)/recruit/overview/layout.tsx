@@ -1,14 +1,11 @@
-
-
 export default function RootLayouts({
-    children,
+  children,
 }: {
-    children: React.ReactNode
+  children: React.ReactNode;
 }) {
-
-    return (
-        <div className="">
-            <main>{children}</main>
-        </div>
-    )
+  return (
+    <div className="">
+      <main>{children}</main>
+    </div>
+  );
 }

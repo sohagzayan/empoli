@@ -1,4 +1,4 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { createSlice } from '@reduxjs/toolkit';
 
 type InitialState = {
   value: MobileMenuState;
@@ -14,17 +14,17 @@ const initialState = {
 } as InitialState;
 
 export const mobileMenu = createSlice({
-  name: "auth",
+  name: 'auth',
   initialState,
   reducers: {
-    openMenu: (state, action: PayloadAction) => {
+    openMenu: () => {
       return {
         value: {
           isOpenMenu: true,
         },
       };
     },
-    closeMenu: (state, action: PayloadAction) => {
+    closeMenu: () => {
       return {
         value: {
           isOpenMenu: false,

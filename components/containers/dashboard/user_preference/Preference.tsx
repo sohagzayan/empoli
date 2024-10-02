@@ -1,11 +1,8 @@
-import React from 'react'
-import PropTypes from 'prop-types'
+import React from 'react';
+import PropTypes from 'prop-types';
 
 const Preference = () => {
-    return (
-        <div>Preference</div>
-    )
-}
+  return <div>Preference</div>;
+};
 
-
-export default Preference
+export default Preference;

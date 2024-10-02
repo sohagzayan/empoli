@@ -1,23 +1,18 @@
-import Marquee from "@/components/shared/Marquee/Marquee"
-import Header from "@/components/shared/Nav/Header"
-import { Toaster } from "@/components/ui/sonner"
-
+import Marquee from '@/components/shared/Marquee/Marquee';
+import Header from '@/components/shared/Nav/Header';
+import { Toaster } from '@/components/ui/sonner';
 
 export default function RootLayouts({
-    children,
+  children,
 }: {
-    children: React.ReactNode
+  children: React.ReactNode;
 }) {
-
-
-    return (
-        <div className="relative">
-            {/* <Marquee /> */}
-            <Header />
-            <main>
-                {children}
-            </main>
-            <Toaster richColors />
-        </div>
-    )
+  return (
+    <div className="relative">
+      {/* <Marquee /> */}
+      <Header />
+      <main>{children}</main>
+      <Toaster richColors />
+    </div>
+  );
 }

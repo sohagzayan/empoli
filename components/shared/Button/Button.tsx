@@ -1,13 +1,13 @@
-import React from 'react'
+import React from 'react';
 
 const Button = () => {
-    return (
-        <button
-            className={`  bg-primary text-white py-[7px] px-[30px] rounded-3xl capitalize font-medium text-[16px]`}
-        >
-            Job Post
-        </button>
-    )
-}
+  return (
+    <button
+      className={`bg-primary rounded-3xl px-[30px] py-[7px] text-[16px] font-medium capitalize text-white`}
+    >
+      Job Post
+    </button>
+  );
+};
 
-export default Button
+export default Button;
