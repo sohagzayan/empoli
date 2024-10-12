@@ -1,5 +1,6 @@
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
+import Filters from './Filters';
 const FindJobs = () => {
   return (
     <section className="w-full">
@@ -36,9 +37,10 @@ const FindJobs = () => {
             backdropFilter: 'blur(30px)',
             boxShadow: '0px 20px 50px rgba(1, 5, 43, 0.2)',
           }}
-          className="col-span-3 h-96"
+          className="scrollbar-hide col-span-3 h-screen w-full overflow-y-scroll rounded"
         >
-          {/* Content for first div */}
+          {/* Content for Filters Section */}
+          <Filters />
         </div>
 
         {/* Center div - 40% width */}
@@ -49,9 +51,9 @@ const FindJobs = () => {
             backdropFilter: 'blur(30px)',
             boxShadow: '0px 20px 50px rgba(1, 5, 43, 0.2)',
           }}
-          className="col-span-6 h-96"
+          className="col-span-6 h-96 rounded"
         >
-          {/* Content for center div */}
+          {/* Content for Job Post */}
         </div>
 
         {/* Third div - 30% width */}
@@ -62,9 +64,9 @@ const FindJobs = () => {
             backdropFilter: 'blur(30px)',
             boxShadow: '0px 20px 50px rgba(1, 5, 43, 0.2)',
           }}
-          className="col-span-3 h-96"
+          className="col-span-3 h-96 rounded"
         >
-          {/* Content for third div */}
+          {/* Content for show suggestion*/}
         </div>
       </div>
     </section>

@@ -26,6 +26,7 @@ module.exports = withUt({
         black5: 'var(--tp-common-black-5-rgb)',
         black6: 'var(--tp-common-black-6-rgb)',
         black7: 'var(--tp-common-black-7-rgb)',
+        black8: 'var(--tp-common-black-8-rgb)',
 
         /* Primary Colors */
         green: 'var(--tp-common-green-rgb)',
