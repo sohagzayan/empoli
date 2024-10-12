@@ -10,7 +10,7 @@ export default function Layout({ children }: LayoutProps) {
     <>
       <main className="relative flex min-h-screen flex-col bg-themeDark">
         <div className="container mt-20">
-          <div className="grid grid-cols-12">
+          <div className="grid grid-cols-12 gap-6">
             <div className="col-span-3">
               <SettingsMenu />
             </div>
