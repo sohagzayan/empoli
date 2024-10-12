@@ -51,7 +51,7 @@ export default function Filters() {
             Clear
           </Button>
         </div>
-        <div className="flex flex-wrap gap-2 bg-black8 p-2">
+        <div className="flex flex-wrap gap-2 bg-black8 p-2 text-gray-400">
           {['UI', 'mobile', 'PHP', 'photoshop'].map((skill) => (
             <span
               key={skill}

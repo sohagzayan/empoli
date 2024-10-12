@@ -6,6 +6,7 @@ import {
   DrawerTrigger,
 } from '@/components/ui/drawer';
 import { Filter, X } from 'lucide-react';
+import Filters from './Filters';
 
 export function FilterDrawer() {
   return (
@@ -27,20 +28,28 @@ export function FilterDrawer() {
         </Button>
       </DrawerTrigger>
 
-      {/* Full-screen Drawer from Bottom to Top */}
-      <DrawerContent className="animate-slideUp fixed inset-0 h-full rounded-t-lg bg-white">
-        <div className="flex justify-end p-4">
+      {/* Full-screen Drawer from Bottom to Top, 90% Width */}
+      <DrawerContent className="animate-slideUp fixed inset-0 mx-auto h-full w-[90%] rounded-t-lg border-none bg-themeDark">
+        <div className="absolute -right-2 top-5 z-30">
           {/* Close Button */}
           <DrawerClose asChild>
-            <Button variant="ghost" className="text-gray-600">
+            <Button variant="ghost" className="rounded p-2 text-[#fff]">
               <X className="h-6 w-6" />
             </Button>
           </DrawerClose>
         </div>
 
-        {/* Drawer Content */}
-        <div className="p-6 text-center">
-          <p className="text-xl font-semibold">This is my drawer</p>
+        {/* Drawer Content with Y-axis scrolling */}
+        <div
+          style={{
+            borderColor: 'rgba(255, 255, 255, 0.14)',
+            backgroundColor: 'rgba(255, 255, 255, 0.06)',
+            backdropFilter: 'blur(30px)',
+            boxShadow: '0px 20px 50px rgba(1, 5, 43, 0.2)',
+          }}
+          className="h-full overflow-y-auto"
+        >
+          <Filters />
         </div>
       </DrawerContent>
     </Drawer>
