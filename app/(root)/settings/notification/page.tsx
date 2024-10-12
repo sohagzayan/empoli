@@ -1,6 +1,11 @@
+import NotificationWrapper from './components/NotificationWrapper';
 
 const page = () => {
-  return <div>notification</div>;
+  return (
+    <div>
+      <NotificationWrapper />
+    </div>
+  );
 };
 
 export default page;

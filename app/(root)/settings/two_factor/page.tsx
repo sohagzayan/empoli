@@ -1,6 +1,11 @@
+import TwoFactorWrapper from './components/TwoFactorWrapper';
 
 const page = () => {
-  return <div>two_factor</div>;
+  return (
+    <div>
+      <TwoFactorWrapper />
+    </div>
+  );
 };
 
 export default page;

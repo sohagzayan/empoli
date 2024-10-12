@@ -91,6 +91,7 @@ body {
   font-smooth: always; /* Enables font smoothing */
   -webkit-font-smoothing: antialiased; /* Smoother fonts on WebKit-based browsers (e.g., Chrome, Safari) */
   -moz-osx-font-smoothing: grayscale; /* Smoother fonts on macOS browsers */
+  background-color: var(--tp-theme-dark-rgb);
 }
 
 * {
