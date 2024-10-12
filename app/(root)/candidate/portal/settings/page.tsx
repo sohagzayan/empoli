@@ -1,7 +1,11 @@
-import React from 'react';
+import SettingsWrapper from './components/SettingsWrapper';
 
 const SettingsPage = () => {
-  return <div>SettingsPage</div>;
+  return (
+    <div>
+      <SettingsWrapper />
+    </div>
+  );
 };
 
 export default SettingsPage;
