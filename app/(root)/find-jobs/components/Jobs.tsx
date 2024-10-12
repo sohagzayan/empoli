@@ -37,8 +37,10 @@ const JobListingCard = ({
         <div className="flex items-start justify-between">
           <div>
             <div className="flex items-center justify-center gap-3">
-              <CardTitle className="text-lg font-semibold">{title}</CardTitle>
-              <span className="rounded-full bg-[#56D48F] px-2 text-[#fff]">
+              <CardTitle className="whitespace-nowrap text-sm font-semibold md:text-lg lg:text-lg">
+                {title}
+              </CardTitle>
+              <span className="whitespace-nowrap rounded-full bg-[#56D48F] px-2 text-sm text-[#fff]">
                 full-time
               </span>
             </div>
@@ -121,9 +123,9 @@ const Jobs = () => {
     <section className="w-full p-3">
       {/* top filter  */}
       <div className="mb-4 flex items-center justify-between">
-        <h2 className="text-gray-400">RESULTS(24)</h2>
+        <h2 className="text-sm text-gray-400">RESULTS(24)</h2>
         <div className="flex items-center gap-3">
-          <span className="text-gray-400">Sort By</span>
+          <span className="text-sm text-gray-400">Sort By</span>
           <div>
             <SelectDropdown
               selectedClassName="rounded text-sm text-gray-400"
