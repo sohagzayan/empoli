@@ -89,7 +89,7 @@ export default function Filters() {
         </div>
       </div>
 
-      {/* Pay Rate Filter */}
+      {/* Pay Rate Filter - range */}
 
       {/* Experience Level Filter */}
       <div className="mb-4">
@@ -105,7 +105,10 @@ export default function Filters() {
           </Button>
         </div>
 
-        <SelectDropdown selectedClassName="rounded" options={statusOptions} />
+        <SelectDropdown
+          selectedClassName="rounded text-sm"
+          options={statusOptions}
+        />
       </div>
 
       {/* Countries Filter */}
@@ -122,7 +125,7 @@ export default function Filters() {
           </Button>
         </div>
         <SelectDropdown
-          selectedClassName="rounded"
+          selectedClassName="rounded text-sm"
           options={statusOptionsForCountry}
         />
       </div>
@@ -139,7 +142,7 @@ export default function Filters() {
           </Button>
         </div>
         <SelectDropdown
-          selectedClassName="rounded"
+          selectedClassName="rounded text-sm"
           options={statusOptionsForJobType}
         />
       </div>
