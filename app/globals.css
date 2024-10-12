@@ -91,6 +91,7 @@ body {
   font-smooth: always; /* Enables font smoothing */
   -webkit-font-smoothing: antialiased; /* Smoother fonts on WebKit-based browsers (e.g., Chrome, Safari) */
   -moz-osx-font-smoothing: grayscale; /* Smoother fonts on macOS browsers */
+  background-color: var(--tp-theme-dark-rgb);
 }
 
 * {
@@ -255,4 +256,63 @@ body {
   top: -10px; /* Adjust the vertical position */
   transform: none;
   z-index: 999999999;
+}
+
+
+
+/* update candidate calender */
+.rbc-time-view,
+        .rbc-month-view,
+        .rbc-header,
+        .rbc-day-bg,
+        .rbc-time-content,
+        .rbc-events-container,
+        .rbc-time-slot,
+        .rbc-day-slot,
+        .rbc-time-header-content,
+        .rbc-month-row,
+        .rbc-month-view .rbc-header,
+        .rbc-month-row + .rbc-month-row,
+        .rbc-day-bg + .rbc-day-bg,
+        .rbc-header + .rbc-header,
+        .rbc-time-header.rbc-overflowing,
+        .rbc-time-view,
+        .rbc-time-content > * + * > *,
+        .rbc-agenda-view table.rbc-agenda-table tbody > tr > td + td,
+        .rbc-agenda-view table.rbc-agenda-table,
+        .rbc-agenda-view table.rbc-agenda-table tbody > tr + tr {
+          border-color: rgba(255,255,255,0.08) !important;
+        }
+        .rbc-today {
+          background-color: rgba(255,255,255,0.08) !important;
+        }
+        .rbc-off-range-bg {
+          background-color: rgba(255,255,255,0.08) !important;
+        }
+        .rbc-time-view .rbc-allday-cell {
+          border-top: 1px solid rgba(255,255,255,0.08) !important;
+        }
+        .rbc-timeslot-group {
+          border-bottom: 1px solid rgba(255,255,255,0.08) !important;
+        }
+        .rbc-time-content {
+          border-top: 2px solid rgba(255,255,255,0.08) !important;
+        }
+        .rbc-day-slot .rbc-time-slot {
+          border-top: 1px solid rgba(255,255,255,0.08) !important;
+        }
+
+.custom-calendar .rbc-toolbar .rbc-btn-group > button{
+  color: white !important;
+  border: 1px solid rgba(255,255,255,0.08) !important;
+
+}
+
+.custom-calendar .rbc-toolbar .rbc-btn-group > button:hover{
+  background-color: #3771FE !important
+
+}
+.custom-calendar .rbc-toolbar .rbc-btn-group > button.rbc-active{
+  background-color: #3771FE !important
+
 }

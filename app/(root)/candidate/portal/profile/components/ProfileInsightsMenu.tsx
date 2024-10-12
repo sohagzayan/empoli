@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion';
 import {
   BookOpenCheck,
   History,
@@ -5,9 +6,8 @@ import {
   UserRoundPlus,
 } from 'lucide-react';
 import React from 'react';
-import { MdOutlineRecommend } from 'react-icons/md';
-import { motion } from 'framer-motion';
 import { FiEdit } from 'react-icons/fi';
+import { MdOutlineRecommend } from 'react-icons/md';
 
 interface SideProfileContentType {
   activeInsightsTab: number;

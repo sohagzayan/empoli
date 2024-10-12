@@ -12,7 +12,11 @@ module.exports = withUt({
     container: {
       center: true,
       screens: {
-        '2xl': '1536px',
+        sm: '100%',
+        md: '100%',
+        lg: '960px',
+        xl: '1140px',
+        '2xl': '1230px', // Custom breakpoints for the default container
       },
     },
     extend: {
