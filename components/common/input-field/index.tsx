@@ -42,7 +42,7 @@ const InputField: React.FC<InputFieldWithIconProps> = ({
       )}
       <div
         className={cn(
-          'flex items-center space-x-3 rounded-full bg-[rgba(255,255,255,0.06)] px-4 py-3',
+          'flex items-center space-x-3 rounded-full border-2 border-transparent bg-[rgba(255,255,255,0.06)] px-4 py-3 transition-all duration-300 focus-within:border-blue-500', // Added focus-within here
           className,
         )}
       >
