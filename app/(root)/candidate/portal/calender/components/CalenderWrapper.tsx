@@ -4,18 +4,18 @@ import TextArea from '@/components/common/text-area';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Button } from '@/components/ui/button';
 import {
-    Dialog,
-    DialogContent,
-    DialogHeader,
-    DialogTitle,
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
 } from '@/components/ui/dialog';
 import { Input } from '@/components/ui/input';
 import {
-    Select,
-    SelectContent,
-    SelectItem,
-    SelectTrigger,
-    SelectValue,
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
 } from '@/components/ui/select';
 import { cn } from '@/lib/utils';
 import { AnimatePresence, motion } from 'framer-motion';
@@ -264,7 +264,7 @@ export default function CalenderWrapper() {
                   <Input
                     type="datetime-local"
                     value={moment(newEvent.end).format('YYYY-MM-DDTHH:mm')}
-                    onChange={(e) =>
+                    onChange={(e: any) =>
                       setNewEvent({
                         ...newEvent,
                         end: new Date(e.target.value),
