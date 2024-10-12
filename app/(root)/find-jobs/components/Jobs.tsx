@@ -32,7 +32,7 @@ const JobListingCard = ({
   tags,
 }: JobListingCardProps) => {
   return (
-    <Card className="text-gray-4xl mb-4 w-full cursor-pointer border border-black8 shadow-2xl transition-all duration-100 hover:bg-black8">
+    <Card className="mb-4 w-full cursor-pointer border border-black8 text-gray-400 shadow-2xl transition-all duration-100 hover:bg-black8">
       <CardHeader className="pb-2">
         <div className="flex items-start justify-between">
           <div>

@@ -2,6 +2,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import Filters from './Filters';
 import Jobs from './Jobs';
+import Suggestion from './Suggestion';
 const FindJobs = () => {
   return (
     <section className="w-full">
@@ -69,6 +70,7 @@ const FindJobs = () => {
           className="col-span-3 h-full rounded"
         >
           {/* Content for show suggestion*/}
+          <Suggestion />
         </div>
       </div>
     </section>
